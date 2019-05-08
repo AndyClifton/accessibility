@@ -1,0 +1,416 @@
+\documentclass[%
+	12pt,%11pt, 10pt%
+	a4paper,%a5paper, letterpaper, legalpaper, executivepaper
+%	onelinecaption,% noonelinecaption,%
+	oneside,%twoside,%
+%	onecolumn,%twocolumn,%
+% openany, openright,%
+% cleardoublestandard,% cleardoubleplain, %cleardoubleempty
+% notitlepage,%titlepage,%	
+ liststotoc, idxtotoc, bibtotoc, %bibtotocnumbered, liststotocnumbered
+% tocindent,% tocleft,%
+% listsindent,% listsleft%
+	halfparskip,% parindent, parskip, parskip*, parskip+, parskip, halfparskip*, halfparskip+, halfparskip,
+	nochapterprefix,%chapterprefix,%
+	appendixprefix, %noappendixprefix,%
+%	headsepline,headnosepline%
+%	footsepline,footnosepline%
+% bigheadings, normalheadings, 
+smallheadings,%
+%%Formatierungsparameter
+%	abstractoff,% abstracton%
+% pointednumbers,% pointlessnumbers%
+% leqno, fleqn%
+%	tablecaptionbelow,% tablecaptionbelow%
+% origlongtable,%
+% openbib,%
+% final, draft%
+]{scrreprt}
+%]{scrbook}
+%]{scrartcl}
+%]{scrlttr2}
+%
+%]{article}
+%]{report}
+%]{letter}
+%]{book}
+%]{slides}
+
+\usepackage{bibgerm}					% deutsche Bibliography
+\usepackage[ngerman]{babel}		% Sprachen
+\usepackage[latin1]{inputenc} % Eingabe von ü,ö,ä,ß erlaubt 
+\usepackage[T1]{fontenc}			% Umlauten koennen richtig getrennt werden
+
+\usepackage{lmodern}
+
+%======================================================================
+%   Darstellung des Glossars und des Indexes
+%======================================================================
+%\usepackage{makeidx}
+\usepackage{booktabs}
+%\usepackage{caption}							% mehrzeilige Captions ausrichten
+%\captionsetup{format=hang,margin=5pt,labelfont=bf,position=bottom,aboveskip=1em,belowskip=1em}
+%%\setcapindent{-1em}							 	% Zeilenumbruch bei Bildbeschreibungen.
+%\setlength{\belowcaptionskip}{1em}
+
+%\usepackage{multicol}            	% mehrere Spalten
+
+%\usepackage{setspace}            % Zeilenabstand einstellbar
+%\onehalfspacing                  % eineinhalbzeilig einstellen
+
+%\usepackage{theorem}
+%\usepackage{thmbox}
+%\usepackage{amsthm}
+
+
+%\theoremstyle{break}
+\newtheorem{definition}{Definition}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{proof}{Proof}
+
+%\theoremstyle{remark}
+%\newtheorem*{rmk}{Remark}
+\newtheorem{rmk}{Remark}
+
+%\theoremstyle{plain}
+%\newtheorem*{Ahlfors}{Ahlfors' Lemma}
+\newtheorem{Ahlfors}{Ahlfors' Lemma}
+
+%\newtheoremstyle{note}% name
+%  {3pt}%      Space above
+%  {3pt}%      Space below
+%  {}%         Body font
+%  {}%         Indent amount (empty = no indent, \parindent = para indent)
+%  {\itshape}% Thm head font
+%  {:}%        Punctuation after thm head
+%  {.5em}%     Space after thm head: " " = normal interword space;
+%        %       \newline = linebreak
+%  {}%         Thm head spec (can be left empty, meaning `normal')
+%
+%\theoremstyle{note}
+\newtheorem{note}{Note}
+
+%\newtheoremstyle{citing}% name
+%  {3pt}%      Space above, empty = `usual value'
+%  {3pt}%      Space below
+%  {\itshape}% Body font
+%  {}%         Indent amount (empty = no indent, \parindent = para indent)
+%  {\bfseries}% Thm head font
+%  {.}%        Punctuation after thm head
+%  {.5em}%     Space after thm head: " " = normal interword space;
+%        %       \newline = linebreak
+%  {\thmnote{#3}}% Thm head spec
+%
+%\theoremstyle{citing}
+%\newtheorem*{varthm}{}% all text supplied in the note
+\newtheorem{varthm}{}% all text supplied in the note
+
+%\newtheoremstyle{break}% name
+%  {9pt}%      Space above, empty = `usual value'
+%  {9pt}%      Space below
+%  {\itshape}% Body font
+%  {}%         Indent amount (empty = no indent, \parindent = para indent)
+%  {\bfseries}% Thm head font
+%  {.}%        Punctuation after thm head
+%  {\newline}% Space after thm head: \newline = linebreak
+%  {}%         Thm head spec
+%
+%\theoremstyle{break}
+\newtheorem{bthm}{B-Theorem}
+
+%\theoremstyle{exercise}
+\newtheorem{exer}{Exercise}
+
+%\swapnumbers
+%\theoremstyle{plain}
+\newtheorem{thmsw}{Theorem}[chapter]
+\newtheorem{corsw}[thmsw]{Corollary}
+\newtheorem{propsw}{Proposition}
+\newtheorem{lemsw}[thmsw]{Lemma}
+
+%%    Because the amsmath pkg is not used, we need to define a couple of
+%%    commands in more primitive terms.
+\let\lvert=|\let\rvert=|
+\newcommand{\Ric}{\mathop{\mathrm{Ric}}\nolimits}
+%
+%%    Dispel annoying problem of slightly overlong lines:
+%\addtolength{\textwidth}{8pt}
+
+%\usepackage{varioref}%
+
+%\usepackage{array}
+%\usepackage{tabularx}
+%\usepackage{longtable}
+
+%-------------------------------Farbdefinitionen------------------------------------------------------
+\usepackage{color}
+\definecolor{sun1}{rgb}{0.2,0.2,0.4} %dunkelblau
+\definecolor{sun2}{rgb}{0.4,0.4,0.6} %mittel
+\definecolor{sun3}{rgb}{0.6,0.6,0.8} %mittel
+\definecolor{sun4}{rgb}{0.8,0.8,1.0} %hellblau
+\definecolor{sun5}{rgb}{0.9,0.9,1.0} %hellblau
+\definecolor{black}{rgb}{0,0,0} %hellblau
+
+%-------------------------------Kopf- und Fußzeile----------------------------------------------------
+%\usepackage{scrpage2}
+%\pagestyle{scrheadings}
+%\pagestyle{scrplain}
+
+%\ihead[scrplain-innen]{scrheadings-innen}
+%\chead[scrplain-zentriert]{scrheadings-zentriert}
+%\ohead[scrplain-außen]{scrheadings-außen}
+%\ifoot[scrplain-innen]{scrheadings-innen}
+%\cfoot[scrplain-zentriert]{scrheadings-zentriert}
+%\ofoot[scrplain-außen]{scrheadings-außen}
+%
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\addtolength{\headheight}{\baselineskip}
+	
+%\fancyhf{}   % löscht alle Felder
+%
+%\fancyhead[RO]{\nouppercase{\sffamily{\rightmark}}}%Kopfzeile rechts bzw. außen
+%\fancyhead[LE]{\nouppercase{\sffamily{\leftmark}}}
+%\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+%
+%\fancyfoot[CO,CE]{\color{sun1}\sffamily{\thepage}}					%Fußzeile rechts bzw. außen
+%\renewcommand{\footrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+%
+%%extra Formatierungen der Kopf- und Fußzeilen für Kapitelseiten
+%\fancypagestyle{plain}{
+%	\fancyhf{}   % löscht alle Felder
+%	
+%	\fancyhead[LE,RO]{\nouppercase{\sffamily{\leftmark}}}%Kopfzeile rechts bzw. außen
+%	\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+% 	
+%	\fancyfoot[CO,CE]{\color{sun1}\sffamily{\thepage}}					%Fußzeile rechts bzw. außen
+%	\renewcommand{\footrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+%}
+
+%======================================================================
+%	Erkennen des Bearbeitungsmodus für weitere Paketoptionen
+%======================================================================
+\RequirePackage{ifthen}
+
+\newif\ifhtm 
+\ifx \HCode\undefined \htmfalse \else	\htmtrue \fi
+
+\newif\ifpdf
+\ifx \pdfoutput\undefined 
+	\pdffalse 		%latex in DVI mode
+\else
+	\ifthenelse{\number\pdfoutput<1}%
+ 	{\pdffalse} 	%pdflatex in DVI mode
+ 	{\pdftrue} 		%pdflatex in PDF mode
+\fi
+
+%======================================================================
+%		PDF <=> DVI <=> XHTML 
+%======================================================================
+\ifhtm%
+		% Bearbeitung mit tex4ht
+		\usepackage{graphicx}%
+		\usepackage[tex4ht]{hyperref}%
+\else%
+	\ifpdf%
+		%Bearbeitung mit pdftex im PDF-Modus	
+		\usepackage[pdftex]{graphicx}%
+		\usepackage[pdftex]{hyperref}%
+		\pdfcompresslevel=0%						Damit wird die PDF-Quelldatei lesbar
+		\pdfoptionpdfminorversion=6%		Bestimmt die PDF - Version der Ausgabe
+	%\pdfadjustspacing=0%							0, 1 oder 2 Änderung nicht erkannt
+%		\AtBeginDocument{\usepackage[tagged, flatstructure]{accessibility}}	% Makros in accessibility.sty 
+		\AtBeginDocument{\usepackage[tagged, highstructure]{accessibility}}	% Makros in accessibility.sty 
+	\else%
+		%Bearbeitung mit latex oder pdftex im DVI-Modus	
+		\usepackage{graphicx}%
+		\usepackage{hyperref}%
+		\newcommand{\alt}[1]{}%
+		\newcommand{\thead}[1]{\textbf{#1}}
+	\fi%
+\fi%
+
+% Einstellungen des Hyperref-Paketes
+%\AtBeginDocument{%
+	\hypersetup{%
+%	unicode = true,%
+	colorlinks=true,%
+	linkcolor=sun1,%
+	citecolor=sun1,%
+	filecolor=sun1,%
+	menucolor=sun1,%
+	pagecolor=sun1,%
+	urlcolor=sun1,%
+%	pdftitle	= {\dctitle}, %
+%	pdfsubject	= {\dcsubject, \dcdate}, %
+%	pdfauthor	= {\dcauthorname~\dcauthorsurname, \dcauthoremail}, %
+%	pdfkeywords	= {\dckeywords}, %
+	pdfcreator	= {pdfTeX with Hyperref and Thumbpdf}, %
+	pdfproducer	= {LaTeX, hyperref, thumbpdf}, %
+	bookmarksnumbered,%
+%	hypertexnames = true,%
+	plainpages = true,%
+	}%
+%}
+%\usepackage[hyper=true, style=altlist, toc=true]{glossary}
+%\usepackage{glossary}
+
+%======================================================================
+%\makeindex
+%\makeglossary
+%%makeindex -s minimaldokument.ist -t minimaldokument.glg -o minimaldokument.gls minimaldokument.glo
+%======================================================================
+\begin{document}
+
+%%%======================================================================================================
+\chapter{theorem}
+
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\begin{definition}[Definition]
+Ein Theorem vom Typ Definition.
+\end{definition}
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\begin{definition}
+Hallo ich bin eine Theorem vom Typ Definition.
+\end{definition}
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+
+\chapter{Test of standard theorem styles}
+
+Ahlfors' Lemma gives the principal criterion for obtaining lower bounds
+on the Kobayashi metric.
+
+\begin{Ahlfors}
+Let $ds^2 = h(z)\lvert dz\rvert^2$ be a Hermitian pseudo-metric on
+$\mathbf{D}_r$, $h\in C^2(\mathbf{D}_r)$, with $\omega$ the associated
+$(1,1)$-form. If $\Ric\omega\geq\omega$ on $\mathbf{D}_r$,
+then $\omega\leq\omega_r$ on all of $\mathbf{D}_r$ (or equivalently,
+$ds^2\leq ds_r^2$).
+\end{Ahlfors}
+
+\begin{lem}[negatively curved families]
+Let $\{ds_1^2,\dots,ds_k^2\}$ be a negatively curved family of metrics
+on $\mathbf{D}_r$, with associated forms $\omega^1$, \dots, $\omega^k$.
+Then $\omega^i \leq\omega_r$ for all $i$.
+\end{lem}
+
+Then our main theorem:
+\begin{thm}\label{pigspan}
+Let $d_{\max}$ and $d_{\min}$ be the maximum, resp.\ minimum distance
+between any two adjacent vertices of a quadrilateral $Q$. Let $\sigma$
+be the diagonal pigspan of a pig $P$ with four legs.
+Then $P$ is capable of standing on the corners of $Q$ iff
+%\begin{equation}\label{sdq}
+%\sigma\geq \sqrt{d_{\max}^2+d_{\min}^2}.
+%\end{equation}
+\end{thm}
+
+\begin{cor}
+Admitting reflection and rotation, a three-legged pig $P$ is capable of
+standing on the corners of a triangle $T$ iff %(\ref{sdq}) holds.
+\end{cor}
+
+\begin{rmk}
+As two-legged pigs generally fall over, the case of a polygon of order
+$2$ is uninteresting.
+\end{rmk}
+
+\chapter{Custom theorem styles}
+
+\begin{exer}
+Generalize Theorem~%\ref{pigspan}
+ to three and four dimensions.
+\end{exer}
+
+\begin{note}
+This is a test of the custom theorem style `note'. It is supposed to have
+variant fonts and other differences.
+\end{note}
+
+\begin{bthm}
+Test of the `linebreak' style of theorem heading.
+\end{bthm}
+
+This is a test of a citing theorem to cite a theorem from some other source.
+
+\begin{varthm}[Theorem 3.6 in %\cite{thatone}
+]
+No hyperlinking available here yet \dots\ but that's not a
+bad idea for the future.
+\end{varthm}
+
+\chapter{The proof environment}
+
+\begin{proof}
+Here is a test of the proof environment.
+\end{proof}
+
+\begin{proof}[Proof of Theorem %\ref{pigspan}
+]
+And another test.
+\end{proof}
+
+\begin{proof}[Proof \textup(necessity\textup)]
+And another.
+\end{proof}
+
+\begin{proof}[Proof \textup(sufficiency\textup)]
+And another, ending with a display:
+%\[
+%1+1=2\,. 
+%\]
+\end{proof}
+
+\chapter{Test of number-swapping}
+
+This is a repeat of the first chapter but with numbers in theorem heads
+swapped to the left.
+
+Ahlfors' Lemma gives the principal criterion for obtaining lower bounds
+on the Kobayashi metric.
+\begin{Ahlfors}
+Let $ds^2 = h(z)\lvert dz\rvert^2$ be a Hermitian pseudo-metric on
+$\mathbf{D}_r$, $h\in C^2(\mathbf{D}_r)$, with $\omega$ the associated
+$(1,1)$-form. If $\Ric\omega\geq\omega$ on $\mathbf{D}_r$,
+then $\omega\leq\omega_r$ on all of $\mathbf{D}_r$ (or equivalently,
+$ds^2\leq ds_r^2$).
+\end{Ahlfors}
+
+\begin{lemsw}[negatively curved families]
+Let $\{ds_1^2,\dots,ds_k^2\}$ be a negatively curved family of metrics
+on $\mathbf{D}_r$, with associated forms $\omega^1$, \dots, $\omega^k$.
+Then $\omega^i \leq\omega_r$ for all $i$.
+\end{lemsw}
+
+Then our main theorem:
+\begin{thmsw}
+Let $d_{\max}$ and $d_{\min}$ be the maximum, resp.\ minimum distance
+between any two adjacent vertices of a quadrilateral $Q$. Let $\sigma$
+be the diagonal pigspan of a pig $P$ with four legs.
+Then $P$ is capable of standing on the corners of $Q$ iff
+%\begin{equation}\label{sdqsw}
+%\sigma\geq \sqrt{d_{\max}^2+d_{\min}^2}.
+%\end{equation}
+\end{thmsw}
+
+\begin{corsw}
+Admitting reflection and rotation, a three-legged pig $P$ is capable of
+standing on the corners of a triangle $T$ iff %(\ref{sdqsw}) holds.
+\end{corsw}
+
+\begin{thebibliography}{99}
+\bibitem{thatone} Dummy entry.
+\end{thebibliography}
+
+
+\end{document}

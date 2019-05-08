@@ -1,0 +1,197 @@
+ 
+/* start css.sty */
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre {background-color: rgb(255,224,224);}
+div.verbatim {font-family: monospace; white-space: nowrap; background-color: rgb(255,224,224);}
+table.verbatim {width:100%;}
+.fbox {padding-left:0.0pt; padding-right:0.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+table.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:0.0pt; padding-right:0.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center; }
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.dedication {text-align:center;}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+h1.partHead{text-align: center}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+div.cation {text-align:center;}
+.verse{white-space:nowrap; margin-left:2em}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.abstract p {margin-left:5%; margin-right:5%;}
+table.abstract {width:100%;}
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc, .addchapToc a {line-height: 200%; font-weight:bold;}
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+table.multicols { width:100%; margin-left:1em; margin-top:1em; margin-bottom:1em; }
+.figure img.graphics {margin-left:10%;}
+span.verb {font-family: monospace; white-space: nowrap; }
+html { margin: 15pt; background: rgb(255,255,224); }
+/* (Formatieren der \let \prOteCt \relax \Protect \csname acp:c\endcsname {23}Uberschriften) */
+h2.chapterHead, h2.likechapterHead {padding: 18pt 10pt 18pt 10pt; background: rgb(224,224,255); color: rgb(0,0,0);}
+h3.sectionHead, h3.likesectionHead { padding: 12pt 10pt 12pt 10pt; background: rgb(224,224,255); color: rgb(0,0,0);}
+h4.subsectionHead, h4.likesubsectionHead { padding: 6pt 10pt 6pt 10pt; background: rgb(224,224,255); color: rgb(0,0,0);}
+h5.subsubsectionHead, h5.likesubsubsectionHead { padding: 3pt 10pt 3pt 10pt; background: rgb(224,224,255); color: rgb(0,0,0);}
+/* Formatierung der Gleitobjekte*/
+div.figure, div.float { width:auto; border-top-width:0.4px; border-top-style:solid; border-bottom-width:0.4px; border-bottom-style:solid; padding:0.2em; text-align:center; background-color: rgb(255,255,255);}
+dt.description { font-weight: bold;}
+.biblabel { font-weight: bold;}
+p.bibitem { text-indent:-5em; margin-left:5em;}
+/* Formatierung des Inhaltsverzeichnis*/
+div.tableofcontents a {padding:5px;margin:5px 0px;}
+div.tableofcontents a:hover {color:rgb(0,0,0); background-color: rgb(224,224,255);}
+/* Formatierung der Navigationsleiste*/
+div.crosslinks a:link, div.crosslinks a:visited, div.crosslinks a:hover, div.crosslinks a.active { font-family:Arial; font-size:14px; text-align:center; text-Decoration: none; width:100px; height:20px; padding:0.2em;}
+div.crosslinks a:link, div.crosslinks a:visited { color: rgb(0,0,0); background-color: rgb(224,224,255); border:2px inline;}
+div.crosslinks a:hover, div.crosslinks a:active { color: rgb(224,224,255); background-color: rgb(200,200,224); border:2px outline;}
+div.crosslinks p { color: rgb(224,224,255);}
+/* Formatierung von Theoremen */
+h1.partHead{text-align: center}
+div.float {border-top-width:0.4px; border-top-style:solid; border-bottom-width:0.4px; border-bottom-style:solid; padding:0.2em; }
+div.figure {border-top-width:0.4px; border-top-style:solid; border-bottom-width:0.4px; border-bottom-style:solid; padding:0.2em; }
+.caption .capid{font-weight: bold; white-space: nowrap; vertical-align:baseline;}
+div.minipage{text-align:left;}
+.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+div.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+dvi.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+.verse{white-space:nowrap; margin-left:2em}
+div.verbatim {width:100%; font-family: monospace; white-space: nowrap; }
+p.item {text-indent:0em; margin-top:0.6em; margin-bottom:0em; }
+p.subitem {text-indent:1em; margin-top:0em; margin-bottom:0em; }
+p.subsubitem{text-indent:2em; margin-top:0em; margin-bottom:0em; }
+tr#TBL-2-1- td{border-top:0.12193em solid} 
+tr#TBL-2-1- td{border-bottom:0.07622em solid}
+tr#TBL-2-5- td{border-bottom:0.12193em solid}
+span#colorbox1{background-color:rgb(229,229,255);}
+span#colorbox2{background-color:rgb(229,229,255);}
+span#colorbox3{background-color:rgb(229,229,255);}
+span#colorbox4{background-color:rgb(229,229,255);}
+span#colorbox5{background-color:rgb(229,229,255);}
+span#colorbox6{background-color:rgb(229,229,255);}
+span#colorbox7{background-color:rgb(229,229,255);}
+span#colorbox8{background-color:rgb(229,229,255);}
+span#colorbox9{background-color:rgb(229,229,255);}
+span#colorbox10{background-color:rgb(229,229,255);}
+span#colorbox11{background-color:rgb(229,229,255);}
+span#colorbox12{background-color:rgb(229,229,255);}
+span#colorbox13{background-color:rgb(229,229,255);}
+span#colorbox14{background-color:rgb(229,229,255);}
+span#colorbox15{background-color:rgb(229,229,255);}
+span#colorbox16{background-color:rgb(229,229,255);}
+span#colorbox17{background-color:rgb(229,229,255);}
+span#colorbox18{background-color:rgb(229,229,255);}
+span#colorbox19{background-color:rgb(229,229,255);}
+span#colorbox20{background-color:rgb(229,229,255);}
+span#colorbox21{background-color:rgb(229,229,255);}
+span#colorbox22{background-color:rgb(229,229,255);}
+span#colorbox23{background-color:rgb(229,229,255);}
+span#colorbox24{background-color:rgb(229,229,255);}
+span#colorbox25{background-color:rgb(229,229,255);}
+span#colorbox26{background-color:rgb(229,229,255);}
+span#colorbox27{background-color:rgb(229,229,255);}
+span#colorbox28{background-color:rgb(229,229,255);}
+span#colorbox29{background-color:rgb(229,229,255);}
+span#colorbox30{background-color:rgb(229,229,255);}
+span#colorbox31{background-color:rgb(229,229,255);}
+span#colorbox32{background-color:rgb(229,229,255);}
+span#colorbox33{background-color:rgb(229,229,255);}
+span#colorbox34{background-color:rgb(229,229,255);}
+span#colorbox35{background-color:rgb(229,229,255);}
+span#colorbox36{background-color:rgb(229,229,255);}
+span#colorbox37{background-color:rgb(229,229,255);}
+span#colorbox38{background-color:rgb(229,229,255);}
+span#colorbox39{background-color:rgb(229,229,255);}
+span#colorbox40{background-color:rgb(229,229,255);}
+span#colorbox41{background-color:rgb(229,229,255);}
+span#colorbox42{background-color:rgb(229,229,255);}
+span#colorbox43{background-color:rgb(229,229,255);}
+span#colorbox44{background-color:rgb(229,229,255);}
+span#colorbox45{background-color:rgb(229,229,255);}
+span#colorbox46{background-color:rgb(229,229,255);}
+span#colorbox47{background-color:rgb(229,229,255);}
+span#colorbox48{background-color:rgb(229,229,255);}
+span#colorbox49{background-color:rgb(229,229,255);}
+span#colorbox50{background-color:rgb(229,229,255);}
+span#colorbox51{background-color:rgb(229,229,255);}
+span#colorbox52{background-color:rgb(229,229,255);}
+span#colorbox53{background-color:rgb(229,229,255);}
+span#colorbox54{background-color:rgb(229,229,255);}
+span#colorbox55{background-color:rgb(229,229,255);}
+span#colorbox56{background-color:rgb(229,229,255);}
+span#colorbox57{background-color:rgb(229,229,255);}
+span#colorbox58{background-color:rgb(229,229,255);}
+/* end css.sty */
+

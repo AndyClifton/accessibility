@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>2 Benutzerschnittstelle</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,mathml,NoFonts,frames,2,sections+,refcaptions,htm,info --> 
+<meta name="src" content="accessheader.tex" /> 
+<meta name="date" content="2007-07-13 11:32:00" /> 
+<link rel="stylesheet" type="text/css" href="accessheader.css" /> 
+</head><body 
+>
+<!--l. 82--><div class="crosslinks"><p class="noindent">&#x005B;<a 
+href="acad1.htm" >Weiter</a>&#x005D;&#x005B;<a 
+href="acch1.htm" >Zur&#x00FC;ck</a>&#x005D;&#x005B;<a 
+href="acch1.htm#tailacch1.htm" >Letztes Seitenende</a>&#x005D;&#x005B;<a 
+href="#tailacch2.htm">Seitenende</a>&#x005D;&#x005B;<a 
+href="ac3.htm#acch2.htm" >Hoch</a>&#x005D;</p></div>
+<h2 class="chapterHead">2.&#x00A0;&#x00A0;<a 
+href="ac2.htm#QQ2-6-5" id="x6-50002">Benutzerschnittstelle</a></h2>
+<a 
+ id="x6-5001r4"></a>
+<div class="sectionTOCS">2.1&#x00A0;<a 
+href="#x6-60001">Wie man das Paket einbindet</a>
+<br class="newline" />2.2&#x00A0;<a 
+href="#x6-70002">Optionen</a>
+<br class="newline" />2.3&#x00A0;<a 
+href="#x6-110003">Die Befehle</a>
+<br class="newline" />
+</div>
+<h3 class="sectionHead">2.1.&#x00A0;&#x00A0;<a 
+href="acli1.htm#QQ2-6-6" id="x6-60001">Wie man das Paket einbindet</a></h3>
+Grunds&#x00E4;tzlich wird das Paket einfach in der Dokumentenpr&#x00E4;ambel geladen. Es sollte
+allerdings m&#x00F6;glichst nach allen andere Paketen geladen werden, insbesondere nach
+hyperref.
+<div class="verbatim"><code>
+&#x005C;documentclass&#x007B;scrrept&#x007D;
+&#x00A0;<br />&#x005C;usepackage&#x005B;Optionen&#x005D;&#x007B;accessibility&#x007D;
+&#x00A0;<br />&#x005C;begin&#x007B;document&#x007D;
+&#x00A0;<br />...
+&#x00A0;<br />&#x005C;end&#x007B;document&#x007D;
+</code></div>
+<!--l. 96--><p class="nopar"> Die verf&#x00FC;gbaren Optionen werden im n&#x00E4;chsten Abschnitt vorgestellt.
+</p><!--l. 99--><p class="noindent">Sollten Sie bislang nicht mit pdftex gearbeitet haben, ist zu beachten, dass zur korrekten
+Aufl&#x00F6;sung s&#x00E4;mtlicher Referenzen teilweise mehrere Durchl&#x00E4;ufe notwendig sind. Der
+Aufruf auf der Kommandozeile erfolgt analog zur Verarbeitung mittels latex.
+</p>
+<div class="verbatim"><code>
+pdflatex&#x00A0;dateiname
+&#x00A0;<br />&#x00A0;&#x00A0;Aufrufe&#x00A0;von&#x00A0;BibTex,&#x00A0;MakeIndex
+&#x00A0;<br />pdflatex&#x00A0;dateiname
+&#x00A0;<br />pdflatex&#x00A0;dateiname
+</code></div>
+<!--l. 106--><p class="nopar">
+                                                                                   
+                                                                                   
+</p><!--l. 108--><p class="noindent">Nach dem ersten Durchlauf, ist der Quelltext der PDF-Datei teilweise nicht korrekt, dass hei&#x00DF;t
+bestimmte Teile stehen doppelt drin, so dass zu Darstellungsproblemen im Adobe Reader kommen
+kann.
+<a 
+ id="x6-6001r6"></a>
+</p>
+<h3 class="sectionHead">2.2.&#x00A0;&#x00A0;<a 
+href="acli1.htm#QQ2-6-7" id="x6-70002">Optionen</a></h3>
+Eine Liste der verf&#x00FC;gbaren Optionen und eine kurze Erl&#x00E4;uterung zeigt die nachfolgende
+Tabelle <a 
+href="#x6-70011">2.1<!--tex4ht:ref: tab:ueberblickueberAlleVerfuegbarenOptionen --></a>.
+                                                                                   
+                                                                                   
+<!--l. 117--><p class="noindent"><a 
+ id="x6-70011"></a></p><div class="float">
+                                                                                   
+                                                                                   
+<div class="tabular">
+<table class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /><col 
+id="TBL-2-2" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-1"  
+class="td11">Option        </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-2"  
+class="td11">Beschreibung                              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-1"  
+class="td11">untagged     </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-2"  
+class="td11">Keine Strukturinformationen           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-1"  
+class="td11">tagged        </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-2"  
+class="td11">PDF mit Strukturinformationen       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-4-1"  
+class="td11">flatstructure </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-4-2"  
+class="td11">Erzeugt eine flache Struktur.          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-5-1"  
+class="td11">highstructure</td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-5-2"  
+class="td11">Erzeugt eine verschachtelte Struktur.</td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-6-1"  
+class="td11">                </td>
+</tr></table></div>
+<br /> 
+ <div class="caption"><span class="capid">Tabelle&#x00A0;2.1:&#x00A0;</span><span class="capcontent">&#x00DC;berblick &#x00FC;ber alle verf&#x00FC;gbaren Optionen</span></div><!--tex4ht:label?: x6-70011 -->
+                                                                                   
+                                                                                   
+</div> 
+
+<!--l. 133--><p class="noindent">Dabei kann entweder eine verschachtelte oder eine flache Struktur erzeugt werden. Ebenso verh&#x00E4;lt
+es sich mit den Optionen untagged und tagged. Gibt man keine Optionen an, so wird ein PDF mit
+den Standardoptionen erzeugt. D.&#x00A0;h. es wird Tagged PDF mit einer geschachtelten Struktur
+erzeugt.
+</p><!--l. 135--><p class="noindent">Bei der flachen Struktur werden alle weiteren Elemente direkt unter dem Wurzelelement in den
+Baum eingef&#x00FC;gt. Es entsteht eine mit XHTML vergleichbare Struktur &#x0028;vgl. Abbildung
+<a 
+href="#x6-100011">2.1<!--tex4ht:ref: fig:highflatstructure --></a>&#x0029;.
+</p>
+<div class="figure">
+                                                                                   
+                                                                                   
+<a 
+ id="x6-100011"></a>
+                                                                                   
+                                                                                   
+<div class="minipage"><h5 class="minisecHead"> <a 
+href="#x6-80002" id="x6-80002">Die Latex-Struktur</a></h5>
+<div class="verbatim"><code>
+&#x005C;section&#x007B;Abschnitt&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;Textabsatz...
+&#x00A0;<br />&#x005C;subsection&#x007B;Unterabschnitt&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;Textabsatz...
+&#x00A0;<br />&#x005C;begin&#x007B;itemize&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x005C;item&#x00A0;Item
+&#x00A0;<br />&#x005C;end&#x007B;itemize&#x007D;
+</code></div>
+<!--l. 150--><p class="nopar">
+                                                                                   
+                                                                                   
+</p></div>                             <div class="minipage"><h5 class="minisecHead">       <a 
+href="#x6-90002" id="x6-90002">Struktur           mit
+flatstructure</a></h5>
+<!--l. 155--><p class="noindent"><img 
+src="images/flatstructure.png" alt="Abbildung einer mit flatstructur erzeugten Tag-Struktur" class="graphics" /><!--tex4ht:graphics  
+name="ac0x.png" src="images/flatstructure.eps"  
+-->
+                                                                                   
+                                                                                   
+</p></div>                             <div class="minipage"><h5 class="minisecHead">           <a 
+href="#x6-100002" id="x6-100002">Struktur           mit
+highstructure</a></h5>
+<!--l. 160--><p class="noindent"><img 
+src="images/highstructure.png" alt="Abbildung einer mit highstructur erzeugten Tag-Struktur" class="graphics"  /><!--tex4ht:graphics  
+name="ac1x.png" src="images/highstructure.eps"  
+--></p></div>
+<br /> 
+ <div class="caption"><span class="capid">Abbildung&#x00A0;2.1:&#x00A0;</span><span class="capcontent">Erl&#x00E4;uterungen zu flachen und strukturierten Variante</span></div><!--tex4ht:label?: x6-100011 -->
+                                                                                   
+                                                                                   
+</div> 
+
+<!--l. 166--><p class="noindent">Unter Verwendung der Option highstructure wird eine durch /Sect-Elemente tiefer verschachtelte
+Struktur erzeugt. Gerade in gr&#x00F6;&#x00DF;eren, gut strukturierten Latex-Dokumenten enth&#x00E4;lt der
+Baum auf der ersten Ebene nur die /Sect-Objekte der Kapitel oder Teile &#x0028;Parts&#x0029;, je nachdem welche
+die h&#x00F6;chste Ebene der Dokumentenklasse ist. F&#x00FC;r l&#x00E4;ngere Dokumente ist diese Variante
+&#x00FC;bersichtlicher. F&#x00FC;r k&#x00FC;rzere Dokumente hingegen ist die flache Strukturierung durchaus
+ausreichend.
+<a 
+ id="x6-10002r7"></a>
+</p>
+<h3 class="sectionHead">2.3.&#x00A0;&#x00A0;<a 
+href="acli1.htm#QQ2-6-13" id="x6-110003">Die Befehle</a></h3>
+F&#x00FC;r den normalen Autor f&#x00FC;hrt das Paket accessibility nur wenige neue Befehle
+ein. Es erzeugt die Struktur vielmehr durch bestm&#x00F6;gliches transparentes Umdefinieren
+der Standard-Latex-Befehle. Diese k&#x00F6;nnen gr&#x00F6;&#x00DF;tenteils wie gewohnt verwendet
+werden. Eine ausf&#x00FC;hrliche Anleitung finden Sie in der zugeh&#x00F6;rigen Autorenanleitung
+<span class="cite">&#x005B;<a 
+href="acad1.htm#Xschalitz07">Sch07b</a>&#x005D;</span>.
+<!--l. 172--><p class="noindent">Neue Befehle dienen der Erh&#x00F6;hung der Accessibility im Ergebnisdokument, also dem PDF.
+F&#x00FC;r Grafiken und Formeln steht nun ein Befehl &#x005C;alt f&#x00FC;r alternative Beschreibungen bereit.
+Er muss nach M&#x00F6;glichkeit am Anfang der Umgebung stehen und sollte reinen ASCII-Text
+enthalten. Die Zeichen &#x201E;<span class="obeylines-h"><span class="verb">^,&#x00A0;&#x007B;,&#x00A0;&#x007D;,&#x00A0;&#x005B;,&#x00A0;&#x005D;,_</span></span>&#x201C; k&#x00F6;nnen verwendet werden, auf die Verwendung
+des &#x201E;<span class="obeylines-h"><span class="verb">&#x005C;</span></span>&#x201C; ist hingegen zu verzichten. Eine m&#x00F6;gliche Verwendung zeigt die Abbildung
+<a 
+href="#x6-130012">2.2<!--tex4ht:ref: fig:verwendungalt --></a>.
+</p>
+<div class="figure">
+                                                                                   
+                                                                                   
+<a 
+ id="x6-130012"></a>
+                                                                                   
+                                                                                   
+<!--l. 175--><p class="noindent">                         </p><div class="minipage"><h5 class="minisecHead"> <a 
+href="#x6-120003" id="x6-120003">Einbinden einer Grafik</a></h5>
+<div class="verbatim"><code>
+&#x005C;begin&#x007B;figure&#x007D;&#x005B;htbp&#x005D;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x005C;alt&#x007B;Hier&#x00A0;die&#x00A0;alternative
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Beschreibung&#x00A0;der&#x00A0;Figure&#x00A0;angeben.&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x005C;includegraphics&#x007B;beispielbild&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x005C;caption&#x007B;Beispielbild&#x007D;
+&#x00A0;<br />&#x005C;end&#x007B;figure&#x007D;
+</code></div>
+<!--l. 185--><p class="nopar">
+</p></div>                         <div class="minipage"><h5 class="minisecHead"> <a 
+href="#x6-130003" id="x6-130003">Einbindung einer Formel</a></h5>
+<div class="verbatim"><code>
+&#x005C;begin&#x007B;equation&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x005C;alt&#x007B;c&#x00A0;=&#x00A0;sqrt&#x007B;a^&#x007B;2&#x007D;+b^&#x007B;2&#x007D;&#x007D;&#x007D;
+&#x00A0;<br />&#x00A0;&#x00A0;c&#x00A0;=&#x00A0;&#x005C;sqrt&#x007B;&#x00A0;a^&#x007B;2&#x007D;+b^&#x007B;2&#x007D;&#x00A0;&#x007D;
+&#x00A0;<br />&#x005C;end&#x007B;equation&#x007D;
+</code></div>
+<!--l. 195--><p class="nopar"></p></div>
+<br /> 
+ <div class="caption"><span class="capid">Abbildung&#x00A0;2.2:&#x00A0;</span><span class="capcontent">Beispiel f&#x00FC;r die Verwendung alternativen Beschreibungen</span></div><!--tex4ht:label?: x6-130012 -->
+                                                                                   
+                                                                                   
+</div> 
+
+<!--l. 202--><p class="noindent">Des Weiteren ist insbesondere bei der Beschreibung von Formeln von der Wiedergaben von
+Layoutbefehlen &#x0028;wie fett, kursiv oder Ausrichtungsbefehle&#x0029; abzuraten. Es sollte auf eine sinnvolle
+Strukturierung der Beschreibung mittels Leerzeichen und eindeutige Klammerung geachtet
+werden.
+                                                                                   
+                                                                                   
+</p>
+<!--l. 2--><div class="crosslinks"><p class="noindent">&#x005B;<a 
+href="acad1.htm" >Weiter</a>&#x005D;&#x005B;<a 
+href="acch1.htm" >Zur&#x00FC;ck</a>&#x005D;&#x005B;<a 
+href="acch1.htm#tailacch1.htm" >Letztes Seitenende</a>&#x005D;&#x005B;<a 
+href="acch2.htm" >Seitenanfang</a>&#x005D;&#x005B;<a 
+href="ac3.htm#acch2.htm" >Hoch</a>&#x005D;</p></div>
+<!--l. 2--><p class="noindent"><a 
+ id="tailacch2.htm"></a>   </p> 
+</body></html> 

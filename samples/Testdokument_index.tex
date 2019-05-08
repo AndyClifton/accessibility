@@ -1,0 +1,701 @@
+\documentclass[%
+	12pt,%11pt, 10pt%
+	a4paper,%a5paper, letterpaper, legalpaper, executivepaper
+%	onelinecaption,% noonelinecaption,%
+	oneside,%twoside,%
+%	onecolumn,%twocolumn,%
+% openany, openright,%
+% cleardoublestandard,% cleardoubleplain, %cleardoubleempty
+% notitlepage,%titlepage,%	
+ liststotoc, idxtotoc, bibtotoc, %bibtotocnumbered, liststotocnumbered
+% tocindent,% tocleft,%
+% listsindent,% listsleft%
+	halfparskip,% parindent, parskip, parskip*, parskip+, parskip, halfparskip*, halfparskip+, halfparskip,
+	nochapterprefix,%chapterprefix,%
+	appendixprefix, %noappendixprefix,%
+%	headsepline,%headnosepline%
+%	footsepline,%footnosepline%
+% bigheadings, normalheadings, 
+smallheadings,%
+%%Formatierungsparameter
+%	abstractoff,% abstracton%
+% pointednumbers,% pointlessnumbers%
+% leqno, fleqn%
+%	tablecaptionbelow,% tablecaptionbelow%
+% origlongtable,%
+% openbib,%
+% final, draft%
+]{scrreprt}
+%]{scrbook}
+%]{scrartcl}
+%]{scrlttr2}
+%
+%]{article}
+%]{report}
+%]{letter}
+%]{book}
+%]{slides}
+
+\usepackage{bibgerm}					% deutsche Bibliography
+\usepackage[ngerman]{babel}		% Sprachen
+\usepackage[latin1]{inputenc} % Eingabe von ü,ö,ä,ß erlaubt 
+\usepackage[T1]{fontenc}			% Umlauten koennen richtig getrennt werden
+
+\usepackage{lmodern}
+%======================================================================
+%   Darstellung des Glossars und des Indexes
+%======================================================================
+\usepackage{makeidx}
+\usepackage{booktabs}
+\usepackage{caption}							% mehrzeilige Captions ausrichten
+%\captionsetup{format=hang,margin=5pt,labelfont=bf,position=bottom,aboveskip=1em,belowskip=1em}
+%%\setcapindent{-1em}							 	% Zeilenumbruch bei Bildbeschreibungen.
+%\setlength{\belowcaptionskip}{1em}
+
+%\usepackage{multicol}            	% mehrere Spalten
+
+%\usepackage{setspace}            % Zeilenabstand einstellbar
+%\onehalfspacing                  % eineinhalbzeilig einstellen
+
+%\usepackage{theorem}
+%\theoremstyle{break}
+\newtheorem{definition}{Definition}
+%\usepackage{varioref}%
+
+%-------------------------------Farbdefinitionen------------------------------------------------------
+\usepackage{color}
+\definecolor{sun1}{rgb}{0.2,0.2,0.4} %dunkelblau
+\definecolor{sun2}{rgb}{0.4,0.4,0.6} %mittel
+\definecolor{sun3}{rgb}{0.6,0.6,0.8} %mittel
+\definecolor{sun4}{rgb}{0.8,0.8,1.0} %hellblau
+\definecolor{sun5}{rgb}{0.9,0.9,1.0} %hellblau
+\definecolor{black}{rgb}{0,0,0} %hellblau
+
+%-------------------------------Kopf- und Fußzeile----------------------------------------------------
+%\usepackage{scrpage2}
+%\pagestyle{scrheadings}
+%\pagestyle{scrplain}
+
+%\ihead[scrplain-innen]{scrheadings-innen}
+%\chead[scrplain-zentriert]{scrheadings-zentriert}
+%\ohead[scrplain-außen]{scrheadings-außen}
+%\ifoot[scrplain-innen]{scrheadings-innen}
+%\cfoot[scrplain-zentriert]{scrheadings-zentriert}
+%\ofoot[scrplain-außen]{scrheadings-außen}
+%
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\addtolength{\headheight}{\baselineskip}
+	
+%\fancyhf{}   % löscht alle Felder
+%
+%\fancyhead[RO]{\nouppercase{\sffamily{\rightmark}}}%Kopfzeile rechts bzw. außen
+%\fancyhead[LE]{\nouppercase{\sffamily{\leftmark}}}
+%\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+%
+%\fancyfoot[CO,CE]{\color{sun1}\sffamily{\thepage}}					%Fußzeile rechts bzw. außen
+%\renewcommand{\footrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+%
+%%extra Formatierungen der Kopf- und Fußzeilen für Kapitelseiten
+%\fancypagestyle{plain}{
+%	\fancyhf{}   % löscht alle Felder
+%	
+%	\fancyhead[LE,RO]{\nouppercase{\sffamily{\leftmark}}}%Kopfzeile rechts bzw. außen
+%	\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+% 	
+%	\fancyfoot[CO,CE]{\color{sun1}\sffamily{\thepage}}					%Fußzeile rechts bzw. außen
+%	\renewcommand{\footrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
+%}
+
+%Standard Koma-Script
+%\pagestyle{empty}
+%\pagestyle{plain}
+%\pagestyle{headings}
+%\pagestyle{myheadings}
+%======================================================================
+%	Erkennen des Bearbeitungsmodus für weitere Paketoptionen
+%======================================================================
+\RequirePackage{ifthen}
+
+\newif\ifhtm 
+\ifx \HCode\undefined \htmfalse \else	\htmtrue \fi
+
+\newif\ifpdf
+\ifx \pdfoutput\undefined 
+	\pdffalse 		%latex in DVI mode
+\else
+	\ifthenelse{\number\pdfoutput<1}%
+ 	{\pdffalse} 	%pdflatex in DVI mode
+ 	{\pdftrue} 		%pdflatex in PDF mode
+\fi
+
+%======================================================================
+%		PDF <=> DVI <=> XHTML 
+%======================================================================
+\ifhtm%
+		% Bearbeitung mit tex4ht
+		\usepackage{graphicx}%
+		\usepackage[tex4ht]{hyperref}%
+\else%
+	\ifpdf%
+		%Bearbeitung mit pdftex im PDF-Modus	
+		\usepackage[pdftex]{graphicx}%
+		\usepackage[pdftex]{hyperref}%
+		\pdfcompresslevel=0%						Damit wird die PDF-Quelldatei lesbar
+		\pdfoptionpdfminorversion=6%		Bestimmt die PDF - Version der Ausgabe
+	%\pdfadjustspacing=0%							0, 1 oder 2 Änderung nicht erkannt
+		\usepackage[tagged, highstructure]{accessibility}	% Makros in accessibility.sty 
+	\else%
+		%Bearbeitung mit latex oder pdftex im DVI-Modus	
+		\usepackage{graphicx}%
+		\usepackage{hyperref}%
+		\newcommand{\alt}[1]{}%
+		\newcommand{\thead}[1]{\textbf{#1}}
+	\fi%
+\fi%
+
+% Einstellungen des Hyperref-Paketes
+	\hypersetup{colorlinks=true,%
+	linkcolor=sun1,%
+	citecolor=sun1,%
+	filecolor=sun1,%
+	menucolor=sun1,%
+	pagecolor=sun1,%
+	urlcolor=sun1%
+	}%
+
+	\hypersetup{%    
+%		pdftitle	= {\dctitle}, %
+%		pdfsubject	= {\dcsubject, \dcdate}, %
+%		pdfauthor	= {\dcauthorname~\dcauthorsurname, \dcauthoremail}, %
+%		pdfkeywords	= {\dckeywords}, %
+		pdfcreator	= {pdfTeX with Hyperref and Thumbpdf}, %
+		pdfproducer	= {LaTeX, hyperref, thumbpdf}, %
+		bookmarksnumbered,%
+%		hypertexnames = true,%
+%		plainpages = true,%
+%		unicode = true,%
+	}%
+
+\usepackage[hyper=true, style=altlist, toc=true]{glossary}
+%\usepackage{glossary}
+%======================================================================
+\makeindex
+\makeglossary
+%%makeindex -s minimaldokument.ist -t minimaldokument.glg -o minimaldokument.gls minimaldokument.glo
+%======================================================================
+\begin{document}
+%======================================================================================================
+%======================================================================================================
+%======================================================================================================
+\title{test-dokument}
+\date{\today}
+\author{babett schalitz}
+\maketitle
+
+\section{test}
+
+Weit hinten, hinter den Wortbergen, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien %(siehe \vref{sec:Tabellen} S. \vpageref{sec:Tabellen}).
+
+\paragraph{Ein Absatz}
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch über. Als es die \nolinkurl{www.klein.de} ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner ig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren. \href{http://www.google.de}{Google}.
+
+\subsubsection{tedt}
+Weit hinten, hinter den \hypertarget{Linkziel}{Wortbergen}, fern der Länder \hyperlink{Linkziel}{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen \url{www.google.de} Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden \hyperimage{www.google.de/logo.jpg}{Hyperimage Text} fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien \newhref{http://www.google.de}{Suchmaschine Google}{Google}.
+
+\subsection{skld}
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an \hyperdef{cat1}{link}{CatLinkDef} der Küste des Semantik, eines großen \textsl{Sprachozeans}. 
+
+\minisec{minisec}
+Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien %(siehe \vref{sec:Tabellen} S. \vpageref{sec:Tabellen}).
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\section{test}
+
+Weit hinten, hinter den \emph{Wortbergen}, fern der Länder \emph{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an \hyperref{URL}{cat1}{link}{Link zu CatLinkDef} der Küste des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien %(siehe \vref{sec:Tabellen} S. \vpageref{sec:Tabellen}).
+
+\chapter{Aufzählumgebungen}
+\label{sec:Aufzaehlumgebung}
+
+Weit hinten, hinter den \footnote{Wortbergen}, fern der Länder \verb|Vokalien verbatim| und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien %(siehe \vref{sec:Tabellen} S. \vpageref{sec:Tabellen}).
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien %(siehe 
+
+\begin{itemize}
+	\item erster Punkt \href{www.test.de}{text} weiter
+	\begin{itemize}
+		\item 1. Punkt, 
+		\item 2. Punkt 
+		\item 3. Punkt
+	\end{itemize}
+	\item zweiter Punkt
+	\begin{enumerate}
+		\item 1.\footnote{text} Punkt,
+		\item 2. Punkt
+		\item 3. Punkt
+		\item Zugang zur Anwendung erleichtern,
+	\end{enumerate}
+	\item dritter Punkt
+\end{itemize}
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. 
+
+\begin{description}
+	\item[Begrif\/f 1] erster Punkt
+	\item[Begrif\/f 2] zweiter Punkt 
+\end{description}
+
+Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.  \begin{quote}"`Ich bin ein kurzes Zitat."'\end{quote} Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+%======================================================================================================
+\chapter{verbatim}
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+\begin{verbatim}
+Der große Oxmox riet ihr davon ab,
+da es dort wimmele von bösen Kommata,
+wilden Fragezeichen und hinterhältigen Semikoli,
+doch das Blindtextchen 
+ließ sich nicht beirren.
+\end{verbatim}
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+%======================================================================================================
+\chapter{Formeln}
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. \alt{alttext}\( a + b = c\) Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.  Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich \alt{c^2=a^2+b^2}\(c^{2}=a^{2}+b^{2}\) nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen 
+
+\[\alt{c_4 = a_3 + 4...}a_4 = a_3 + 4 * a^23 \sum_f ds\]
+
+etzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+\begin{equation}
+\alt{x^2+y^2 + 3x =4}
+x^2 + y^2 +3x -2y = 4 \\
+x + 2y  = 5
+\end{equation}
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+\begin{eqnarray}
+\alt{b_1 = -1,2,3,0}
+b_1 & = & (-1,2,3,0) \\
+b_2 & = & ((0,1,2,1)-\frac{4}{7}(-1,2,3,0) \\
+%& = & \frac{1}{7}(4,-1,2,7) \\
+b_3 & = & \frac{1}{10}(7,2,1,-4)
+\end{eqnarray}
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+%
+%======================================================================================================
+\chapter{Zitatumgebungen}
+\label{sec:Zitate}
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste {Landschaft am Meer}
+des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+\begin{quotation}
+	"`Ich bin \ref{sec:Tabellen} ein Zitat."'
+\end{quotation}
+
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion{Zeichensetzung im Satz} werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. \begin{quote}"`Ich bin ein kurzes Zitat."'\end{quote} Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+\begin{verse}
+	Ich bin ein Gedicht\\
+	zumindest mag ich\footnote{sadfsdf} eins werden\\
+	wenn ich mal groß bin.
+\end{verse}
+
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+%======================================================================================================
+\chapter{Bildeinbindung}
+\label{sec:Bilder}
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste%\footnote{Landschaft am Meer}
+ des Semantik, eines großen \textsl{Sprachozeans}. %Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+\begin{figure}[htbp] 
+		\centering
+		\alt{Ich bin das Logo der Technischen Universität Dresden}
+		\includegraphics[scale=0.50]{images/tu_logo}%MCID 8
+	\caption{tu-logo}%MCID 9
+	\label{fig:tulogo}
+\end{figure}
+
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion%\footnote{Zeichensetzung im Satz} 
+ werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\begin{figure}[htbp]
+		\centering
+		\alt{Ich bin das Logo der Technischen Universität Dresden}
+		\includegraphics[scale=0.10]{images/tu_logo}%MCID 15
+	\caption[kurz]{ein mini TU-Logo}%MCID 16
+	\label{fig:minitulogo}
+\end{figure}
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+		\alt{Ich bin das Logo der Technischen Universität Dresden}
+		\includegraphics[scale=0.10]{images/tu_logo}%MCID 15
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+\begin{figure}[htbp]
+		\centering
+		\alt{Ich bin das Logo der Technischen Universität Dresden}
+		\includegraphics[scale=0.25]{images/tu_logo}%MCID 18
+	\caption{ein kleines TU-Logo}%MCID 19
+	\label{fig:kleinestulogo}
+\end{figure}
+
+Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+%======================================================================================================
+\chapter{Literaturverzeichnis}
+\label{sec:Literaturverzeichnis}
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste%footnote{Landschaft am Meer}
+des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion%\footnote{Zeichensetzung im Satz}
+ werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. 
+
+Was er mit den erbeuteten Knochen zu tun hatte, wußte der kleine Hund aus einem Buch, daß er in der Stadtbücherei
+gelesen hatte: "`\emph{Mein Kochen und ich}"' \cite{ansorge:1999}. Dieses stand dort direkt neben seinem Lieblingsbuch
+"`\emph{Von Hund zu Hund}"' \cite{balzert:SWT1} im Bücherregal der Hundeliteratur.
+
+%======================================================================================================
+\chapter{Gliederungsebenen}
+\label{sec:Gliederung}
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte.
+
+\section{Überschrift}
+
+Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. 
+
+\subsection{Unterüberschrift}
+
+Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+\subsubsection{Unter-Unterabschnitt}
+
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. 
+
+\paragraph{Ein Absatz} Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse.
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+\subsection{Unterüberschrift}
+
+Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+%======================================================================================================
+\chapter{Gliederungsebenen2}
+\label{sec:Gliederung2}
+
+Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. 
+
+\section{Überschrift}
+
+Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+\paragraph{Ein Absatz}
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch über. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner ig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+\subsection{Unterabschnitt}
+Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}.
+
+\subsubsection{Unter-Unterabschnitt}
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte.
+
+\section{Überschrift}
+Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immer noch. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. %Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. 
+
+\subsection{Überschrift}
+Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\subsubsection{Unterabschnitt}
+Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\paragraph{Unterabsatz}
+Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+%======================================================================================================
+\chapter*{Gliederungsebenen stared}
+\label{sec:Gliederung3}
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte.
+
+\section*{Überschrift}
+
+Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. 
+
+\subsection*{Unterüberschrift}
+
+Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+\subsubsection*{Unter-Unterabschnitt}
+
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. 
+
+\paragraph*{Ein Absatz}
+Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse.
+
+\subsection*{Unterüberschrift}
+
+Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\chapter*{Gliederungsebenen stared 2}
+\label{sec:Gliederung4}
+
+Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. 
+
+\section*{Überschrift}
+
+Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+\paragraph*{Ein Absatz}
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrAls es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner ig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+\subsection*{Unterabschnitt}
+Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}.
+
+\subsubsection*{Unter-Unterabschnitt}
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte.
+
+\section*{Überschrift}
+Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immer noch. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. %Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. 
+
+\subsection*{Überschrift}
+Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\subsubsection*{Unterabschnitt}
+Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\paragraph*{Unterabsatz}
+Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+%======================================================================================================
+\chapter{Tabellen}
+\label{sec:Tabellen}
+
+Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste%\footnote{Landschaft am Meer}
+ des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{l|l l}
+			\thead{11} & \thead{12} & \thead{13} \\ \hline
+			11 & 12 & 13 \\
+			21 & 22 & 23 \\
+			31 & 32 & 33 
+		\end{tabular}
+	\caption{meine ungetaggte Tabelle}
+	\label{tab:meineUngetaggteTabelle}
+\end{table}
+
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion%\footnote{Zeichensetzung im Satz}
+ werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+%\begin{table}[htbp]
+%	\centering
+		\begin{tabular}{l l l}
+			\toprule
+			\thead{11} & 12 & 13 \\ \midrule
+			\thead{21} & 22 & 23 \\
+			\thead{31} & 32 & 33 \\ \bottomrule
+		\end{tabular}
+%	\caption{meine booktabs Tabelle}
+%	\label{tab:meinebooktabsTabelle}
+%\end{table}
+
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+%======================================================================================================
+\chapter{Tabbing}
+\label{sec:Tabbing}
+
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+\begin{table}[htbp]
+	\centering
+\begin{tabbing}
+war einmal\quad \= Mittelteil\quad \= \kill
+links \> Mittelteil \> rechts\\
+war einmal \> und ist \> nicht mehr\\
+ein \>  \> ausgestopfter\\
+ \>  \> Teddyb"ar
+\end{tabbing}
+	\caption{meine booktabs Tabelle}
+	\label{tab:meinebooktabsTabelle}
+\end{table}
+
+Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+
+\begin{tabbing}
+war einmal\quad \= Mittelteil\quad \= \kill
+links \> Mittelteil \> rechts\\
+war einmal \> und ist \> nicht mehr\\
+ein \>  \> ausgestopfter\\
+ \>  \> Teddyb"ar
+\end{tabbing}
+
+
+Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+
+%======================================================================================================
+\chapter{Index und Glossar}
+\label{sec:Index}
+
+Weit hinten, hinter den \index{Wortbergen}, fern der Länder \index{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste%\footnote{Landschaft am Meer}
+des Semantik, eines großen \index{Sprachozeans}. Ein \index{kleine!Bächlein} kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
+
+\glossary{name={Software-Ergonomie}, 
+	description={Software-Ergonomie als interdisziplinäres Forschungsgebiet vermittelt Erkenntnisse, Methoden und Vorgehensweisen zur Herstellung menschen- und aufgabengerechter Software.},}
+
+
+\glossary{name={Standard}, 
+description={Ein Standard soll auf den konsolidierten Ergebnissen der Wissenschaft, Technologie und Erfahrungen basieren, mit dem Ziel ein Optimum an gesellschaftlichen Nutzen zu fördern.},}
+
+\glossary{name={Qualität}, 
+					description={Die Gesamtheit der Merkmale eines Produktes oder einer Dienstleistung, die sich auf deren Eignung beziehen, festgelegte oder vorausgesetzte Erfordernisse zu erfüllen.},}			
+
+
+\glossary{name={Software}, 
+					description={Software ist eine Sammelbezeichnung für Programme, die für den Betrieb von Rechnersystemen zur Verfügung stehen, einschließlich der zugehörigen Dokumentation.},}			
+					
+\newacronym{BGG}{Behindertengleichstellungsgesetz}{name=bgg, description=test}
+\newacronym[BITV]{BITV}{Barrierefreie Informationstechnikverordnung}{name=bgg, description=test}
+
+Es ist ein paradiesmatisches Land, in dem einem \index{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion%\footnote{Zeichensetzung im Satz}
+ werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \index{kleine!Zeile}kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+Der große \xglossary{name=testeintrag, description=die Beschreibung}{eintrag} Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+
+Als es die ersten Hügel\index{kleine!Hügel!doof} des Kursivgebirges erklommen \index{kleine!Hügel!schlau} hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner \useacronym{BGG} eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen \useacronym{BGG} Weg fort.
+
+warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner \useacronym{BITV} eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen \useacronym{BITV} Weg fort.
+
+Die Copy warnte das \BGGshort Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch \BGGlong übrig wäre, \acrln{BGG} sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land \acrsh{BGG} zurückkehren.
+
+Die Copy warnte das \BITVshort Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch \BITVlong übrig wäre, \acrln{BITV} sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land \acrsh{BITV} zurückkehren.
+
+%======================================================================================================
+\chapter{TODO}
+
+\begin{itemize}
+	\item Glossar
+	\item Index
+	\item Kopf- und Fußzeile
+	\item Tabellen
+	\item Hyperref --> zusammenarbeit (ref, pageref)
+	\item Titelseite
+	\item Code effektiver
+	\item Umgebungen schachtelbar?
+	\item Alle Umgebungen mit Umbrüchen korrekt
+	\item transparente schnittstelle --> alle Klassen
+	\item welche Umgebungen noch?
+\end{itemize}
+
+Ich bin noch ein wenig Absatz.
+
+%%%======================================================================================================
+\chapter{theorem}
+
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\begin{definition}[Definition]
+Ein Theorem vom Typ Definition.
+\end{definition}
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+\begin{definition}
+Hallo ich bin eine Theorem vom Typ Definition.
+
+Mit zwei Absätzen
+\end{definition}
+
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
+
+
+%%%======================================================================================================
+%%\chapter{h1}
+%%\section{h2}
+%%\subsection{h3}
+%%\subsection{h31}
+%%\subsubsection{h4}
+%%\section{h21}
+%%\section{h22}
+%%\section{h23}
+%%\section{h24}
+%%\section{h25}
+%%\section{h26}
+%%\section{h27}
+%%\section{h28}
+%%\section{h29}
+%%\section{h30}
+%%\section{h31}
+%%\section{h32}
+
+%%%======================================================================================================
+
+%%\chapter{hh1}
+%%\section{hh2}
+%%\subsection{hh3}
+%%\subsection{hh31}
+%%\subsubsection{hh4}
+%%\section{hh21}
+%%\section{hh22}
+%%\section{hh23}
+%%\section{hh24}
+%%\section{hh25}
+%%\section{hh26}
+%%\section{hh27}
+%%\section{hh28}
+%%\section{hh29}
+%%\section{hh30}
+%%\section{hh31}
+%%\section{hh32}
+%===========================Index===============================================================
+\renewcommand{\glossaryname}{Glossar}
+\printglossary
+\printindex
+%%===========================Literaturverzeichnis================================================
+%\renewcommand{\bibname}{Literaturverzeichnis} % Literaturverzeichnis wird zu Literatur
+\bibliographystyle{geralpha}
+%%\setbibpreamble{Die Literaturangaben sind alphabetisch nach den Namen der Autoren sortiert. Bei mehreren Autoren wird
+%%nach dem ersten Autor sortiert.\par\bigskip} %TODO wird noch nicht getagged
+\bibliography{Literatur}	% Literaturverzeichnis
+
+%\begin{thebibliography}{999}
+%\bibitem{bjarne} Bjarne Friedjof Blue: "`Mein Knochen und ich - wie ich meinen Schatz vergrub"'
+%\bibitem{katz} Richard Katz: "`Von Hund zu Hund"'
+%\end{thebibliography}
+
+\end{document}
