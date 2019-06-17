@@ -1284,9 +1284,7 @@
   \def\testNextNumberedPage#1{%
    \ifx#1\relax%
      \global\def\NumberedPageCache{\gotNumberedPage0000}%
-    %\PackageWarning{accessibility}{Changed paragraphs, rerun to get it right}%
-     \PackageError{accessibility}{Changed paragraphs, rerun to get it right}%
-                                 {Changed paragraphs, rerun to get it right}%
+    \PackageWarning{accessibility}{Changed paragraphs, rerun to get it right}%
    \else%
      \global\let\NumberedPageCache#1%
    \fi%
