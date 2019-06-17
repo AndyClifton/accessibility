@@ -4,6 +4,7 @@
 %%	accessibility.sty 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Copyright 2007 Babett Schalitz
+%% Copyright 2019 Andrew Clifton
 %%
 %% This material is subject to the LaTeX Project Public License. See
 %% http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
@@ -11,6 +12,10 @@
 %%
 %% This package allows to produce tagged PDF output following Adobe's 
 %% PDF-1.5 and 1.6 specifications.
+%%
+%% This is accessibility version 2.0.0 Backward compatability with prior
+%% versions is not assured.
+%% Release: englishdocs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
 %% \CharacterTable
@@ -223,7 +228,7 @@
 %
 %    \begin{macrocode}
 %<*package>
-\ProvidesPackage{accessibility}[2007/03/13 v. 1]
+\ProvidesPackage{accessibility}[2019/06/17 v. 2.0]
 \NeedsTeXFormat{LaTeX2e}
 %    \end{macrocode}
 
@@ -3325,15 +3330,12 @@
 %    \begin{macrocode}
 \newcommand{\convertLanguageInCode}[1]{%
   \gdef\LanguageCode{}%
-  %Dänisch
   \ifthenelse{\equal{#1}{\string danish}}{\gdef\LanguageCode{/Lang(DA)}}{}%
-  %Deutsch
   \ifthenelse{\equal{#1}{\string german}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string ngerman}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string germanb}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string austrian}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string naustrian}}{\gdef\LanguageCode{/Lang(DE)}}{}%
-  %Englisch
   \ifthenelse{\equal{#1}{\string english}}{\gdef\LanguageCode{/Lang(EN)}}{}%
   \ifthenelse{\equal{#1}{\string USenglish}}{\gdef\LanguageCode{/Lang(EN-US)}}{}%
   \ifthenelse{\equal{#1}{\string american}}{\gdef\LanguageCode{/Lang(EN-US)}}{}%
@@ -3342,35 +3344,28 @@
   \ifthenelse{\equal{#1}{\string canadian}}{\gdef\LanguageCode{/Lang(EN)}}{}%
   \ifthenelse{\equal{#1}{\string australian}}{\gdef\LanguageCode{/Lang(EN)}}{}%
   \ifthenelse{\equal{#1}{\string newzealand}}{\gdef\LanguageCode{/Lang(EN)}}{}%
-  %Finnisch
   \ifthenelse{\equal{#1}{\string finnish}}{\gdef\LanguageCode{/Lang(FI)}}{}%
-  %Französisch
   \ifthenelse{\equal{#1}{\string french}}{\gdef\LanguageCode{/Lang(FR)}}{}%
   \ifthenelse{\equal{#1}{\string francais}}{\gdef\LanguageCode{/Lang(FR)}}{}%
   \ifthenelse{\equal{#1}{\string canadien}}{\gdef\LanguageCode{/Lang(FR)}}{}%
   \ifthenelse{\equal{#1}{\string acadian}}{\gdef\LanguageCode{/Lang(FR)}}{}%
-  %Italienisch
   \ifthenelse{\equal{#1}{\string italian}}{\gdef\LanguageCode{/Lang(IT)}}{}%
-  %Norwegisch
   \ifthenelse{\equal{#1}{\string norsk}}{\gdef\LanguageCode{/Lang(NO)}}{}%
   \ifthenelse{\equal{#1}{\string nynorsk}}{\gdef\LanguageCode{/Lang(NO)}}{}%
-  %Portugiesisch %(Brasilien)
   \ifthenelse{\equal{#1}{\string portuges}}{\gdef\LanguageCode{/Lang(PT)}}{}%
   \ifthenelse{\equal{#1}{\string portuguese}}{\gdef\LanguageCode{/Lang(PT)}}{}%
   \ifthenelse{\equal{#1}{\string brazilian}}{\gdef\LanguageCode{/Lang(PT-BR)}}{}%
   \ifthenelse{\equal{#1}{\string brazil}}{\gdef\LanguageCode{/Lang(PT-BR)}}{}%
-  %Schwedisch
   \ifthenelse{\equal{#1}{\string swedish}}{\gdef\LanguageCode{/Lang(SV)}}{}%
-  %Spanisch
   \ifthenelse{\equal{#1}{\string spanish}}{\gdef\LanguageCode{/Lang(ES)}}{}%
-  %Chinesisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang(ZH)}}{}%
-  %Japanisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang (JA)}}{}%
-  %Koreanisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang (KO)}}{}%
-  %Niederländisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang(NL)}}{}%
+  	% not surreported in babel:
+	% Chinese (/Lang{ZH})
+	% Korean (/Lang{KO}).
   \ifthenelse{\equal{\LanguageCode}{}}{%
-      \PackageWarning{accessibility}{Die gewählte Sprache (#1) wird vom %
-                                     Adobe Reader 6.0 nicht unterstützt.}%
-  }{}%
+	% comparing \languagename is tricky. See babel package documentation for more information
+	\PackageWarning{accessibility}{Die chosen language (#1) is not supported %
+		by Adobe Reader 6.0.}%
+}{}%
 }
 %    \end{macrocode}
 

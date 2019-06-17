@@ -1,0 +1,13 @@
+PWD D:/public/GitHub/AndyClifton/accessibility/source
+INPUT c:/texlive/2018/texmf.cnf
+INPUT c:/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT c:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT access.tex
+OUTPUT access.log
+INPUT c:/texlive/2018/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+INPUT c:/texlive/2018/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+INPUT c:/texlive/2018/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+INPUT c:/texlive/2018/texmf-dist/tex/generic/xkeyval/keyval.tex
+INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
