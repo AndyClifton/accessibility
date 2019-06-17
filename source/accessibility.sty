@@ -25,6 +25,7 @@
 %% accessibility.sty
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Copyright 2007 Babett Schalitz
+%% Copyright 2019 Andrew Clifton
 %%
 %% This material is subject to the LaTeX Project Public License. See
 %% http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
@@ -32,6 +33,10 @@
 %%
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
+%%
+%% This is accessibility version 2.0. Backward compatability with prior
+%% versions is not assured.
+%% Release: englishdocs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
 %% \CharacterTable
@@ -53,7 +58,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \fi
 
-\ProvidesPackage{accessibility}[2007/03/13 v. 1.0]
+\ProvidesPackage{accessibility}[2019/06/17 v. 2.0]
 \NeedsTeXFormat{LaTeX2e}
 
 \RequirePackage{xkeyval}
@@ -298,7 +303,7 @@
      /C /Normal %
      /K [\TextArray] %
      /S /\TextType %
-    \space\LanguageCode>>}%
+    \space\LanguageCode>>}% 
   \pdfrefobj \theTextObjNum%
   \expandafter\xdef\csname \ParentArray\endcsname{%
        \csname \ParentArray\endcsname \space \theTextObjNum\space 0 R}%
@@ -345,7 +350,7 @@
      /S /\TextType %
     \space\LanguageCode %
     \space\TitleHelp %
-    \space\AltHelp>>}%
+    \space\AltHelp>>}% 
   \pdfrefobj \theTextObjNum%
   \expandafter\xdef\csname \ParentArray\endcsname{%
       \csname \ParentArray\endcsname \space \theTextObjNum\space 0 R}%
@@ -379,18 +384,21 @@
 {%
   \endPDFMarkContent%
   \ifthenelse{\equal{\Type}{Reference} \or \equal{\Type}{Link}}{%
-    \xdef\ReferenceArray{<</Type /MCR /Pg \pdfpageref\thepage \space \space 0 R /MCID \theObjNum>>}%
+    \xdef\ReferenceArray{<</Type /MCR /Pg \pdfpageref\thepage %
+         \space \space 0 R /MCID \theObjNum>>}%
     \ifthenelse{\pdftexversion>139}{%
-      \setcounter{ObjHelp}{\pdflastlink}%     %<< /Type /OBJR /Obj 600 0 R >>
-      %\PackageWarning{accessibility}{Objektnummer vom letzten Link: \theObjHelp}%
+      \setcounter{ObjHelp}{\pdflastlink}%%<</Type /OBJR /Obj 600 0 R>>
+      %\PackageWarning{accessibility}%
+      %{Objektnummer vom letzten Link: \theObjHelp}%
       \ifthenelse{\theObjHelp>0}{%
-        \xdef\ReferenceArray{\ReferenceArray\space <</Type /OBJR /Obj \theObjHelp\space 0 R>>}%
+        \xdef\ReferenceArray{\ReferenceArray\space %
+              <</Type /OBJR /Obj \theObjHelp\space 0 R>>}%
       }{}%
    }{}%
    \writeComplexTextObj{\thePDFReferenceObjNum}%
          {\ReferenceArray}%
          {/Reference}{\theTextObjNum}{NoPage}%
-   \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}%
+   \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}% 
   }{}%
   % alte einstellung wiederherstellen
   \EveryparConfig{\lastEveryparType}{\HelpBool}%
@@ -419,7 +427,8 @@
   \pdfliteral{/\everyparStructElem\space <</MCID \theTaggedObj>> BDC}%
   \ifthenelse{\equal{\InlineObj}{false}}{% Text
     %\ifthenelse{\equal{\themypage}{\thepage}}{}{%
-       %\PackageWarning{accessibility}{unterschiedlich \thepage<>\themypage; MCID \theTaggedObj}
+       %\PackageWarning{accessibility}{unterschiedlich %
+       %\thepage<>\themypage; MCID \theTaggedObj}
     %}%
     \xdef\TextArray{\TextArray \space <</Type /MCR %
         %/Pg \pdfpageref\thepage \space \space 0 R %
@@ -461,7 +470,7 @@
     /S /#2 %
     \space\LanguageCode %
     \space\TitleHelp %
-    \space\AltHelp>>}%
+    \space\AltHelp>>}% 
   \setcounter{ObjHelp}{\pdflastobj}%
   \pdfrefobj \pdflastobj%
   \xdef\TextArray{\TextArray \space \theObjHelp\space 0 R}%
@@ -583,8 +592,8 @@
   }%
 }{}
 
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcount\linenopenalty\linenopenalty=-100000%
 \mathchardef\linenopenaltypar=32000%
   %
@@ -677,7 +686,8 @@
   %%%%%%%%%%%%%Schreiben der Zeilennummmern%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
   \def\makeLineNumber{%
-    \protected@write\@auxout{}{\string\@AC{\the\c@linenumber}{\noexpand\the\c@AC@truepage}}%
+    \protected@write\@auxout{}{\string\@AC{\the\c@linenumber}%
+                              {\noexpand\the\c@AC@truepage}}%
     \testNumberedPage%
     %Schreibt die Zeilennummern
     %\hss{\normalfont\tiny\sffamily\thelinenumber\quad}%
@@ -787,7 +797,7 @@
   \def\testNextNumberedPage#1{%
    \ifx#1\relax%
      \global\def\NumberedPageCache{\gotNumberedPage0000}%
-     %\PackageWarning{accessibility}{Changed paragraphs, rerun to get it right}%
+    %\PackageWarning{accessibility}{Changed paragraphs, rerun to get it right}%
      \PackageError{accessibility}{Changed paragraphs, rerun to get it right}%
                                  {Changed paragraphs, rerun to get it right}%
    \else%
@@ -893,8 +903,8 @@
   \advance\maxdeadcycles 100%
 }{}%
   %
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalnewpage\newpage%
   \renewcommand{\newpage}{%
@@ -959,8 +969,8 @@
   \PDFSect{Chapter}{#1} \originaladdchap{#1} \endPDFSect}%
 
 \ifthenelse{\boolean{@Access@pdf}}{%
-  \@ifundefined{set@preamble}{% es gibt keine set@preamble außerhalb des KOMA-Scripts
-    }{%
+  \@ifundefined{set@preamble}{% es gibt kein set@preamble%
+    }{%  %außerhalb des KOMA-Scripts
     \let\originaluse@preamble\use@preamble%
     \renewcommand{\use@preamble}[1]{%
         \EveryparConfig{P}{true}%
@@ -1124,7 +1134,7 @@
   \let\originalverbatim\@verbatim%
   \renewcommand{\@verbatim}{%
   %\PDFStructObj{Div}{\empty}%
-  \PDFSpezialTextObj{Code}%
+  \PDFSpezialTextObj{Code}
     \originalverbatim%
   }%
   \let\originalendverbatim\endverbatim%
@@ -1136,36 +1146,6 @@
   }%
   \expandafter\let\csname endverbatim*\endcsname =\endverbatim%
 }{}
-
-\ifthenelse{\boolean{@Access@pdf}}{%
-  \@ifpackageloaded{listings}{%
-    \let\originallstinputlisting\lstinputlisting%
-    \renewcommand{\lstinputlisting}[2][]{%
-      \PDFSpezialTextObj{Code}%
-      \PackageWarning{accessibility}{Codeinput}%
-      \originallstinputlisting[#1]{#2}%
-      \PackageWarning{accessibility}{codeinput}%
-      \endPDFMarkContent%
-      \endPDFSpezialTextObj%
-    }%
-    %lst@EndProcessListing
-    \let\originallstenv@Process\lstenv@Process%
-    \renewcommand{\lstenv@Process}{%
-      \PDFSpezialTextObj{Code}%
-      \PackageWarning{accessibility}{begin code}%
-      \originallstenv@Process%
-    }%
-    \let\originallstenv@End\lstenv@End%
-    \renewcommand{\lstenv@End}{%
-      \originallstenv@End%
-      \endPDFMarkContent%
-      \endPDFSpezialTextObj%
-      \PackageWarning{accessibility}{end code}%
-    }%
-    %lstinline!var i:integer;!
-  }{}%
-}{}
-
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifpackageloaded{thmbox}{%
@@ -1203,7 +1183,7 @@
       \original@opargbegintheorem%
     }%
     \let\original@endtheorem\@endtheorem%
-    \renewcommand{\@endtheorem}{%
+    \renewcommand{\@endtheorem}{% 
       \original@endtheorem%
       \endPDFSpezialTextObj%
     }%
@@ -1324,11 +1304,12 @@
   \let\originaleqnarray\eqnarray%
   \let\originalendeqnarray\endeqnarray%
   \renewenvironment{eqnarray}%
-    {%\def&{\originalamp}%  --> das bringt den Fehler inaccessibile
+   {%\def&{\originalamp}%  --> das bringt den Fehler inaccessibile
     \PackageWarning{accessibilty}{Die eqnarray-Umgebung sollte nicht mehr %
         verwendet werden, sie gilt als veraltet. (vgl. Autorenanleitung).}%
-     \PDFSpezialTextObj{Formula}\EveryparConfig{Formula}{false}\originaleqnarray}%
-    {\endPDFMarkContent\originalendeqnarray\endPDFSpezialTextObj}%
+     \PDFSpezialTextObj{Formula}%
+     \EveryparConfig{Formula}{false}\originaleqnarray}%
+   {\endPDFMarkContent\originalendeqnarray\endPDFSpezialTextObj}%
 }{}%
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1348,16 +1329,12 @@
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\original@@makecaption\@makecaption%
-%  \renewcommand{\@makecaption}[3]{% Wieso Definition mit drei Argumenten???? nur zwei geht mit listings
-  \renewcommand{\@makecaption}[2]{%
+  \renewcommand{\@makecaption}[3]{%
     \global\numberingparsfalse%
     \PDFSpezialTextObj{Caption}%
     \EveryparConfig{Caption}{false}%
     \PDFMarkContent%
-    \PackageWarning{accessibility}{begin makecaption}%
-%        \original@@makecaption{#1}{#2}{#3}%
-        \original@@makecaption{#1}{#2}%{#3}%
-    \PackageWarning{accessibility}{end makecaption}%
+        \original@@makecaption{#1}{#2}{#3}%
     \endPDFMarkContent%
     \endPDFSpezialTextObj%{Caption}%
     \global\numberingparstrue%
@@ -1509,9 +1486,12 @@
         \end{PDFInlineObjInText}}%
     %Linkziele%
     %\let\originalhyper@anchorstart\hyper@anchorstart%
-    %\renewcommand{\hyper@anchorstart}{\pdfliteral{/Span <</E (anchorstart)>> BDC EMC}\originalhyper@anchorstart}%
+    %\renewcommand{\hyper@anchorstart}%
+    %{\pdfliteral{/Span <</E (anchorstart)>> BDC EMC}%
+    %\originalhyper@anchorstart}%
     %\let\originalhyper@anchorend\hyper@anchorend%
-    %\renewcommand{\hyper@anchorend}{\originalhyper@anchorend\pdfliteral{/Span <</E (anchorend)>> BDC EMC}}%
+    %\renewcommand{\hyper@anchorend}{\originalhyper@anchorend
+    %\pdfliteral{/Span <</E (anchorend)>> BDC EMC}}%
     % Einträge im TOC, LOF, LOT
     %\let\originalhyper@linkstart\hyper@linkstart%
     %\renewcommand{\hyper@linkstart}{%
@@ -1521,7 +1501,8 @@
     %\renewcommand{\hyper@linkend}{%
     %     \originalhyper@linkend%
     %    \end{PDFInlineObjInText}}%
-    %\useacronym --> Kurzform, Glossarseitezahlen, indexseitenzahlen, Glossareinträge, Hyperlink
+    %\useacronym --> Kurzform, Glossarseitezahlen,
+    %Indexseitenzahlen, Glossareinträge, Hyperlink
     \let\originalhyperlink\hyperlink%
     \renewcommand*{\hyperlink}[2]{%
         \ifIndexItemActive\else\begin{PDFInlineObjInText}{Reference}\fi%
@@ -1543,7 +1524,8 @@
         \begin{PDFInlineObjInText}{Link}%
         \originalhyper@linkfile{#1}{#2}{#3}%
         \end{PDFInlineObjInText}}%
-    %Seitenzahlen in Index, anders da anschließend keine Texterkennung nötig.
+    %Seitenzahlen in Index, anders da anschließend
+    %keine Texterkennung nötig.
     %eigentlich über hyperlink möglich
     \let\originalhyperpage\hyperpage%
     \renewcommand{\hyperpage}[1]{%
@@ -1634,7 +1616,7 @@
     \writeComplexTextObj{\thePDFFootnotemark}%
         {\theObjNum \space \thePDFFootnotetext \space 0 R}%
         {/Reference}{\theTextObjNum}{Page}%
-    \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}%
+    \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}% 
 }
 
 \newenvironment{PDFFootnoteText}{%
@@ -1674,7 +1656,7 @@
     \begin{PDFFootnote}%
     \originalfootnote{#1}%
     \end{PDFFootnote}%
-  }%
+  }% 
 }{}
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1848,6 +1830,7 @@
     \ifthenelse{\equal{#2}{\z@}}{}{\end{PDFLayoutArtefakt}}%
   }%
 
+
   %vline (2), @arrayrule(2?) greift auf vrule zu
   %Klappt nicht mit Argumentübergabe
   %\let\originalvrule\vrule%
@@ -1907,7 +1890,7 @@
     \endPDFSpezialTextObj%{Figure}%
     \global\numberingparstrue%
     }%
-  }{}%
+  }{}% 
 }{}
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1930,15 +1913,12 @@
 
 \newcommand{\convertLanguageInCode}[1]{%
   \gdef\LanguageCode{}%
-  %Dänisch
   \ifthenelse{\equal{#1}{\string danish}}{\gdef\LanguageCode{/Lang(DA)}}{}%
-  %Deutsch
   \ifthenelse{\equal{#1}{\string german}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string ngerman}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string germanb}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string austrian}}{\gdef\LanguageCode{/Lang(DE)}}{}%
   \ifthenelse{\equal{#1}{\string naustrian}}{\gdef\LanguageCode{/Lang(DE)}}{}%
-  %Englisch
   \ifthenelse{\equal{#1}{\string english}}{\gdef\LanguageCode{/Lang(EN)}}{}%
   \ifthenelse{\equal{#1}{\string USenglish}}{\gdef\LanguageCode{/Lang(EN-US)}}{}%
   \ifthenelse{\equal{#1}{\string american}}{\gdef\LanguageCode{/Lang(EN-US)}}{}%
@@ -1947,35 +1927,25 @@
   \ifthenelse{\equal{#1}{\string canadian}}{\gdef\LanguageCode{/Lang(EN)}}{}%
   \ifthenelse{\equal{#1}{\string australian}}{\gdef\LanguageCode{/Lang(EN)}}{}%
   \ifthenelse{\equal{#1}{\string newzealand}}{\gdef\LanguageCode{/Lang(EN)}}{}%
-  %Finnisch
   \ifthenelse{\equal{#1}{\string finnish}}{\gdef\LanguageCode{/Lang(FI)}}{}%
-  %Französisch
   \ifthenelse{\equal{#1}{\string french}}{\gdef\LanguageCode{/Lang(FR)}}{}%
   \ifthenelse{\equal{#1}{\string francais}}{\gdef\LanguageCode{/Lang(FR)}}{}%
   \ifthenelse{\equal{#1}{\string canadien}}{\gdef\LanguageCode{/Lang(FR)}}{}%
   \ifthenelse{\equal{#1}{\string acadian}}{\gdef\LanguageCode{/Lang(FR)}}{}%
-  %Italienisch
   \ifthenelse{\equal{#1}{\string italian}}{\gdef\LanguageCode{/Lang(IT)}}{}%
-  %Norwegisch
   \ifthenelse{\equal{#1}{\string norsk}}{\gdef\LanguageCode{/Lang(NO)}}{}%
   \ifthenelse{\equal{#1}{\string nynorsk}}{\gdef\LanguageCode{/Lang(NO)}}{}%
-  %Portugiesisch %(Brasilien)
   \ifthenelse{\equal{#1}{\string portuges}}{\gdef\LanguageCode{/Lang(PT)}}{}%
   \ifthenelse{\equal{#1}{\string portuguese}}{\gdef\LanguageCode{/Lang(PT)}}{}%
   \ifthenelse{\equal{#1}{\string brazilian}}{\gdef\LanguageCode{/Lang(PT-BR)}}{}%
   \ifthenelse{\equal{#1}{\string brazil}}{\gdef\LanguageCode{/Lang(PT-BR)}}{}%
-  %Schwedisch
   \ifthenelse{\equal{#1}{\string swedish}}{\gdef\LanguageCode{/Lang(SV)}}{}%
-  %Spanisch
   \ifthenelse{\equal{#1}{\string spanish}}{\gdef\LanguageCode{/Lang(ES)}}{}%
-  %Chinesisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang(ZH)}}{}%
-  %Japanisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang (JA)}}{}%
-  %Koreanisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang (KO)}}{}%
-  %Niederländisch %\ifthenelse{\equal{#1}{}{\gdef\LanguageCode{/Lang(NL)}}{}%
+   % not surreported in babel:
   \ifthenelse{\equal{\LanguageCode}{}}{%
-      \PackageWarning{accessibility}{Die gewählte Sprache (#1) wird vom %
-                             Adobe Acrobat Reader 6.0 nicht unterstützt.}%
-  }{}%
+\PackageWarning{accessibility}{Die chosen language (#1) is not supported %
+by Adobe Reader 6.0.}%
+}{}%
 }
 
 \ifthenelse{\boolean{@Access@pdf}}{%
