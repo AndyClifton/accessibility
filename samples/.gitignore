@@ -1,3 +1,6 @@
+## ignore accessibility file
+accessibility.sty
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -5,6 +8,7 @@
 *.lot
 *.fls
 *.out
+*.out.*
 *.toc
 *.fmt
 *.fot
