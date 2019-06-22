@@ -1,4 +1,4 @@
-%% NOTE THAT THIS REQUIRES DVI-PDF COMPILATION %%
+%% NOTE THAT THIS REQUIRES PDFLATEX COMPILATION %%
 %% Andy Clifton, 22 Jun 2019 %%
 
 
@@ -11,16 +11,19 @@
 % openany, openright,%
 % cleardoublestandard,% cleardoubleplain, %cleardoubleempty
 % notitlepage,%titlepage,%	
- liststotoc, idxtotoc, bibtotoc, %bibtotocnumbered, liststotocnumbered
+	listof=totoc,
+ %liststotoc, idxtotoc, bibtotoc, %bibtotocnumbered, liststotocnumbered 
+ 	index=totoc,
+	bibliography = totoc,
 % tocindent,% tocleft,%
 % listsindent,% listsleft%
-	halfparskip,% parindent, parskip, parskip*, parskip+, parskip, halfparskip*, halfparskip+, halfparskip,
-	nochapterprefix,%chapterprefix,%
+	parskip = half,% parindent, parskip, parskip*, parskip+, parskip, halfparskip*, halfparskip+, halfparskip,
+	chapterprefix=false,%chapterprefix,%
 	appendixprefix, %noappendixprefix,%
 %	headsepline,headnosepline%
 %	footsepline,footnosepline%
 % bigheadings, normalheadings, 
-smallheadings,%
+headings=small,%
 %%Formatierungsparameter
 %	abstractoff,% abstracton%
 % pointednumbers,% pointlessnumbers%
@@ -187,7 +190,7 @@ smallheadings,%
 
 %======================================================================
 %\makeindex
-\makeglossary
+\makeglossaries
 %%makeindex -s minimaldokument.ist -t minimaldokument.glg -o minimaldokument.gls minimaldokument.glo
 %======================================================================
 \begin{document}
