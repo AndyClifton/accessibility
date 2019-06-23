@@ -34,7 +34,7 @@
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
 %%
-%% This is accessibility version 2.0. Backward compatability with prior
+%% This is accessibility version 2.0.0 Backward compatability with prior
 %% versions is not assured.
 %% Release: englishdocs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,7 +134,7 @@
 
 \pdfcompresslevel=0% Damit wird die PDF-Quelldatei lesbar
 \pdfoptionpdfminorversion=6% Bestimmt die PDF - Version der Ausgabe
- %\pdfadjustspacing=0% 0, 1 oder 2 Änderung nicht erkannt
+ %\pdfadjustspacing=0% 0, 1 oder 2 ï¿½nderung nicht erkannt
 
 \newcommand{\alt}[1]{\xdef\altAttr{#1}}%
 \newcommand{\newhref}[3]{\xdef\altAttr{#2}\href{#1}{#3}}%
@@ -203,7 +203,7 @@
   \expandafter\xdef\csname PDF@#1@Array\endcsname{}%
   \accessPushStack{#1}{\theObjHelp}{PDF@#1@Array}{#2}%drauftun
 }%
-{%andere Ebenen Schließen
+{%andere Ebenen Schlieï¿½en
   \accessPopStack\StructElem\Objnum\KidsArray\Title %runterholen
   \ifx \StructElem\empty%
     \PackageWarning{accessibility}{empty \string\PopStack ?}%
@@ -222,7 +222,7 @@
     \immediate \pdfobj useobjnum\number\Objnum{<</Type /StructElem %
         /P \ParentElem\space 0 R %
         \TitleHelp %
-        /C /Normal %
+        %/C /Normal %
         \space\LanguageCode %
         /K [\csname \KidsArray\endcsname] %
         /S /\StructElem>>}%
@@ -300,10 +300,10 @@
   %\convertLanguageInCode{\languagename}%
   \immediate \pdfobj useobjnum\theTextObjNum{<</Type /StructElem %
      /P \ParentElem \space 0 R %
-     /C /Normal %
+     %/C /Normal %
      /K [\TextArray] %
      /S /\TextType %
-    \space\LanguageCode>>}% 
+    \space\LanguageCode>>}%
   \pdfrefobj \theTextObjNum%
   \expandafter\xdef\csname \ParentArray\endcsname{%
        \csname \ParentArray\endcsname \space \theTextObjNum\space 0 R}%
@@ -345,12 +345,12 @@
   \fi%
   \immediate \pdfobj useobjnum\theTextObjNum{<</Type /StructElem %
      /P \ParentElem \space 0 R %
-     /C /Normal %
+     %/C /Normal %
      /K [\TextArray] %
      /S /\TextType %
     \space\LanguageCode %
     \space\TitleHelp %
-    \space\AltHelp>>}% 
+    \space\AltHelp>>}%
   \pdfrefobj \theTextObjNum%
   \expandafter\xdef\csname \ParentArray\endcsname{%
       \csname \ParentArray\endcsname \space \theTextObjNum\space 0 R}%
@@ -398,7 +398,7 @@
    \writeComplexTextObj{\thePDFReferenceObjNum}%
          {\ReferenceArray}%
          {/Reference}{\theTextObjNum}{NoPage}%
-   \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}% 
+   \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}%
   }{}%
   % alte einstellung wiederherstellen
   \EveryparConfig{\lastEveryparType}{\HelpBool}%
@@ -411,7 +411,7 @@
    \xdef\InlineObj{#2}%
 }
 
-%%Setzt die Variablen auf die Standardwerte für eine normale Texterkennung.
+%%Setzt die Variablen auf die Standardwerte fï¿½r eine normale Texterkennung.
 \newcommand{\EveryparReset}{%
    \xdef\everyparStructElem{P}%
    \xdef\InlineObj{false}%
@@ -463,14 +463,14 @@
   }%
   \immediate \pdfobj {<</Type /StructElem %
     /P \theTextObjNum \space 0 R %
-    /C /Normal %
+    %/C /Normal %
     /K <</Type /MCR %
          /Pg \pdfpageref\thepage \space \space 0 R %
          /MCID #1>> %
     /S /#2 %
     \space\LanguageCode %
     \space\TitleHelp %
-    \space\AltHelp>>}% 
+    \space\AltHelp>>}%
   \setcounter{ObjHelp}{\pdflastobj}%
   \pdfrefobj \pdflastobj%
   \xdef\TextArray{\TextArray \space \theObjHelp\space 0 R}%
@@ -484,13 +484,13 @@
     \immediate \pdfobj useobjnum#1{<</Type /StructElem %
       /P #4\space 0 R %
       /Pg \pdfpageref\thepage \space \space 0 R %
-      /C /Normal %
+      %/C /Normal %
       /K [#2] %
       /S #3 \space\LanguageCode>>}%
     }{%keine Seitenreferenz angeben
     \immediate \pdfobj useobjnum#1{<</Type /StructElem %
       /P #4\space 0 R %
-      /C /Normal %
+      %/C /Normal %
       /K [#2] %
       /S #3>>}%
   }%
@@ -546,7 +546,7 @@
        >>} \pdfrefobj \pdflastobj%
    %\global\setcounter{ClassMap}{\pdflastobj}%
   \pdfobj {<<%
-            /IndexItem /Span % Indexeinträge
+            /IndexItem /Span % Indexeintrï¿½ge
             /TOF /TOC % Table of Figures
             /TOFI /TOCI % Table of Figures Eintrag
             /TOT /TOC % Table of Tables
@@ -555,7 +555,7 @@
             /Bibliography /L % Bibligraphy
             /BibItem /LI % BibligraphyItem
             /ParagraphSpan /Span % geteilte Paragraphen am Seitenumbruch
-            /Footnote /Note %  Fußnotentext
+            /Footnote /Note %  Fuï¿½notentext
             /Chapter /Sect%
             /Section /Sect%
             /Subsection /Sect%
@@ -597,7 +597,7 @@
 \newcount\linenopenalty\linenopenalty=-100000%
 \mathchardef\linenopenaltypar=32000%
   %
-  %%%%%%%%%%%%%Verändern der Outputroutine%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%Verï¿½ndern der Outputroutine%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\@tempa\output%
   \newtoks\output%
@@ -797,9 +797,7 @@
   \def\testNextNumberedPage#1{%
    \ifx#1\relax%
      \global\def\NumberedPageCache{\gotNumberedPage0000}%
-    %\PackageWarning{accessibility}{Changed paragraphs, rerun to get it right}%
-     \PackageError{accessibility}{Changed paragraphs, rerun to get it right}%
-                                 {Changed paragraphs, rerun to get it right}%
+    \PackageWarning{accessibility}{Changed paragraphs, rerun to get it right}%
    \else%
      \global\let\NumberedPageCache#1%
    \fi%
@@ -970,7 +968,7 @@
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifundefined{set@preamble}{% es gibt kein set@preamble%
-    }{%  %außerhalb des KOMA-Scripts
+    }{%  %auï¿½erhalb des KOMA-Scripts
     \let\originaluse@preamble\use@preamble%
     \renewcommand{\use@preamble}[1]{%
         \EveryparConfig{P}{true}%
@@ -1183,7 +1181,7 @@
       \original@opargbegintheorem%
     }%
     \let\original@endtheorem\@endtheorem%
-    \renewcommand{\@endtheorem}{% 
+    \renewcommand{\@endtheorem}{%
       \original@endtheorem%
       \endPDFSpezialTextObj%
     }%
@@ -1197,7 +1195,7 @@
   \ifItemActive \closeItem\fi%
   %Liste beginnen
   \addtocounter{ListDepth}{1}%
-  %\PDFStructObj{L}{\empty}% Sonst Fehler bei Zugriffsprüfung AA
+  %\PDFStructObj{L}{\empty}% Sonst Fehler bei Zugriffsprï¿½fung AA
   \PDFStructObj{L\arabic{ListDepth}}{\empty}%
   %\PDFStructObj{L\romannumeral\theListDepth}{\empty}%
 }{%
@@ -1219,10 +1217,10 @@
   \endPDFSpezialTextObj%
   \PDFSpezialTextObj{LBody}%
   \EveryparConfig{LBody}{false}%
-  %\PDFMarkContent{LBody}% wird über everypar erledigt
+  %\PDFMarkContent{LBody}% wird ï¿½ber everypar erledigt
 }%
 
-\newcommand{\closeItem}{% Altes Item abschließen
+\newcommand{\closeItem}{% Altes Item abschlieï¿½en
   \endPDFMarkContent%
   \endPDFSpezialTextObj%{LBody}
   \endPDFStructObj%
@@ -1492,7 +1490,7 @@
     %\let\originalhyper@anchorend\hyper@anchorend%
     %\renewcommand{\hyper@anchorend}{\originalhyper@anchorend
     %\pdfliteral{/Span <</E (anchorend)>> BDC EMC}}%
-    % Einträge im TOC, LOF, LOT
+    % Eintrï¿½ge im TOC, LOF, LOT
     %\let\originalhyper@linkstart\hyper@linkstart%
     %\renewcommand{\hyper@linkstart}{%
     %    \begin{PDFInlineObjInText}{Reference}%
@@ -1502,7 +1500,7 @@
     %     \originalhyper@linkend%
     %    \end{PDFInlineObjInText}}%
     %\useacronym --> Kurzform, Glossarseitezahlen,
-    %Indexseitenzahlen, Glossareinträge, Hyperlink
+    %Indexseitenzahlen, Glossareintrï¿½ge, Hyperlink
     \let\originalhyperlink\hyperlink%
     \renewcommand*{\hyperlink}[2]{%
         \ifIndexItemActive\else\begin{PDFInlineObjInText}{Reference}\fi%
@@ -1524,9 +1522,9 @@
         \begin{PDFInlineObjInText}{Link}%
         \originalhyper@linkfile{#1}{#2}{#3}%
         \end{PDFInlineObjInText}}%
-    %Seitenzahlen in Index, anders da anschließend
-    %keine Texterkennung nötig.
-    %eigentlich über hyperlink möglich
+    %Seitenzahlen in Index, anders da anschlieï¿½end
+    %keine Texterkennung nï¿½tig.
+    %eigentlich ï¿½ber hyperlink mï¿½glich
     \let\originalhyperpage\hyperpage%
     \renewcommand{\hyperpage}[1]{%
         \EveryparConfig{Reference}{true}%
@@ -1616,7 +1614,7 @@
     \writeComplexTextObj{\thePDFFootnotemark}%
         {\theObjNum \space \thePDFFootnotetext \space 0 R}%
         {/Reference}{\theTextObjNum}{Page}%
-    \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}% 
+    \xdef\TextArray{\TextArray \theObjHelp\space 0 R \space}%
 }
 
 \newenvironment{PDFFootnoteText}{%
@@ -1632,14 +1630,14 @@
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\original@footnotemark\@footnotemark%
-  %Fußnotenreferenz im Text
+  %Fuï¿½notenreferenz im Text
   \renewcommand{\@footnotemark}{%
     \begin{PDFFootnoteReference}%
     \original@footnotemark%
     \end{PDFFootnoteReference}%
   }%
   \let\original@makefntext\@makefntext%
-  %Fußnotentext am Seitenende
+  %Fuï¿½notentext am Seitenende
   \renewcommand{\@makefntext}[1]{%
     \begin{PDFFootnoteText}%
     \original@makefntext{#1}%
@@ -1656,7 +1654,7 @@
     \begin{PDFFootnote}%
     \originalfootnote{#1}%
     \end{PDFFootnote}%
-  }% 
+  }%
 }{}
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1729,11 +1727,11 @@
     \ifthenelse{\equal{#1}{__empty__}}%
         {\originalbibitem{#2}}%
         {\originalbibitem[#1]{#2}}%
-    %\endPDFMarkContent% Zu früh, Text wird erst mit everypar gestetzt
+    %\endPDFMarkContent% Zu frï¿½h, Text wird erst mit everypar gestetzt
     \endPDFSpezialTextObj%
     \PDFSpezialTextObj{LBody}%
     \EveryparConfig{LBody}{false}%
-   %\PDFMarkContent{LBody}% wird über everypar erledigt
+   %\PDFMarkContent{LBody}% wird ï¿½ber everypar erledigt
   }%
 }{}
 \newif\ifIndexItemActive \IndexItemActivefalse%
@@ -1822,7 +1820,7 @@
    %\hrule height1ex depth0pt width1ex
    %
    %hrulefill, hline cline, toprule, midrule, bottomrule, cmidrule? greifen auf hrule zu
-  %Klappt nicht immer mit Argumentübergabe
+  %Klappt nicht immer mit Argumentï¿½bergabe
   \let\originalhrule\hrule%
   \def\hrule#1#2{%
     \ifthenelse{\equal{#2}{\z@}}{}{\begin{PDFLayoutArtefakt}}%
@@ -1832,7 +1830,7 @@
 
 
   %vline (2), @arrayrule(2?) greift auf vrule zu
-  %Klappt nicht mit Argumentübergabe
+  %Klappt nicht mit Argumentï¿½bergabe
   %\let\originalvrule\vrule%
   %\def\vrule#1#2{%
   %  \begin{PDFLayoutArtefakt}%
@@ -1890,7 +1888,7 @@
     \endPDFSpezialTextObj%{Figure}%
     \global\numberingparstrue%
     }%
-  }{}% 
+  }{}%
 }{}
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1961,7 +1959,7 @@ by Adobe Reader 6.0.}%
 
 \newcommand{\recognizeLanguageChange}[1]{%
   \ifthenelse{\equal{#1}{\ActualLanguage}}{%
-     %keine Änderung zu vorher
+     %keine ï¿½nderung zu vorher
   }{%
      \gdef\ActualLanguage{#1}%
      \convertLanguageInCode{\languagename}}%
