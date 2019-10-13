@@ -228,7 +228,7 @@
 %
 %    \begin{macrocode}
 %<*package>
-\ProvidesPackage{accessibility}[2019/06/17 v. 2.0]
+\ProvidesPackage{accessibility}[2019/09/31 v. 2.0.2]
 \NeedsTeXFormat{LaTeX2e}
 %    \end{macrocode}
 
@@ -2216,8 +2216,7 @@
   \let\originalendeqnarray\endeqnarray%
   \renewenvironment{eqnarray}%
    {%\def&{\originalamp}%  --> das bringt den Fehler inaccessibile
-    \PackageWarning{accessibilty}{Die eqnarray-Umgebung sollte nicht mehr %
-        verwendet werden, sie gilt als veraltet. (vgl. Autorenanleitung).}%
+    \PackageWarning{accessibilty}{The `eqnarray` environment should not be used anymore. It is deprecated.}%
      \PDFSpezialTextObj{Formula}%
      \EveryparConfig{Formula}{false}\originaleqnarray}%
    {\endPDFMarkContent\originalendeqnarray\endPDFSpezialTextObj}%
@@ -3365,7 +3364,7 @@
 	% Korean (/Lang{KO}).
   \ifthenelse{\equal{\LanguageCode}{}}{%
 	% comparing \languagename is tricky. See babel package documentation for more information
-	\PackageWarning{accessibility}{Die chosen language (#1) is not supported %
+	\PackageWarning{accessibility}{The chosen language (#1) is not supported %
 		by Adobe Reader 6.0.}%
 }{}%
 }
