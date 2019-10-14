@@ -2,15 +2,15 @@
 
 
 %======================================================================
-%	Erkennen des Bearbeitungsmodus für weitere Paketoptionen
+%	Erkennen des Bearbeitungsmodus fï¿½r weitere Paketoptionen
 %======================================================================
 \RequirePackage{ifthen}
 
-\newif\ifhtm 
+\newif\ifhtm
 \ifx \HCode\undefined \htmfalse \else	\htmtrue \fi
 
 \newif\ifpdf
-\ifx \pdfoutput\undefined 
+\ifx \pdfoutput\undefined
 	\pdffalse 		%latex in DVI mode
 \else
 	\ifthenelse{\number\pdfoutput<1}%
@@ -19,7 +19,7 @@
 \fi
 
 %======================================================================
-%		PDF <=> DVI <=> XHTML 
+%		PDF <=> DVI <=> XHTML
 %======================================================================
 \ifhtm%
 		% Bearbeitung mit tex4ht
@@ -29,15 +29,16 @@
 		\newcommand{\lineheight}{12pt}%
 \else%
 	\ifpdf%
-		%Bearbeitung mit pdftex im PDF-Modus	
+		%Bearbeitung mit pdftex im PDF-Modus
 		\usepackage[pdftex]{graphicx}%
 		\usepackage[pdftex]{hyperref}%
 		\pdfcompresslevel=0%						Damit wird die PDF-Quelldatei lesbar
 		\pdfoptionpdfminorversion=6%		Bestimmt die PDF - Version der Ausgabe
-	%\pdfadjustspacing=0%							0, 1 oder 2 Änderung nicht erkannt
-			\AtBeginDocument{\usepackage[untagged, highstructure]{accessibility}}	% Makros in accessibility.sty 
+	%\pdfadjustspacing=0%							0, 1 oder 2 ï¿½nderung nicht erkannt
+		\newcommand{\lineheight}{12pt}%
+		\AtBeginDocument{\usepackage[untagged, highstructure]{accessibility}}	% Makros in accessibility.sty
 	\else%
-		%Bearbeitung mit latex oder pdftex im DVI-Modus	
+		%Bearbeitung mit latex oder pdftex im DVI-Modus
 		\usepackage{graphicx}%
 		\usepackage{hyperref}%
 		\newcommand{\alt}[1]{}%

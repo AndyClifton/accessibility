@@ -5,22 +5,22 @@
 %% The original source files were:
 %%
 %% accessibility.dtx  (with options: `package')
-%%
+%% 
 %% This is a generated file.
-%%
+%% 
 %% Copyright 2007 Babett Schalitz
 %% Copyright 2019 Andrew Clifton
-%%
+%% 
 %% This material is subject to the LaTeX Project Public License. See
 %% http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
 %% for the details of that license.
-%%
+%% 
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
-%%
+%% 
 %% This package is accessibility version 2.0.0. Backward compatibility with prior
 %% versions is not assured.
-%%
+%% 
 \iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% accessibility.sty
@@ -35,7 +35,7 @@
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
 %%
-%% This is accessibility version 2.0.0 Backward compatability with prior
+%% This is accessibility version 2.0.0 Backward compatibility with prior
 %% versions is not assured.
 %% Release: englishdocs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,7 +59,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \fi
 
-\ProvidesPackage{accessibility}[2019/09/31 v. 2.0.2]
+\ProvidesPackage{accessibility}[2019/10/31 v. 2.0.2]
 \NeedsTeXFormat{LaTeX2e}
 
 \RequirePackage{xkeyval}
@@ -1875,6 +1875,7 @@
     \endPDFStructObj%
   }%
 }{}%
+
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifpackageloaded{graphicx}{%
     \let\originalincludegraphics\includegraphics%

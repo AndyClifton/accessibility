@@ -1,20 +1,24 @@
 #!/bin/bash
 #
 # this file based on https://github.com/gi-ev/LNI/blob/master/prepare_for_CTAN
-*
+#
 # Use this file (on a unix system) to generate the zip archive for CTAN
 # ctanify is part of TeX Live and MiKTeX distributions
 # Please note, that you need at least version 1.9 to add the symbolic link correctly.
 #
-echo "Make sure we have the latest version"
-pdflatex accessibility.dtx
-echo "Make sure all links in accessibility.pdf are correct"
-pdflatex accessibility.dtx
+
+echo "generate the package from the .dtx file"
+latex accessibility.ins
+echo "generate the documentation"
+pdflatex main.tex
+bibtex main
+pdflatex main.tex
+pdflatex main.tex
 if [ -f accessibility.tar.gz ]; then
    echo "Remove old archive"
    rm accessibility.tar.gz
 fi
 dos2unix *.md
 rm -f accessibility-instructions.pdf
-ln -s -f accessibility.pdf accessibility-instructions.pdf
-ctanify --no-tds accessibility.ins accessibility.pdf README.md CHANGELOG.md CONTRIBUTING.md "accessibility-instructions.pdf=doc/latex/accessibility" "../../../samples/KOMAscript/*.tex=doc/latex/accessibility" "../../../samples/KOMAscript/*.bib=doc/latex/accessibility" "../../../samples/KOMAscript/images.*=doc/latex/accessibility/images" 
+ln -s -f main.pdf accessibility-instructions.pdf
+ctanify --no-tds accessibility.ins accessibility-instructions.pdf README.md CHANGELOG.md "accessibility-instructions.pdf=doc/latex/accessibility" "../../../samples/KOMAscript/*.tex=doc/latex/accessibility" "../../../samples/KOMAscript/*.bib=doc/latex/accessibility" "../../../samples/KOMAscript/images.*=doc/latex/accessibility/images"
