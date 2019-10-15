@@ -16,7 +16,7 @@ before_script:
   - cd $TRAVIS_BUILD_DIR/samples/article/
 script:
   - texliveonfly --compiler=pdflatex ./article_release.tex
-  - texliveonfly --compiler=bibtex ./article_release
+  - bibtex ./article_release
   - texliveonfly --compiler=pdflatex ./article_release.tex
   - texliveonfly --compiler=pdflatex ./article_release.tex
 notifications:

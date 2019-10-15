@@ -4,9 +4,11 @@
 
 Authors: Babett Schalitz, Andrew (Andy) Clifton
 
-This repository contains the `accessibility` LaTeX package.
+This repository contains the files required to build and test the `accessibility` LaTeX package.
 
 `Accessibility` improves the structure and tagging of PDF files generated from LaTeX. These features make PDF documents machine readable and thus enable document readers (e.g. the Adobe Acrobat series) to automatically process and present the document.
+
+You can obtain the `accessibility` package [through CTAN](https://ctan.org/pkg/accessibility).
 
 ## History
 
@@ -14,13 +16,12 @@ The package was originally created as part of a diploma thesis by Babett Schalit
 
 Andy Clifton took on maintenance of the package in May 2019 with permission and support from Babett Schalitz, including copies of the original files from 2007. Those files can be found at https://github.com/AndyClifton/accessibility/releases/tag/v0.2-beta
 
-## Installation
-This repository contains all of the files required to build and test the accessibility.sty file. **It is not intended to be used directly.**
+## What's in this repository
+This repository contains all of the files required to build and test the accessibility.sty file. **It is not intended to be used directly in LaTeX.**
 
-You are strongly recommended to obtain the `accessibility` package from CTAN. That file has all of the files that you might require to install accessibility on your system.
+You are strongly recommended to obtain the `accessibility` package [from CTAN](https://ctan.org/pkg/accessibility). That distribution has all of the files that you might require to install accessibility on your system.
 
 If you really want to download the `accessibility` package from here, make sure that you use the current release from https://github.com/AndyClifton/accessibility/releases.
-
 
 ## Licence
 

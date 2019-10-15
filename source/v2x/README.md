@@ -10,7 +10,7 @@ Version 2.0.2
 
 The `accessibility` package  is intended to create tagged, structured PDF documents from LaTeX2e source code.
 
-This package is predominantly targeted at documents produced using the KOMAscript document classes.
+This package is intended for documents produced using PDFLaTeX.
 
 Originally programmed in 2007 by Babett Schalitz as a Masters project at
 TU Dresden, the maintenance of the accessibility package has been taken up
