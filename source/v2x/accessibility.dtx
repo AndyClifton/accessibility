@@ -13,9 +13,8 @@
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
 %%
-%% This is accessibility version 2.0.0 Backward compatibility with prior
+%% This is accessibility version 2.0.2 Backward compatibility with prior
 %% versions is not assured.
-%% Release: englishdocs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
 %% \CharacterTable
@@ -228,7 +227,7 @@
 %
 %    \begin{macrocode}
 %<*package>
-\ProvidesPackage{accessibility}[2019/10/31 v. 2.0.2]
+\ProvidesPackage{accessibility}[2019/10/14 v. 2.0.2]
 \NeedsTeXFormat{LaTeX2e}
 %    \end{macrocode}
 
@@ -361,7 +360,7 @@
 %    \begin{macrocode}
 \pdfcompresslevel=0% Damit wird die PDF-Quelldatei lesbar
 \pdfoptionpdfminorversion=6% Bestimmt die PDF - Version der Ausgabe
- %\pdfadjustspacing=0% 0, 1 oder 2 �nderung nicht erkannt
+%\pdfadjustspacing=0% 0, 1 oder 2 �nderung nicht erkannt
 %    \end{macrocode}
 
 %\subsection{Definition der neuen Befehle}
@@ -506,7 +505,7 @@
     \immediate \pdfobj useobjnum\number\Objnum{<</Type /StructElem %
         /P \ParentElem\space 0 R %
         \TitleHelp %
-        %/C /Normal %
+        /C /Normal %
         \space\LanguageCode %
         /K [\csname \KidsArray\endcsname] %
         /S /\StructElem>>}%
@@ -630,7 +629,7 @@
   %\convertLanguageInCode{\languagename}%
   \immediate \pdfobj useobjnum\theTextObjNum{<</Type /StructElem %
      /P \ParentElem \space 0 R %
-     %/C /Normal %
+     /C /Normal %
      /K [\TextArray] %
      /S /\TextType %
     \space\LanguageCode>>}%
@@ -691,7 +690,7 @@
   \fi%
   \immediate \pdfobj useobjnum\theTextObjNum{<</Type /StructElem %
      /P \ParentElem \space 0 R %
-     %/C /Normal %
+     /C /Normal %
      /K [\TextArray] %
      /S /\TextType %
     \space\LanguageCode %
@@ -871,11 +870,7 @@
   }%
   \immediate \pdfobj {<</Type /StructElem %
     /P \theTextObjNum \space 0 R %
-<<<<<<< HEAD
-    % /C /Normal %
-=======
-    %/C /Normal %
->>>>>>> samples-updates
+    /C /Normal %
     /K <</Type /MCR %
          /Pg \pdfpageref\thepage \space \space 0 R %
          /MCID #1>> %
@@ -906,13 +901,13 @@
     \immediate \pdfobj useobjnum#1{<</Type /StructElem %
       /P #4\space 0 R %
       /Pg \pdfpageref\thepage \space \space 0 R %
-      %/C /Normal %
+      /C /Normal %
       /K [#2] %
       /S #3 \space\LanguageCode>>}%
     }{%keine Seitenreferenz angeben
     \immediate \pdfobj useobjnum#1{<</Type /StructElem %
       /P #4\space 0 R %
-      %/C /Normal %
+      /C /Normal %
       /K [#2] %
       /S #3>>}%
   }%
@@ -2289,12 +2284,16 @@
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\original@@makecaption\@makecaption%
-  \renewcommand{\@makecaption}[3]{%
+ %  \renewcommand{\@makecaption}[3]{%
+  \renewcommand{\@makecaption}[2]{%
     \global\numberingparsfalse%
     \PDFSpezialTextObj{Caption}%
     \EveryparConfig{Caption}{false}%
     \PDFMarkContent%
-        \original@@makecaption{#1}{#2}{#3}%
+      \PackageWarning{accessibility}{begin makecaption}%
+%        \original@@makecaption{#1}{#2}{#3}%
+      \original@@makecaption{#1}{#2}%{#3}%
+      \PackageWarning{accessibility}{end makecaption}%
     \endPDFMarkContent%
     \endPDFSpezialTextObj%{Caption}%
     \global\numberingparstrue%

@@ -1,6 +1,10 @@
 ## System files
 .DS_Store
 
+## Test files
+/samples_old
+*_old.*
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

@@ -1,3 +1,9 @@
+%% NOTE THAT THIS REQUIRES PDFLATEX COMPILATION %%
+%% Andy Clifton, 22 Jun 2019 %%
+
+% !BIB TS-program = biber
+
+
 \documentclass[%
 	12pt,%11pt, 10pt%
 	a4paper,%a5paper, letterpaper, legalpaper, executivepaper
@@ -6,17 +12,20 @@
 %	onecolumn,%twocolumn,%
 % openany, openright,%
 % cleardoublestandard,% cleardoubleplain, %cleardoubleempty
-% notitlepage,%titlepage,%	
- liststotoc, idxtotoc, bibtotoc, %bibtotocnumbered, liststotocnumbered
+% notitlepage,%titlepage,%
+	listof=totoc,
+ %liststotoc, idxtotoc, bibtotoc, %bibtotocnumbered, liststotocnumbered
+ 	index=totoc,
+	bibliography = totoc,
 % tocindent,% tocleft,%
 % listsindent,% listsleft%
-	halfparskip,% parindent, parskip, parskip*, parskip+, parskip, halfparskip*, halfparskip+, halfparskip,
-	nochapterprefix,%chapterprefix,%
+	parskip = half,% parindent, parskip, parskip*, parskip+, parskip, halfparskip*, halfparskip+, halfparskip,
+	chapterprefix=false,%chapterprefix,%
 	appendixprefix, %noappendixprefix,%
 %	headsepline,headnosepline%
 %	footsepline,footnosepline%
-% bigheadings, normalheadings, 
-smallheadings,%
+% bigheadings, normalheadings,
+%	headings=small,%
 %%Formatierungsparameter
 %	abstractoff,% abstracton%
 % pointednumbers,% pointlessnumbers%
@@ -29,17 +38,21 @@ smallheadings,%
 %]{scrbook}
 %]{scrartcl}
 %]{scrlttr2}
-%
 %]{article}
 %]{report}
 %]{letter}
 %]{book}
 %]{slides}
 
-\usepackage{bibgerm}					% deutsche Bibliography
-\usepackage[ngerman]{babel}		% Sprachen
-\usepackage[latin1]{inputenc} % Eingabe von ü,ö,ä,ß erlaubt 
+\usepackage[english,german]{babel} 		% deutsche Bibliography
+
+%\usepackage[style=alphabetic]{biblatex}
+%\DeclareNameAlias{default}{family-given}
+%\addbibresource{Literatur.bib}
+
+\usepackage[utf8]{inputenc} % Eingabe von ü,ö,ä,ß erlaubt
 \usepackage[T1]{fontenc}			% Umlauten koennen richtig getrennt werden
+\usepackage{csquotes}
 
 \usepackage{lmodern}
 
@@ -91,7 +104,7 @@ smallheadings,%
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
 %\addtolength{\headheight}{\baselineskip}
-	
+
 %\fancyhf{}   % löscht alle Felder
 %
 %\fancyhead[RO]{\nouppercase{\sffamily{\rightmark}}}%Kopfzeile rechts bzw. außen
@@ -104,10 +117,10 @@ smallheadings,%
 %%extra Formatierungen der Kopf- und Fußzeilen für Kapitelseiten
 %\fancypagestyle{plain}{
 %	\fancyhf{}   % löscht alle Felder
-%	
+%
 %	\fancyhead[LE,RO]{\nouppercase{\sffamily{\leftmark}}}%Kopfzeile rechts bzw. außen
 %	\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
-% 	
+%
 %	\fancyfoot[CO,CE]{\color{sun1}\sffamily{\thepage}}					%Fußzeile rechts bzw. außen
 %	\renewcommand{\footrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}} %gepunktete Linie
 %}
@@ -117,11 +130,11 @@ smallheadings,%
 %======================================================================
 \RequirePackage{ifthen}
 
-\newif\ifhtm 
+\newif\ifhtm
 \ifx \HCode\undefined \htmfalse \else	\htmtrue \fi
 
 \newif\ifpdf
-\ifx \pdfoutput\undefined 
+\ifx \pdfoutput\undefined
 	\pdffalse 		%latex in DVI mode
 \else
 	\ifthenelse{\number\pdfoutput<1}%
@@ -130,29 +143,21 @@ smallheadings,%
 \fi
 
 %======================================================================
-%		PDF <=> DVI <=> XHTML 
+%		PDF <=> XHTML
 %======================================================================
 \ifhtm%
 		% Bearbeitung mit tex4ht
 		\usepackage{graphicx}%
 		\usepackage[tex4ht]{hyperref}%
 \else%
-	\ifpdf%
-		%Bearbeitung mit pdftex im PDF-Modus	
-		\usepackage[pdftex]{graphicx}%
-		\usepackage[pdftex]{hyperref}%
+		%Bearbeitung mit pdftex im PDF-Modus
+		\usepackage{graphicx}%
+		\usepackage{hyperref}%
 		\pdfcompresslevel=0%						Damit wird die PDF-Quelldatei lesbar
 		\pdfoptionpdfminorversion=6%		Bestimmt die PDF - Version der Ausgabe
 	%\pdfadjustspacing=0%							0, 1 oder 2 Änderung nicht erkannt
-%		\AtBeginDocument{\usepackage[tagged, flatstructure]{accessibility}}	% Makros in accessibility.sty 
-		\AtBeginDocument{\usepackage[tagged, highstructure]{accessibility}}	% Makros in accessibility.sty 
-	\else%
-		%Bearbeitung mit latex oder pdftex im DVI-Modus	
-		\usepackage{graphicx}%
-		\usepackage{hyperref}%
-		\newcommand{\alt}[1]{}%
-		\newcommand{\thead}[1]{\textbf{#1}}
-	\fi%
+		\AtBeginDocument{\usepackage[tagged, flatstructure]{accessibility}}	% Makros in accessibility.sty
+%		\AtBeginDocument{\usepackage[tagged, highstructure]{accessibility}}	% Makros in accessibility.sty
 \fi%
 
 % Einstellungen des Hyperref-Paketes
@@ -177,21 +182,20 @@ smallheadings,%
 	plainpages = true,%
 	}%
 %}
-%\usepackage[hyper=true, style=altlist, toc=true]{glossary}
-%\usepackage{glossary}
+
 \usepackage{glossaries}
 
 %======================================================================
 %\makeindex
-\makeglossary
+\makeglossaries
 %%makeindex -s minimaldokument.ist -t minimaldokument.glg -o minimaldokument.gls minimaldokument.glo
 %======================================================================
-\begin{document}
-
 \title{Accessibility-Erhöhung in \LaTeX-Dokumenten}
 \author{Babett Schalitz}
 \date{\today}
 %
+\begin{document}
+
 \maketitle
 
 \tableofcontents
@@ -202,12 +206,12 @@ smallheadings,%
 \chapter{Formeltest}
 \label{sec:Formeltest}
 
-Ein kleines Bächlein namens \emph{Duden} fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien.
+Ein kleines B\"achlein namens \emph{Duden} fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien.
 %\end{document}
 
 \[ \alt{m = int^{1}_{x=0}{frac{x + 3 Pi}{sqrt{Phi}}} dx} m = \int^{1}_{x=0}{\frac{x + 3 \Pi}{\sqrt{\Phi}}} dx \]
 
-Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. 
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen.
 
 \begin{displaymath}
 \alt{y=x^{2} y'=2x y''=2}
@@ -218,7 +222,7 @@ y''=2
 
 Seien \(\alt{a}a\) und \(\alt{b}b\) die Katheten und \(\alt{c}c\) die Hypotenuse, dann gilt \(\alt{c^{2}=a^{2}+b^{2}} c^{2}=a^{2}+b^{2}\) (Satz des Pythagoras).
 
-Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. 
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren.
 
 \begin{eqnarray}
 \alt{f(x) = cos x  f'(x) = -sin x   int_{0}^{x} f(y),mathrm{d}y = sin x}
@@ -230,7 +234,7 @@ f'(x) & = & -\sin x \\
 
 Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 
-%Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. 
+%Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse.
 %======================================================================================================
 \chapter{Aufzählumgebungen}
 \label{sec:Aufzaehlumgebung}
@@ -261,11 +265,11 @@ Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} 
 	\item dritter Punkt
 \end{itemize}
 
-Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. 
+Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben.
 
 \begin{description}
 	\item[Begrif\/f 1] erster Punkt
-	\item[Begrif\/f 2] zweiter Punkt 
+	\item[Begrif\/f 2] zweiter Punkt
 \end{description}
 
 Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
@@ -279,7 +283,7 @@ Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilde
 
 Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
 
-Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden 	Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
 
 Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
 
@@ -297,7 +301,7 @@ Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilde
 Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste\footnote{Landschaft am Meer}
 des Semantik, eines großen \textsl{Sprachozeans}. %Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
 
-\begin{figure}[htbp] 
+\begin{figure}[htbp]
 		\centering
 		\alt{Ich bin das Logo der Technischen Universität Dresden}
 		\includegraphics[scale=0.50]{images/tu_logo}%MCID 8
@@ -315,7 +319,7 @@ Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in 
 	\label{fig:minitulogo}
 \end{figure}
 
-Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 
 \begin{figure}[htbp]
 		\centering
@@ -355,11 +359,13 @@ Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschr
 Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste\footnote{Landschaft am Meer}
 des Semantik, eines großen \textsl{Sprachozeans}. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
 
-Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion\footnote{Zeichensetzung im Satz} werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. 
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion\footnote{Zeichensetzung im Satz} we. rden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
 
 Was er mit den erbeuteten Knochen zu tun hatte, wußte der kleine Hund aus einem Buch, dass er in der Stadtbücherei
-gelesen hatte: "`\emph{Mein Kochen und ich}"' \cite{ansorge:1999}. Dieses stand dort direkt neben seinem Lieblingsbuch
-"`\emph{Von Hund zu Hund}"' \cite{balzert:SWT1} im Bücherregal der Hundeliteratur.
+gelesen hatte: "`\emph{Mein Kochen und ich}"' \cite{ansorge_1999}. Dieses stand dort direkt neben seinem Lieblingsbuch
+"`\emph{Von Hund zu Hund}"' \cite{balzert_SWT1} im Bücherregal der Hundeliteratur.
+
+\end{document}
 
 %======================================================================================================
 \chapter{Gliederungsebenen}
@@ -369,7 +375,7 @@ Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} 
 
 \section{Überschrift}
 
-Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. 
+Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}.
 
 \subsection{Unterüberschrift}
 
@@ -377,7 +383,7 @@ Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit 
 
 \subsubsection{Unter-Unterabschnitt}
 
-Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. 
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben.
 
 \paragraph{Ein Absatz}
 Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse.
@@ -389,11 +395,11 @@ Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lo
 \chapter{Gliederungsebenen2}
 \label{sec:Gliederung2}
 
-Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. 
+Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren.
 
 \section{Überschrift}
 
-Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 
 %\paragraph{Ein Absatz}
 %Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrAls es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner ig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
@@ -405,7 +411,7 @@ Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und mac
 %Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte.
 
 \section{Überschrift}
-Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immer noch. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. 
+Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immer noch. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen.
 
 \subsection{Überschrift}
 Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
@@ -423,7 +429,7 @@ Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} 
 
 \section*{Überschrift}
 
-Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}. 
+Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen \textsl{Sprachozeans}.
 
 \subsection*{Unterüberschrift}
 
@@ -431,7 +437,7 @@ Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit 
 
 \subsubsection*{Unter-Unterabschnitt}
 
-Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. 
+Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben.
 
 \paragraph*{Ein Absatz}
 Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse.
@@ -443,11 +449,11 @@ Eines Tages aber beschloss eine \textsc{kleine} Zeile Blindtext, ihr Name war Lo
 \chapter*{Gliederungsebenen stared 2}
 \label{sec:Gliederung4}
 
-Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. 
+Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren.
 
 \section*{Überschrift}
 
-Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 
 %\paragraph*{Ein Absatz}
 %Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrAls es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner ig wäre, sei das Wort "`und"'  und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
@@ -459,7 +465,7 @@ Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und mac
 %Weit hinten, hinter den \textbf{Wortbergen}, fern der Länder \textit{Vokalien} und Konsonantien leben die Blindtexte.
 
 \section*{Überschrift}
-Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immer noch. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. 
+Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immer noch. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen.
 
 \subsection*{Überschrift}
 Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
@@ -505,7 +511,7 @@ Es ist ein paradiesmatisches Land, in dem einem \texttt{gebratene} Satzteile in 
 \end{table}
 
 
-Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 
 %Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
 
@@ -546,7 +552,7 @@ Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilde
 %\end{table}
 %
 %
-%Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+%Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 %
 %%Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
 %
@@ -559,25 +565,25 @@ Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilde
 %Weit hinten, hinter den \index{Wortbergen}, fern der Länder \index{Vokalien} und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste\footnote{Landschaft am Meer}
 %des Semantik, eines großen \index{Sprachozeans}. Ein \index{kleine!Bächlein} kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien (siehe \ref{sec:Tabellen} S. \pageref{sec:Tabellen}).
 %
-%\glossary{name={Software-Ergonomie}, 
+%\glossary{name={Software-Ergonomie},
 %	description={Software-Ergonomie als interdisziplinäres Forschungsgebiet vermittelt Erkenntnisse, Methoden und Vorgehensweisen zur Herstellung menschen- und aufgabengerechter Software.},}
 %
 %
-%\glossary{name={Standard}, 
+%\glossary{name={Standard},
 %description={Ein Standard soll auf den konsolidierten Ergebnissen der Wissenschaft, Technologie und Erfahrungen basieren, mit dem Ziel ein Optimum an gesellschaftlichen Nutzen zu fördern.},}
 %
-%\glossary{name={Qualität}, 
-%					description={Die Gesamtheit der Merkmale eines Produktes oder einer Dienstleistung, die sich auf deren Eignung beziehen, festgelegte oder vorausgesetzte Erfordernisse zu erfüllen.},}			
+%\glossary{name={Qualität},
+%					description={Die Gesamtheit der Merkmale eines Produktes oder einer Dienstleistung, die sich auf deren Eignung beziehen, festgelegte oder vorausgesetzte Erfordernisse zu erfüllen.},}
 %
 %
-%\glossary{name={Software}, 
-%					description={Software ist eine Sammelbezeichnung für Programme, die für den Betrieb von Rechnersystemen zur Verfügung stehen, einschließlich der zugehörigen Dokumentation.},}			
-%					
+%\glossary{name={Software},
+%					description={Software ist eine Sammelbezeichnung für Programme, die für den Betrieb von Rechnersystemen zur Verfügung stehen, einschließlich der zugehörigen Dokumentation.},}
+%
 %\newacronym{BGG}{Behindertengleichstellungsgesetz}{name=bgg, description=test}
 %
 %Es ist ein paradiesmatisches Land, in dem einem \index{gebratene} Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion\footnote{Zeichensetzung im Satz} werden die Blindtexte beherrscht - ein geradezu unorthographisches Leben. Eines Tages aber beschloss eine \index{kleine!Zeile}kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik.
 %
-%Der große \xglossary{name=testeintrag, description=die Beschreibung}{eintrag} Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. 
+%Der große \xglossary{name=testeintrag, description=die Beschreibung}{eintrag} Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
 %
 %Als es die ersten Hügel\index{kleine!Hügel!doof} des Kursivgebirges erklommen \index{kleine!Hügel!schlau} hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner \useacronym{BGG} eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen \useacronym{BGG} Weg fort.
 %
@@ -640,15 +646,16 @@ Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund 
 %%\section{hh31}
 %%\section{hh32}
 %===========================Index===============================================================
-%\renewcommand{\glossaryname}{Glossar}
-%\printglossary
+\renewcommand{\glossaryname}{Glossar}
+\printglossaries
 %\printindex
 %===========================Literaturverzeichnis================================================
 %\renewcommand{\bibname}{Literaturverzeichnis} % Literaturverzeichnis wird zu Literatur
-\bibliographystyle{geralpha}
+\bibliographystyle{plaindin}
 %\setbibpreamble{Die Literaturangaben sind alphabetisch nach den Namen der Autoren sortiert. Bei mehreren Autoren wird
 %nach dem ersten Autor sortiert.\par\bigskip} %TODO wird noch nicht getagged
 \bibliography{Literatur}	% Literaturverzeichnis
+%\printbibliography
 
 %\begin{thebibliography}{999}
 %\bibitem{bjarne} Bjarne Friedjof Blue: "`Mein Knochen und ich - wie ich meinen Schatz vergrub"'

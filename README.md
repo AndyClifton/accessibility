@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AndyClifton/accessibility.svg?branch=master)](https://travis-ci.org/AndyClifton/accessibility)
+
 # The `Accessibility` LaTeX package
 
 Authors: Babett Schalitz, Andrew (Andy) Clifton
