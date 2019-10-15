@@ -14,25 +14,31 @@ if ! command -v pdflatex > /dev/null; then
   ./install-tl --profile=../texlive/texlive.profile
   cd ..
 fi
-# set the repo
-tlmgr option repository ctan
-# run an update
-tlmgr update --all
-# Install the cmap packages
-tlmgr install cmap
-# Install package to install packages automatically
-tlmgr install texliveonfly
-# Install babel languages manually, texliveonfly does't understand the babel error message
-tlmgr install collection-langeuropean
-# Common fonts with hard to debug errors if not found
-#tlmgr install collection-fontsrecommended
-# In the case you have to install packages manually, you can use an index of packages like
-# http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/archive/
-# Or better, check https://www.ctan.org/pkg/some-package to see in which TeX Live package it is contained.
-# Then you can add one package per line in the texlive_packages file
+
 # We need to change the working directory before including a file
 cd "$(dirname "${BASH_SOURCE[0]}")"
+
+# set the repo
+tlmgr option repository ctan
+
+# run an update
+tlmgr update --all
+
+# install fonts
+tlmgr install collection-fontsrecommended
+# Install the cmap packages
+tlmgr install cmap
+
+# Install babel languages manually, texliveonfly does't understand the babel error message
+tlmgr install collection-langenglish
+tlmgr install collection-langeuropean
+
+# Install package to install packages automatically
+tlmgr install texliveonfly
+
+# install the list of packages
 tlmgr install $(cat texlive_packages)
+
 # Keep no backups (not required, simply makes cache bigger)
 tlmgr option -- autobackup 0
 # Update the TL install but add nothing new
