@@ -11,8 +11,11 @@ cache:
   directories:
     - /tmp/texlive
     - $HOME/.texlive
-# Change working directory so including files will work
-before_script: cd $TRAVIS_BUILD_DIR/samples/article/
+before_script:
+  # copy style file
+  - cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty ${TEXMFLOCAL}/tex/latex/accessibility
+  # Change working directory so including files will work
+  - cd $TRAVIS_BUILD_DIR/samples/article/
 script:
   - texliveonfly --compiler=pdflatex ./article_release.tex
   - texliveonfly --compiler=bibtex ./article_release
