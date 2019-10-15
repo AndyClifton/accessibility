@@ -16,9 +16,11 @@ if ! command -v pdflatex > /dev/null; then
 fi
 
 # install accessibility
-export TEXMFHOME="~/texmf"
+export TEXMFHOME > "$(kpsewhich -var-value=TEXMFHOME)"
+
 mkdir $TEXMFHOME/tex/latex/accessibility
 cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty $TEXMFHOME/tex/latex/accessibility/accessibility.sty
+texhash $TEXMFHOME
 
 # We need to change the working directory before including a file
 cd "$(dirname "${BASH_SOURCE[0]}")"
