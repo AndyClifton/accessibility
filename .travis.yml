@@ -1,8 +1,11 @@
 sudo: required
 dist: trusty
+language: bash
+
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
-before_script:
-- cd samples/article
+- sudo apt-get -qq update
+- ./tlsetup.sh
+
 script:
+- cd samples/article
 - pdflatex -interaction=nonstopmode -halt-on-error *.tex
