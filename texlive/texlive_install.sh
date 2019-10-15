@@ -15,6 +15,10 @@ if ! command -v pdflatex > /dev/null; then
   cd ..
 fi
 
+# install accessibility
+mkdir ${TEXMFHOME}/tex/latex/accessibility
+cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty ${TEXMFHOME}/tex/latex/accessibility/accessibility.sty
+
 # We need to change the working directory before including a file
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
