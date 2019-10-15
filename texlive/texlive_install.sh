@@ -16,9 +16,7 @@ if ! command -v pdflatex > /dev/null; then
 fi
 
 # install accessibility
-kpsewhich -var-value=TEXMFHOME
-export TEXMFHOME > "$(kpsewhich -var-value=TEXMFHOME)"
-
+export TEXMFHOME=/home/travis/texmf
 mkdir -p $TEXMFHOME/tex/latex/accessibility
 cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty $TEXMFHOME/tex/latex/accessibility/accessibility.sty
 texhash $TEXMFHOME
