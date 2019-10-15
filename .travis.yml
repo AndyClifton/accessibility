@@ -1,11 +1,19 @@
-sudo: required
-dist: trusty
-language: bash
+# Travis YAML based on idea at
+# https://therenegadecoder.com/code/how-to-build-latex-with-travis-ci-and-minted/
 
+language: generic
+# Dependency of the minted package
 before_install:
-- sudo apt-get -qq update
-- ./tlsetup.sh
-
+  - sudo apt-get install python-pygments
+install:
+  - source ./texlive/texlive_install.sh
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
+# Change working directory so including files will work
+before_script: cd $TRAVIS_BUILD_DIR/samples/article/
 script:
-- cd samples/article
-- pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - pdflatex --shell-escape ./article_release.tex
+notifications:
+  email: false
