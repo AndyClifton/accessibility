@@ -5,7 +5,7 @@
 # required
 # See if there is a cached version of TL available
 export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-if ! command -v texlua > /dev/null; then
+if ! command -v pdflatex > /dev/null; then
   # Obtain TeX Live
   wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
   tar -xzf install-tl-unx.tar.gz
@@ -14,8 +14,8 @@ if ! command -v texlua > /dev/null; then
   ./install-tl --profile=../texlive/texlive.profile
   cd ..
 fi
-# Just including texlua so the cache check above works
-tlmgr install luatex
+# Just including pdflatex so the cache check above works
+tlmgr install pdflatex
 # Install package to install packages automatically
 tlmgr install texliveonfly
 # Install babel languages manually, texliveonfly does't understand the babel error message
