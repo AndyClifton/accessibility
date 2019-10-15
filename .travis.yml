@@ -13,7 +13,8 @@ cache:
     - $HOME/.texlive
 before_script:
   # copy style file
-  - cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty ${TEXMFLOCAL}/tex/latex/accessibility
+  - kpsewhich --var-value TEXMFHOME
+  - cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty ${TEXMFHOME}/tex/latex/accessibility
   # Change working directory so including files will work
   - cd $TRAVIS_BUILD_DIR/samples/article/
 script:
