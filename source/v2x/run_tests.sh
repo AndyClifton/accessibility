@@ -4,37 +4,38 @@
 
 echo "Running accessibility package tests..."
 echo "...saving last test results"
-cp -RP ../../samples ../../samples_old
-
+rm -rf ../../samples_old/
+cp -RP ../../samples ../../samples_old/
+#
 echo "...copying most recent accessibilty.sty to samples directories..."
 cp accessibility.sty ../../samples/KOMAscript/
 cp accessibility.sty ../../samples/article/
-
+#
 cd ../../samples
 echo "...compiling test documents"
 echo "-------------------"
-echo "...running KOMAscript examples"
-cd KOMAscript/
-# 1. Testdokument1.tex
-echo "...1. Testdokument1.tex"
-find Testdokument1.* -type f ! -name "Testdokument1.tex" -exec rm -f {} +
-pdflatex Testdokument1.tex
-bibtex Testdokument1.tex
-pdflatex Testdokument1.tex
-pdflatex Testdokument1.tex
-
-echo "...finished testing KOMAscript documents."
-cd ..
-
-echo "... running article examples"
-cd article/
-
-# 1. Testdokument1.tex
-echo "... 1. article1.tex"
-find article1.* -type f ! -name "article1.tex" -exec rm -f {} +
-pdflatex article1.tex
-bibtex article1.tex
-pdflatex article1.tex
-pdflatex article1.tex
-
-echo "... finished testing article documents."
+#
+# loop through directories in samples
+DIRECTORIES="article"
+for d in $DIRECTORIES
+do
+  cd $d
+  echo "...running $d examples"
+  FILES=*.tex
+  for f in $FILES
+  do
+    filename=$(basename -- "$f")
+    extension="${filename##*.}"
+    filename="${filename%.*}"
+    echo "...processing $filename ..."
+    find $filename.* -type f ! -name "$filename.tex" -exec rm -f {} +
+    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
+    bibtex $f
+    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
+    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
+    find $filename.* -type f ! -name "$filename.tex" ! -name "$filename.log" ! -name "$filename.pdf" -exec rm -f {} +
+    echo "...finished $filename ..."
+  done
+  echo "...finished testing $d documents."
+  cd ..
+done

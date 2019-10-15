@@ -1,0 +1,307 @@
+\documentclass[10pt,oneocolumn]{article}
+
+% -------------------------------------------------------------
+% Package Loading
+% -------------------------------------------------------------
+% NAG: check for outdated packages
+\usepackage[l2tabu, orthodox]{nag}
+
+% GEOMETRY: set page size
+\usepackage[head=0.125in,top=1.5in,bottom=1in,inner=1in,outer=1in]{geometry}
+
+% MATHPTMX Times for roman text and math (family ptm)
+\usepackage{mathptmx}
+
+% Helvetica for sans serif (family phv)
+\usepackage{helvet}
+
+% Courier for typewriter font (family pcr)
+\usepackage{courier}
+
+% ams math
+\usepackage{amsfonts,amssymb,amsmath}
+
+% gensymb. Required for degrees symbol
+\usepackage{textcomp}  % load before gensymb for \micro and \perthousand
+\usepackage{gensymb}
+
+% better tables
+\usepackage{booktabs}
+
+% graphics
+% can set the option 'final' to override 'draft' status
+\usepackage{graphicx}
+
+% For formatting the bibliography
+\usepackage[sort]{natbib}
+
+% use fonts of type T1
+\usepackage[T1]{fontenc}
+
+\usepackage{cmap}
+
+% colours
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{prettyblue}{RGB}{0, 121, 193}
+
+% set languages
+\usepackage[english]{babel}
+    \addto{\captionsenglish}{\renewcommand{\bibname}{References}}
+    \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
+
+% To stop hyphenation in titles etc
+\usepackage{hyphenat}
+
+% spacing
+\usepackage{setspace}
+\usepackage{parskip}
+
+\usepackage{etoolbox}
+
+% code listings
+\usepackage{listings}
+
+\usepackage[newcommands,document]{ragged2e}
+
+% improved table of contents and list of figures/tables
+\usepackage{tocloft}
+
+% remove numbering on bibliography but still allow in TOC
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+
+\usepackage[format=plain,
+	labelformat=simple,
+	font={small,sf,bf},
+	labelfont={small,sf,bf},
+	textfont={small,sf,bf},
+	indention=0cm,
+	labelsep=period,
+	justification=centering,
+	singlelinecheck=true,
+	tableposition=top,
+	figureposition=bottom]{caption}
+\usepackage{subcaption}
+
+\usepackage[%
+	linktocpage,
+	colorlinks,
+	linktoc=all,
+	linkcolor=blue,
+	citecolor=blue,
+	menucolor=blue,
+	urlcolor=blue,
+	pdfborder={0 0 0}]{hyperref}
+
+% -------------------------------------------------------------
+% Set up listings
+% -------------------------------------------------------------
+\usepackage{listings}
+
+\lstset{language=[LaTeX]TeX,	% the language of the code
+		basicstyle=\small\sffamily,
+		firstnumber =-2,
+		numbers=left,                   % where to put the line-numbers
+		numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+		stepnumber=1,                   % the step between two line-numbers. If it's 1, each line will be numbered
+		numbersep=5pt,                  % how far the line-numbers are from the code
+		backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+		showspaces=false,               % show spaces adding particular underscores
+		showstringspaces=false,         % underline spaces within strings
+		breaklines=true,                % sets automatic line breaking
+		breakatwhitespace=true,        % sets if automatic breaks should only happen at whitespace
+		keywordstyle=\color{blue},      % keyword style
+		commentstyle=\color{gray},   % comment style
+		stringstyle=\color{green},      % string literal style
+		}		            % if you want to add more keywords to the set
+
+% -------------------------------------------------------------
+% Tooltips
+% -------------------------------------------------------------
+
+% Enable tooltips
+\usepackage[linewidth = 1]{pdfcomment}
+
+% -------------------------------------------------------------
+% Tagging Loading
+% -------------------------------------------------------------
+\usepackage[tagged,highstructure]{accessibility}
+
+% new commands
+\newcommand{\fn}[1]{\emph{#1}}
+\newcommand{\packagename}[1]{\textbf{\emph{#1}}}
+\newcommand{\envname}[1]{\textbf{\texttt{#1}}}
+
+\author{Andy Clifton}
+\title{The `accessibility' package for tagged PDF documents}
+
+\begin{document}
+
+\maketitle
+
+%\pagenumbering{roman}
+\section*{Summary}
+Structured and tagged PDFs are required to meet modern corporate and governmental standards for document accessibility. PDFs that are created with core \LaTeX\ are not tagged or structured, making it difficult to use \LaTeX\ in a corporate or government environment. This document explains how the \packagename{accessibility} package can be used with \LaTeX\ to prepare documents that pass such tests.
+
+This document is also intended to be used as a test case as it contains most of the elements of a technical \LaTeX\ document, including custom formatting, custom fonts, complex document structures, lists, equations, figures, tables, and code listings amongst others.
+
+%\pagenumbering{arabic}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\section{Why is tagging required?}
+\LaTeX\ is the de-facto standard for scientific publishing. \LaTeX\ is often preferred over WYSIWYG word processors for technical documents because of the relatively simple file format that can be shared across users on many different platforms, and the ease of formatting a document for journal publication.
+
+However, one issue with using \LaTeX\ is document \emph{accessibility}. Accessibility refers to the ability of a document to be reformatted for easier reading by visually impaired readers, or to work with a screen reader. This in turn requires that a document has a logical and correct machine-readable structure.
+
+Accessibility is important for documents produced by government-funded organisations and public-facing bodies. Since the US Congress passed the 1998 Section 508 Amendment to the Rehabilitation Act of 1973, it has been a requirement that all US federally-funded documents are accessible to people with disabilities. This requirement has parallels in other countries. 
+
+An accessible PDF has several characteristics:
+
+\begin{itemize}
+\item All of the document content has been tagged
+\item It is possible to define a reading order based on those tags
+\item Images and links are given alternate text descriptions
+\item Tables are tagged, so that the table structure can be established
+\item Unicode descriptions of all characters are required
+\end{itemize}
+
+A document that has these characteristics is often referred to as being `508 compliant'. As 508-compliance is often judged using automated tests on the \fn{.pdf} file, there is no option to work around this by using careful text descriptions of figures, for example.
+
+In this document, I explain how \LaTeX can be generated using the \packagename{accessibility} style file.
+
+My goal is that this will be a `living' document and template that can be updated as we gain new insight into this process.
+
+\section{Making an accessible document using the accessibility package}
+\LaTeX\ does not prepare a structured PDF document directly. Instead, we use the \packagename{accessibility} package to do this for us. This generates a tagged PDF that passes most automated document tests.
+
+To use the \packagename{accessibility} package, simply add it to your preamble towards the end:
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\usepackage[options]{accessibility}
+\end{lstlisting}
+
+\subsection{Options}
+The basic options are:
+\begin{description}
+\item{untagged}: no information about the structure
+\item tagged: PDF with structure information
+\item flatstructure: creates a flat structure
+\item	highstructure: creates a layered structure.
+\end{description}
+
+This document has been produced using the \verb+[tagged, highstructure]+ options.
+
+\subsection{For more information}
+More information about the \packagename{accessibility} package is included in the in German-language documentation. 
+
+\section{Other steps to making an accessible document}
+The \packagename{accessibility} package does not solve all of the problems with making an accessible document.
+
+\subsection{Alternative text}\label{sec:Alttext}
+Alternative text, or `Alt text', is a textual description of an equation, link or figure that can be used to replace the visual information in that element. Alt text can be added after the PDF is compiled using a PDF editor, but should ideally be included by the author.
+
+The \packagename{accessibility} package includes an \verb+\alt{}+ environment, which adds alt text to the PDF structure. It has been included in the source of the next equation.
+
+\begin{equation}
+	\alt{a squared plus b squared equals c squared}
+	a^2+b^2=c^2
+\end{equation}
+
+Alt text can also take the form of a tooltip or pop-up. A tooltip can be generated from within the source document using the \envname{pdftooltip} environment from the \packagename{pdfcomment} package. 
+
+For example, the left-hand panel in Figure \ref{fig:AltTextImages} has been labeled with a tool tip. \verb+\alt{}+  has been used on the right-hand image.
+
+\begin{figure*}
+          \begin{subfigure}[b]{.55\linewidth}
+            \centering
+		{\pdftooltip{\includegraphics[height=2.5in]{Chick1}}{A bright yellow toy model of a chick}}
+		%\includegraphics[height=2.5in]{Chick1}
+            \caption{A chick.}\label{fig:ChickWithAltText}
+          \end{subfigure}%
+          \begin{subfigure}[b]{.55\linewidth}
+            \centering
+		\alt{A second image of a bright yellow toy model of a chick}
+		\includegraphics[height=2.5in]{Chick1}
+            \caption{Another chick}\label{fig:ChickWithAltText2}
+          \end{subfigure}
+          \caption{Test images}
+          \label{fig:AltTextImages}
+\end{figure*}
+
+A tooltip has also been used on the next equation. Passing the pointer over the following equation should reveal a pop-up:
+
+\begin{equation}
+	{\pdftooltip{a^2+b^2=c^2}{An equation, where a squared is equal to b squared plus c squared.}}
+	%a^2+b^2=c^2
+\end{equation}
+
+\subsection{Embedding fonts}
+One requirement for passing automated tests for accessibility is that fonts must be embedded in the the final PDF. You can check the PDF for embedded fonts using a PDF viewer. For example, in Adobe Acrobat Reader, look at the `fonts' tag of the document properties. If any fonts are not shown as being an \emph{embedded subset}, you need to try again. 
+
+Encapsulated postscript figures are particularly prone to having undefined fonts. Check by compiling your document in draft mode, and seeing if the fonts are still present in the output PDF. To fix this problem, you could consider changing the \emph{.eps} file to a \emph{.png}. If you wish to do this `on the fly', you could use this approach in your preamble:
+
+\begin{lstlisting}
+	\usepackage{epstopdf}
+	\epstopdfDeclareGraphicsRule{.eps}%
+		{png}%
+		{.png}%
+		{convert eps:\SourceFile.\SourceExt png:\OutputFile}
+	\AppendGraphicsExtensions{.png}
+\end{lstlisting}
+
+\section{Environment tests}
+
+\subsection{Tables}
+Table \ref{Tab:Packages} is included for testing purposes. It lists some of the packages that are included in this demonstration document. These packages often call other packages, so this is not an exhaustive list, but it is enough to test if the \packagename{accessibility} package works.
+
+\begin{table*}[htbp]
+\centering
+\caption[Some packages loaded for this document]{An incomplete list of packages loaded in this document}
+\label{Tab:Packages}
+\begin{tabular*}{\textwidth}{lp{0.75\textwidth}}
+\toprule
+Package & functionality\\
+\midrule
+nag & checks that packages are up to date and looks for bad habits in \LaTeX\ code.\\
+geometry & sets page size and margins \\
+mathptmx& changes fonts\\
+helvet& changes fonts\\
+courier& changes fonts\\
+amsfonts, amssymb & supplies fonts that are useful for mathematics\\
+booktabs & \\
+graphicx & grpahics handling, including \emph{.eps} figures (see Section \ref{sec:Alttext})\\
+pdfcomment & tool-tips. Also calls the package \packagename{hyperref} \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+
+\section{A template}
+The code used to produce this document is available from \href{https://github.com/AndyClifton/accessibility/samples}{github.com/AndyClifton/accessibility/samples}.
+
+\section{Known problems with the accessibility package}
+Well, there are lots. If you find any, please use GitHub's issue tracking to report these. You can find the current list of issues at \href{https://github.com/AndyClifton/accessibility/issues}{github.com/AndyClifton/accessibility/issues}.
+
+The following is a summary of known problems with solutions and work-arounds where known:
+\begin{itemize}
+\item Line numbers in listings are incremented by 2 and not all lines are numbered. No work-around at this time.
+\item Formatted text in section headings causes errors. Work-around: don't include formatted text in headings.
+\end{itemize}
+
+\section*{Acknowledgements}
+This document benefitted from contributions to the \href{http://tex.stackexchange.com/}{http://tex.stackexchange.com/} website.
+
+Babett Schalitz produced the original \packagename{accessibility} package in 2007. That package was oriented towards KOMA-script documents. It was not accepted by CTAN and was subsequently not available to the \LaTeX community.
+
+Babett Schalitz provided me with a copy of the original \packagename{accessibility} package in May 2019 and asked me to take up maintenance with a goal of submitting it to CTAN. This document is intended to support that effort. I am extremely grateful for all of Babett's work!
+
+\end{document}
+% bibliography
+\cleardoublepage
+\bibliographystyle{plainnat}
+%\bibintoc
+\label{sec:Bib}
+\bibliography{bibliography}
+
+\end{document}

@@ -20,8 +20,11 @@ if [ -f accessibility-Anleitung-DE.pdf ]; then
   rm -f accessibility-Anleitung-DE.pdf
 fi
 ln -f main.pdf accessibility-Anleitung-DE.pdf
+echo "...Remove latex build files"
+find main.* -type f ! -name "main.tex" ! -name "main.pdf" -exec rm -f {} +
 
 # generate english-language documentation
+cp ../../samples/article/article_release.pdf accessibility.pdf
 
 # generate the CTAN .zip file
 echo "...generate an archive for CTAN"
@@ -30,6 +33,6 @@ if [ -f accessibility.tar.gz ]; then
    rm accessibility.tar.gz
 fi
 dos2unix *.md
-ctanify --pkgname accessibility accessibility.ins accessibility-Anleitung.pdf README.md CHANGELOG.md "accessibility-Anleitung-DE.pdf=doc/latex/accessibility" "../../samples/KOMAscript/*.tex=doc/latex/accessibility"
+ctanify --pkgname accessibility accessibility.ins accessibility.pdf accessibility-Anleitung-DE.pdf README.md CHANGELOG.md "accessibility-Anleitung-DE.pdf=doc/latex/accessibility" "../../samples/KOMAscript/*.tex=doc/latex/accessibility" "accessibility.pdf=doc/latex/accessibility"
 
 echo "...complete!"
