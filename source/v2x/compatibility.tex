@@ -1,0 +1,58 @@
+%FILE: compatibility.tex
+
+
+%======================================================================
+%	Erkennen des Bearbeitungsmodus f�r weitere Paketoptionen
+%======================================================================
+\RequirePackage{ifthen}
+
+\newif\ifhtm
+\ifx \HCode\undefined \htmfalse \else	\htmtrue \fi
+
+\newif\ifpdf
+\ifx \pdfoutput\undefined
+	\pdffalse 		%latex in DVI mode
+\else
+	\ifthenelse{\number\pdfoutput<1}%
+ 	{\pdffalse} 	%pdflatex in DVI mode
+ 	{\pdftrue} 		%pdflatex in PDF mode
+\fi
+
+%======================================================================
+%		PDF <=> DVI <=> XHTML
+%======================================================================
+\ifhtm%
+		% Bearbeitung mit tex4ht
+		\usepackage{graphicx}%
+		\usepackage[tex4ht]{hyperref}  %
+		\newcommand{\thead}[1]{#1}%
+		\newcommand{\lineheight}{12pt}%
+\else%
+	\ifpdf%
+		%Bearbeitung mit pdftex im PDF-Modus
+		\usepackage[pdftex]{graphicx}%
+		\usepackage[pdftex]{hyperref}%
+		\pdfcompresslevel=0%						Damit wird die PDF-Quelldatei lesbar
+		\pdfoptionpdfminorversion=6%		Bestimmt die PDF - Version der Ausgabe
+	%\pdfadjustspacing=0%							0, 1 oder 2 �nderung nicht erkannt
+		\newcommand{\lineheight}{12pt}%
+		\AtBeginDocument{\usepackage[untagged, highstructure]{accessibility}}	% Makros in accessibility.sty
+	\else%
+		%Bearbeitung mit latex oder pdftex im DVI-Modus
+		\usepackage{graphicx}%
+		\usepackage{hyperref}%
+		\newcommand{\alt}[1]{}%
+		\newcommand{\thead}[1]{{\bfseries#1}}%
+		\newcommand{\lineheight}{12pt}%
+	\fi%
+\fi%
+
+% Einstellungen des Hyperref-Paketes
+	\hypersetup{colorlinks=true,%
+	linkcolor=sun1,%
+	citecolor=sun1,%
+	filecolor=sun1,%
+	menucolor=sun1,%
+	pagecolor=sun1,%
+	urlcolor=sun1%
+	}%

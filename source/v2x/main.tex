@@ -1,0 +1,157 @@
+%<*driver>
+\documentclass[%
+  oneside,%
+  titlepage,%
+  liststotoc, idxtotoc, bibtotoc,%
+  halfparskip,%
+  nochapterprefix,%
+  %smallheadings,%
+  DIV11,%
+]{scrreprt}
+%\documentclass[a4paper]{article}
+ \usepackage{doc}
+ \usepackage[latin1]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern}
+ \usepackage[ngerman]{babel}
+ \usepackage{bibgerm}
+ \usepackage{booktabs}
+ \usepackage[compact]{titlesec}
+ \renewcommand*{\chapterheadstartvskip}{} %Platz vor neuem Kapitel weglassen
+  %\RecordChanges
+  \EnableCrossrefs
+  %\DisableCrossrefs		%Say \disable if index is ready
+  %\OnlyDescription			%comment out for implementation details
+  \CodelineIndex
+  %\CodelineNumbered
+  %\MacroIndent		%Einzug der Quellcodelinien
+  \settowidth\MacroIndent{\rmfamily\scriptsize 0000\ }
+  %\MacroTopsep		%Abstand zum Text (oben und unten)
+  %\MacrocodeTopsep	%Abstand von Marcocode zum Text
+  %\PrintDescribeMacro 		%schreiben Namen in den Rand
+  %\PrintDescribeEnv
+  %\PrintMacroName
+  %\PrintEnvName
+  %\theCodelineNo		% Kontrolle �ber Zeilennummern
+  \setcounter{IndexColumns}{2}
+%  \pagestyle{headings}
+
+\usepackage{color}
+\definecolor{sun1}{rgb}{0.2,0.2,0.4} %dunkelblau
+\definecolor{sun2}{rgb}{0.4,0.4,0.6} %mittel
+\definecolor{sun3}{rgb}{0.6,0.6,0.8} %mittel
+\definecolor{sun4}{rgb}{0.8,0.8,1.0} %hellblau
+\definecolor{sun5}{rgb}{0.9,0.9,1.0} %hellblau
+\definecolor{black}{rgb}{0,0,0} %hellblau
+
+ \renewcommand{\familydefault}{\sfdefault}
+
+\let\origmacrocode\macrocode%
+\let\origendmacrocode\endmacrocode%
+\renewenvironment{macrocode}{%
+	\color{sun1}%
+	\origmacrocode%
+	\hrule%
+	\vskip 5pt%
+%	\color{sun4}\rule[\lineheight]{0.95\textwidth}{0.4pt}\normalcolor
+}{%
+%	\color{sun4}\rule[-5pt]{0.95\textwidth}{0.4pt}\normalcolor
+	\origendmacrocode%
+	\hrule%
+	\normalcolor%
+}
+
+\input{compatibility}
+
+\hypersetup{%
+  colorlinks=true,%
+	pdftitle	= {Das accessibility-Paket}, %
+	pdfsubject	= {Dokumentation, \today}, %
+	pdfauthor	= {Babett Schalitz}, %
+	pdfkeywords	= {tagged PDF, Latex, accessibility}, %
+	pdfcreator	= {pdfTeX with Hyperref and Thumbpdf}, %
+	pdfproducer	= {LaTeX, hyperref, thumbpdf}, %
+	bookmarksnumbered,%
+	hypertexnames = true,%
+	plainpages = true%
+}%
+
+\makeatletter
+\fboxsep=0pt
+\long\def\m@cro@#1#2{\endgroup \topsep\MacroTopsep \trivlist
+   \edef\saved@macroname{\string#2}%
+  \def\makelabel##1{\colorbox{sun5}{\color{sun1}\ ##1\normalcolor}}%
+  \if@inlabel
+    \let\@tempa\@empty \count@\macro@cnt
+    \loop \ifnum\count@>\z@
+      \edef\@tempa{\@tempa\hbox{\strut}}\advance\count@\m@ne \repeat
+    \edef\makelabel##1{\colorbox{sun5}{\color{sun1}\ ##1\normalcolor}}%
+    \advance \macro@cnt \@ne
+  \else  \macro@cnt\@ne  \fi
+  \edef\@tempa{\noexpand\item[%
+     #1%
+       \noexpand\PrintMacroName
+     \else
+       \noexpand\PrintEnvName
+     \fi
+     {\string#2}]}%
+  \@tempa
+  \global\advance\c@CodelineNo\@ne
+   #1%
+      \SpecialMainIndex{#2}\nobreak
+      \DoNotIndex{#2}%
+   \else
+      \SpecialMainEnvIndex{#2}\nobreak
+   \fi
+  \global\advance\c@CodelineNo\m@ne
+  \ignorespaces}
+\makeatother
+
+\DoNotIndex{\arabic,\active,\addtocounter,\advanced,\begin,\bfseries,\boolean}
+ \DoNotIndex{\catcode,\chapterheadendvskip,\chapterheadstartvskip,\clubpenalty,\CodelineIndex,\csname,\CurrentOption}
+ \DoNotIndex{\def,\DeclareOption,\DocInput,\documentclass,\else,\end,\EnableCrossrefs,\endcsname,\endlastfoor,\equal,\expandafter}
+ \DoNotIndex{\fi,\refundefinedtrue,\gdef,\global,\glsxspace,\hbox,\hskip,\iffalse,\ifnum,\ifthenelse,\ifx,\ignorespaces,\immediate,\,\[,\],\(,\),\&,\ }
+ \DoNotIndex{\interlinepenalty,\isundefined,\labelsep,\labelwidth,\leaders,\leavevmode,\leftmargin,\leftskip,\let,\list,\llap,\long}
+ \DoNotIndex{\MakeUppercase,\MessageBreak,\mkern,\NeedsTeXFormat,\newboolean,\newcommand,\newcounter,\newenvironment,\newif}
+ \DoNotIndex{\newtoks,\nobreak,\normalcolor,\normalfont,\null,\number,\or,\evenfoot,\evenhead,\oddfoot,\oddhead}
+ \DoNotIndex{\originalacrsh,\originaladdchap,\originaladdchapWithOption,\originaladdchapWithStar,\originaladdchapWithTwoOption}
+ \DoNotIndex{\originalamp,\originalbibitem,\originalcaption,\originalchapterformat,\originalchapterWithOption}
+ \DoNotIndex{\originalchapterWithStar,\originalchapterWithTwoOption,\originalcite,\originalcontentsline,\originaldescription}
+ \DoNotIndex{\originaldescriptionlabel,\originaldotfill,\originalemph,\originalenddescription,\originalenddocument}
+ \DoNotIndex{\originalendenumerate,\originalendeqnarray,\originalendequation,\originalendfigure,\originalenditemize}
+ \DoNotIndex{\originalendotherlanguage,\originalendquotation,\originalendquote,\originalendtabbing,\originalendtable}
+ \DoNotIndex{\originalendtabular,\originalendtheglossary,\originalendtheindex,\originalendtitlepage,\originalendverbatim}
+ \DoNotIndex{\originalendverse,\originalenumerate,\originaleqnarray,\originalequation,\originalfigure,\originalfootnote}
+ \DoNotIndex{\originalforeignlanguage,\originalFormulaBegin,\originalFormulaEnd,\originalFormulaTextBegin,\originalhrulefill}
+ \DoNotIndex{\originalincludegraphics,\originalindex,\originalitem,\originalitemize,\originallabelenumi,\originallabelenumii}
+ \DoNotIndex{\originallabelenumiii,\originallabelenumiv,\originallabelitemi,\originallabelitemii,\originallabelitemiii}
+ \DoNotIndex{\originallabelitemiv,\originalmaketitle,\originalnewacronym,\originalotherlanguage,\originalpageref}
+ \DoNotIndex{\originalparagraph,\originalparagraphWithOption,\originalparagraphWithStar,\originalparagraphWithTwoOption}
+ \DoNotIndex{\originalquotation,\originalquote,\originalref,\originalsection,\originalsectionWithOption,\originalsectionWithStar}
+ \DoNotIndex{\originalsectionWithTwoOption,\originalselectlanguage,\originalsetref,\originalstartcolumn,\originalsubparagraph}
+ \DoNotIndex{\originalsubparagraphWithOption,\originalsubparagraphWithStar,\originalsubparagraphWithTwoOption,\originalsubsection}
+ \DoNotIndex{\originalsubsectionWithOption,\originalsubsectionWithStar,\originalsubsectionWithTwoOption,\originalsubsubsection}
+ \DoNotIndex{\originalsubsubsectionWithOption,\originalsubsubsectionWithStar,\originalsubsubsectionWithTwoOption,\originaltabbing}
+ \DoNotIndex{\originaltabend,\originaltable,\originaltabular,\originalTeX,\originaltextbf,\originaltextit,\originaltextsc}
+ \DoNotIndex{\originaltextsl,\originaltexttt,\originalthebibliography,\originaltheglossary,\originaltheindex,\originalverbatim}
+ \DoNotIndex{\originalverse,\originalxglossary,\PackageError,\PackageInfo,\PackageWarning,\PackageWarningNoLine,\pagestyle}
+ \DoNotIndex{\parfillskip,\parindent,\pdflastobj,\pdfliteral,\pdfobj,\pdfpageref,\PrintChanges,\PrintIndex,\ProcessOptions}
+ \DoNotIndex{\protect,\ProvidesPackage,\headings,\myheadings,\plain,\qquad,\raggedsection,\Realeverypar,\relax,\renewcommand}
+ \DoNotIndex{\renewenvironment,\RequirePackage,\font,\rightskip,\sectfont,\setboolean,\setcounter,\setlength,\settowidth}
+ \DoNotIndex{\sfcode,\sloppy,\small,\space,\stepcounter,\string,\the,\usecounter,\usepackage,\vskip,\widowpenalty,\xdef}
+ \DoNotIndex{\.,\@@endlist,\@@list,\@M,\@afterindenttrue,\@arabic,\@empty,\@evenfoot,\@evenhead,\ifclassloaded,\@ifnextchar}
+ \DoNotIndex{\@ifpackageloaded,\@ifstar,\@ifundefined,\@ignoretrue,\@latex@warning,\@m,\@mkboth,\@nil,\@noitemerr}
+ \DoNotIndex{\@oddfoot,\@oddhead,\@openbib@code,\@plus,\@tempdima,\@tocrmarg,\advance,\bib@heading,\c@enumiv,\c@tocdepth}
+ \DoNotIndex{\G@refundefinedtrue,\hb@xt@,\Hy@setref@link,\m@th,\nfss@text,\original@begintheorem,\original@endtheorem}
+ \DoNotIndex{\original@evenfoot,\original@evenhead,\original@footnotemark,\original@idxitem,\original@makechapterhead}
+ \DoNotIndex{\original@makefntext,\original@makeschapterhead,\original@oddfoot,\original@oddhead,\original@opargbegintheorem}
+ \DoNotIndex{\original@sect,\original@ssect,\original@startfield,\original@startline,\original@stopfield,\original@stopline}
+ \DoNotIndex{\original@textbottom,\original@texttop,\original@thm,\original@xfloat,\originalchapter,\originalend@float}
+ \DoNotIndex{\originalFormulaTextEnd,\p@,\p@enumiv,\reset@font,\size@chapter,\theenumiv,\z@}
+
+\begin{document}
+ \DocInput{accessibility.dtx}
+ %\PrintChanges
+ \PrintIndex
+\end{document}
+%</driver>
