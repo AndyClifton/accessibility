@@ -14,8 +14,12 @@ if ! command -v pdflatex > /dev/null; then
   ./install-tl --profile=../texlive/texlive.profile
   cd ..
 fi
-# Just including pdflatex so the cache check above works
-tlmgr install pdflatex
+# set the repo
+tlmgr option repository ctan
+# run an update
+tlmgr update --all
+# Install the cmap packages
+tlmgr install cmap
 # Install package to install packages automatically
 tlmgr install texliveonfly
 # Install babel languages manually, texliveonfly does't understand the babel error message

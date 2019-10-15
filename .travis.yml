@@ -2,7 +2,7 @@
 # https://therenegadecoder.com/code/how-to-build-latex-with-travis-ci-and-minted/
 
 language: generic
-# Dependency of the minted package
+sudo: required
 before_install:
 #
 install:
