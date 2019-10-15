@@ -16,7 +16,8 @@ if ! command -v pdflatex > /dev/null; then
 fi
 
 # install accessibility
-mkdir ${TEXMFHOME}/tex/latex/accessibility
+export TEXMFHOME="~/texmf"
+mkdir $TEXMFHOME/tex/latex/accessibility
 cp $TRAVIS_BUILD_DIR/source/v2x/accessibility.sty $TEXMFHOME/tex/latex/accessibility/accessibility.sty
 
 # We need to change the working directory before including a file
