@@ -12,7 +12,6 @@ cache:
     - /tmp/texlive
     - $HOME/.texlive
 before_script:
-  - Export TRAVIS_BUILD_DIR
   # Change working directory so including files will work
   - cd $TRAVIS_BUILD_DIR/samples/article/
 script:
