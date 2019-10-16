@@ -14,14 +14,17 @@ You can obtain the `accessibility` package [through CTAN](https://ctan.org/pkg/a
 
 The package was originally created as part of a diploma thesis by Babett Schalitz in 2007. The thesis was called 'Accessibility-Erhöhung von LATEX-Dokumenten'. More information can be found at http://babs.gmxhome.de/da_start.htm.
 
-Andy Clifton took on maintenance of the package in May 2019 with permission and support from Babett Schalitz, including copies of the original files from 2007. Those files can be found at https://github.com/AndyClifton/accessibility/releases/tag/v0.2-beta
+Andy Clifton took on maintenance of the package in May 2019 with permission and support from Babett Schalitz. Babett provided copies of the original files from 2007, not all of which were available online before. Those files can be found at https://github.com/AndyClifton/accessibility/releases/tag/v0.2-beta.
 
 ## What's in this repository
 This repository contains all of the files required to build and test the accessibility.sty file. **It is not intended to be used directly in LaTeX.**
 
-You are strongly recommended to obtain the `accessibility` package [from CTAN](https://ctan.org/pkg/accessibility). That distribution has all of the files that you might require to install accessibility on your system.
+## Installing `accessibility` on your latex system
+If all you want is to use `accessibility` on one of your documents, then this is not the repository you are looking for.
 
-If you really want to download the `accessibility` package from here, make sure that you use the current release from https://github.com/AndyClifton/accessibility/releases.
+You are strongly recommended to obtain the `accessibility` package [through CTAN](https://ctan.org/pkg/accessibility). That distribution has all of the files that you might require to install accessibility on your system. I suggest installation using an appropriate package manager.
+
+If you really want to download the `accessibility` package from here, please download the current release from https://github.com/AndyClifton/accessibility/releases. You can then install it on your own system. I cannot provide any help for this. Please see [the 'Tex stackexchange for more information on the installation process](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te).
 
 ## Licence
 

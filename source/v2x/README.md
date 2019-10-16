@@ -12,9 +12,9 @@ The `accessibility` package  is intended to create tagged, structured PDF docume
 
 This package is intended for documents produced using PDFLaTeX.
 
-Originally programmed in 2007 by Babett Schalitz as a Masters project at
-TU Dresden, the maintenance of the accessibility package has been taken up
-by Andrew Clifton with her agreement.
+`accessibility` was originally programmed in 2007 by Babett Schalitz as a Masters project at
+TU Dresden. The maintenance of the accessibility package has been taken up
+by Andrew Clifton with her agreement. This package is based on her original files.
 
 ### Note to version 2.0.x releases
 

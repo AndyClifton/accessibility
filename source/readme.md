@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AndyClifton/accessibility.svg?branch=master)](https://travis-ci.org/AndyClifton/accessibility)
+
 # How to compile accessibility.sty
 
 ## Working versions
