@@ -30,16 +30,19 @@ do
   FILES=*.tex
   for f in $FILES
   do
+    echo "...found file $f ..."
     filename=$(basename -- "$f")
     extension="${filename##*.}"
     filename="${filename%.*}"
     echo "...processing $filename ..."
-    find $filename.* -type f ! -name "$filename.tex" -exec rm -f {} +
-    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
-    bibtex $f
+    find $filename.* -type f ! -name "$filename.tex" ! -name "$filename.bib" -exec rm -f {} +
     pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
     pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
-    find $filename.* -type f ! -name "$filename.tex" ! -name "$filename.log" ! -name "$filename.pdf" -exec rm -f {} +
+    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
+    bibtex "$filename"
+    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
+    pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
+    find $filename.* -type f ! -name "$filename.tex" ! -name "$filename.bib" ! -name "$filename.log" ! -name "$filename.pdf" -exec rm -f {} +
     echo "...finished $filename ..."
   done
   echo "...finished testing $d documents."

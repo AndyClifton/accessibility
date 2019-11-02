@@ -13,7 +13,8 @@
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
 %%
-%% This is accessibility version 2.0.2 Backward compatibility with prior
+%% %^^ VERSION INFO 1 OF 3
+%% This is accessibility version 2.0.3 Backward compatibility with prior
 %% versions is not assured.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
@@ -46,9 +47,10 @@
 % \newtheorem{TODO}{TODO}
 %
 %\IndexPrologue{\addchap{Index} Kursive Zahlen verweisen auf die Seite, auf der ein Eintrag beschrieben ist, unterstrichene Zahlen verweisen auf die Definition, alle anderen auf die Verwendung.}
-%\GlossaryPrologue{\addchap{�nderungen}}
+%\GlossaryPrologue{\addchap{Änderungen}}
 %\title{Das \packname{accessibility}-Paket}
-%\date{Version 2.0.2, \today}
+%^^A VERSION INFO 2 OF 3
+%\date{Version 2.0.3, \today}
 %\author{Babett Schalitz}
 %\maketitle
 %
@@ -59,26 +61,26 @@
 %\chapter{Einleitung}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Das \packname{accessibility}-Paket bietet die M�glichkeit "`Tagged PDF"' zu erstellen, dass hei�t vorhandene \LaTeX-Strukturen k�nnen in das fertige PDF �bernommen werden, was insbesondere die Accessibility des erzeugten PDF steigert.
+%Das \packname{accessibility}-Paket bietet die Möglichkeit "`Tagged PDF"' zu erstellen, dass heißt vorhandene \LaTeX-Strukturen können in das fertige PDF übernommen werden, was insbesondere die Accessibility des erzeugten PDF steigert.
 %
-%Es erm�glicht eine bessere Weiterverwendung von Textinhalten, zudem k�nnen etliche Funktionen besser automatisiert werden.
+%Es ermöglicht eine bessere Weiterverwendung von Textinhalten, zudem können etliche Funktionen besser automatisiert werden.
 %\begin{itemize}
-%	\item Z.~B. k�nnen Screenreader dem Anwender das Dokument unter Nutzung der Strukturen vorlesen. Zum einen ist eine Unterscheidung zwischen �berschriften und Haupttext f�r ihn �berhaupt erst m�glich. Die visuellen Hervorhebungen wie Schriftart, -gr��e oder Farbe waren f�r blinde Anwender nicht wahrnehmbar. Zum anderen wird die Erstellung von z.~B. �berschriftenlisten realisierbar, mit deren Hilfe der Nutzer mit Sehbeeintr�chtigung im Dokument besser navigieren kann, indem er eine interessante �berschrift direkt anspringt.
-%	\item Prinzipiell k�nnen Tagged PDF automatisch "`Umflie�en"', sich also �hnlich wie XHTML"=Dokumente im Browser an die jeweils verf�gbare Darstellungsfl�che anpassen. Dieses Feature wird durch eine Besonderheit in \packname{pdftex} im Moment nicht unterst�tzt (vgl. \cite{schalitz07}).
-%	\item Die weitere Konvertierung des PDF-Dokumentes in andere Formate wird zuverl�ssiger. Bei "`Speichern unter..."' gehen momentan s�mtliche Leerzeichen verloren, dass resultiert gleicherma�en aus dem eben genannten Problem.
+%	\item Z.~B. können Screenreader dem Anwender das Dokument unter Nutzung der Strukturen vorlesen. Zum einen ist eine Unterscheidung zwischen überschriften und Haupttext für ihn überhaupt erst möglich. Die visuellen Hervorhebungen wie Schriftart, -größe oder Farbe waren für blinde Anwender nicht wahrnehmbar. Zum anderen wird die Erstellung von z.~B. überschriftenlisten realisierbar, mit deren Hilfe der Nutzer mit Sehbeeintrüchtigung im Dokument besser navigieren kann, indem er eine interessante überschrift direkt anspringt.
+%	\item Prinzipiell konnen Tagged PDF automatisch "`Umfließen"', sich also ähnlich wie XHTML"=Dokumente im Browser an die jeweils verfügbare Darstellungsfläche anpassen. Dieses Feature wird durch eine Besonderheit in \packname{pdftex} im Moment nicht unterstützt (vgl. \cite{schalitz07}).
+%	\item Die weitere Konvertierung des PDF-Dokumentes in andere Formate wird zuverlässiger. Bei "`Speichern unter..."' gehen momentan sämtliche Leerzeichen verloren, dass resultiert gleichermaßen aus dem eben genannten Problem.
 %\end{itemize}
 %
 %\section{Einige Warnungen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Die Struktur kann mit dem gew�hlten Vorgehen nur in PDF-Dokumenten erhalten werden, die mit \packname{pdftex} direkt erzeugt werden. Transformationen �ber das DVI- oder PS-Format in PDF werden nicht unterst�tzt.
+%Die Struktur kann mit dem gewählten Vorgehen nur in PDF-Dokumenten erhalten werden, die mit \packname{pdftex} direkt erzeugt werden. Transformationen über das DVI- oder PS-Format in PDF werden nicht unterstützt.
 %
-%Bisher ist leider eine zuverl�ssige Erkennung von Seitenumbr�chen nicht m�glich. Des Weiteren wurde dieses Paket unter Verwendung der Dokumentenklasse |scrrept| entwickelt und arbeitet damit am zuverl�ssigsten. Ein Test mit anderen Klassen des Koma-Script-Paketes und den Standardklassen ist teilweise erfolgt. Mehr Aufwand konnte im Rahmen der Diplomarbeit leider nicht betrieben werden.
+%Bisher ist leider eine zuverlässige Erkennung von Seitenumbrüchen nicht möglich. Des Weiteren wurde dieses Paket unter Verwendung der Dokumentenklasse |scrrept| entwickelt und arbeitet damit am zuverlässigsten. Ein Test mit anderen Klassen des Koma-Script-Paketes und den Standardklassen ist teilweise erfolgt. Mehr Aufwand konnte im Rahmen der Diplomarbeit leider nicht betrieben werden.
 %
 %\section{Urheberrechtshinweise}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Dieses Programm kann weitergegeben und/oder ver�ndert werden unter den Bedingungen des \LaTeX\ Projekt Public License die unter CTAN (im Verzeichnis macros/latex/base/lppl.txt) archiviert ist. An Weiterentwicklung oder Verbesserungsvorschl�gen ist die Autorin sehr interessiert. Auch Fragen, Kritik oder sonstige Anregungen k�nnen an \href{mailto:babett_schalitz@gmx.de}{Babett\_Schalitz@gmx.de} gerichtet werden.
+%Dieses Programm kann weitergegeben und/oder verändert werden unter den Bedingungen des \LaTeX\ Projekt Public License die unter CTAN (im Verzeichnis macros/latex/base/lppl.txt) archiviert ist. An Weiterentwicklung oder Verbesserungsvorschlägen ist die Autorin sehr interessiert. Auch Fragen, Kritik oder sonstige Anregungen können an \href{https://github.com/AndyClifton/accessibility/issues}{Github} gerichtet werden.
 %
 %
 %
@@ -89,7 +91,7 @@
 %\section{Wie man das Paket einbindet}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Grunds�tzlich wird das Paket einfach in der Dokumentenpr�ambel geladen. Es sollte allerdings m�glichst nach allen andere Paketen geladen werden, insbesondere nach \packname{hyperref}.
+%Grundsätzlich wird das Paket einfach in der Dokumentenpräambel geladen. Es sollte allerdings möglichst nach allen andere Paketen geladen werden, insbesondere nach \packname{hyperref}.
 %
 %\begin{verbatim}
 %	\documentclass{scrrept}
@@ -98,9 +100,9 @@
 %	...
 %	\end{document}
 %\end{verbatim}
-%Die verf�gbaren Optionen werden im n�chsten Abschnitt vorgestellt.
+%Die verfügbaren Optionen werden im nächsten Abschnitt vorgestellt.
 %
-%Sollten Sie bislang nicht mit \packname{pdftex} gearbeitet haben, ist zu beachten, dass zur korrekten Aufl�sung s�mtlicher Referenzen teilweise mehrere Durchl�ufe notwendig sind. Der Aufruf auf der Kommandozeile erfolgt analog zur Verarbeitung mittels \packname{latex}.
+%Sollten Sie bislang nicht mit \packname{pdftex} gearbeitet haben, ist zu beachten, dass zur korrekten Auflösung sämtlicher Referenzen teilweise mehrere Durchläufe notwendig sind. Der Aufruf auf der Kommandozeile erfolgt analog zur Verarbeitung mittels \packname{latex}.
 
 %\begin{verbatim}
 %pdflatex dateiname
@@ -109,13 +111,13 @@
 %pdflatex dateiname
 %\end{verbatim}
 %
-%  %Nach dem ersten Durchlauf, ist der Quelltext der PDF-Datei teilweise nicht korrekt, dass hei�t bestimmte Teile stehen doppelt drin, so dass zu Darstellungsproblemen im Adobe Reader kommen kann.
+%  %Nach dem ersten Durchlauf, ist der Quelltext der PDF-Datei teilweise nicht korrekt, dass heißt bestimmte Teile stehen doppelt drin, so dass zu Darstellungsproblemen im Adobe Reader kommen kann.
 %
 % %%%%%
 %\section{Optionen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Eine Liste der verf�gbaren Optionen und eine kurze Erl�uterung zeigt die nachfolgende Tabelle \ref{tab:ueberblickueberAlleVerfuegbarenOptionen}.
+%Eine Liste der verfügbaren Optionen und eine kurze Erläuterung zeigt die nachfolgende Tabelle \ref{tab:ueberblickueberAlleVerfuegbarenOptionen}.
 %
 %\DeleteShortVerb{\|}
 %\begin{table}[htbp]
@@ -129,14 +131,14 @@
 % highstructure &  Erzeugt eine verschachtelte Struktur. \\
 % \bottomrule
 % \end{tabular}
-%	\caption{�berblick �ber alle verf�gbaren Optionen}
+%	\caption{Überblick über alle verfügbaren Optionen}
 %	\label{tab:ueberblickueberAlleVerfuegbarenOptionen}
 %\end{table}
 % \MakeShortVerb{\|}
 %
-%Dabei kann entweder eine verschachtelte oder eine flache Struktur erzeugt werden. Ebenso verh�lt es sich mit den Optionen \optname{untagged} und \optname{tagged}. Gibt man keine Optionen an, so wird ein PDF mit den Standardoptionen erzeugt. D.~h. es wird Tagged PDF mit einer geschachtelten Struktur erzeugt.
+%Dabei kann entweder eine verschachtelte oder eine flache Struktur erzeugt werden. Ebenso verhölt es sich mit den Optionen \optname{untagged} und \optname{tagged}. Gibt man keine Optionen an, so wird ein PDF mit den Standardoptionen erzeugt. D.~h. es wird Tagged PDF mit einer geschachtelten Struktur erzeugt.
 %
-%Bei der flachen Struktur werden alle weiteren Elemente direkt unter dem Wurzelelement in den Baum eingef�gt. Es entsteht eine mit XHTML vergleichbare Struktur (vgl. Abbildung \ref{fig:highflatstructure}).
+%Bei der flachen Struktur werden alle weiteren Elemente direkt unter dem Wurzelelement in den Baum eingefügt. Es entsteht eine mit XHTML vergleichbare Struktur (vgl. Abbildung \ref{fig:highflatstructure}).
 %
 %\begin{figure}[htbp]
 %	\centering
@@ -163,17 +165,17 @@
 %		\minisec{Struktur mit \optname{highstructure}}\vspace{\lineheight}
 %			\includegraphics[width=1\textwidth]{images/highstructure}
 %		\end{minipage}
-%	\caption{Erl�uterungen zu flachen und strukturierten Variante}
+%	\caption{Erläuterungen zu flachen und strukturierten Variante}
 %	\label{fig:highflatstructure}
 %\end{figure}
 %
-%Unter Verwendung der Option \optname{highstructure} wird eine durch \pdfname{Sect}-Elemente tiefer verschachtelte Struktur erzeugt. Gerade in gr��eren, gut strukturierten Latex-Dokumenten enth�lt der Baum auf der ersten Ebene nur die \pdfname{Sect}-Objekte der Kapitel oder Teile (Parts), je nachdem welche die h�chste Ebene der Dokumentenklasse ist. F�r l�ngere Dokumente ist diese Variante �bersichtlicher. F�r k�rzere Dokumente hingegen ist die flache Strukturierung durchaus ausreichend.
+%Unter Verwendung der Option \optname{highstructure} wird eine durch \pdfname{Sect}-Elemente tiefer verschachtelte Struktur erzeugt. Gerade in größeren, gut strukturierten Latex-Dokumenten enthält der Baum auf der ersten Ebene nur die \pdfname{Sect}-Objekte der Kapitel oder Teile (Parts), je nachdem welche die höchste Ebene der Dokumentenklasse ist. Für längere Dokumente ist diese Variante übersichtlicher. Für kürzere Dokumente hingegen ist die flache Strukturierung durchaus ausreichend.
 %
 %\section{Die Befehle}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%F�r den normalen Autor f�hrt das Paket \packname{accessibility} nur wenige neue Befehle ein. Es erzeugt die Struktur vielmehr durch bestm�gliches transparentes Umdefinieren der Standard-Latex-Befehle. Diese k�nnen gr��tenteils wie gewohnt verwendet werden. Eine ausf�hrliche Anleitung finden Sie in der zugeh�rigen Autorenanleitung \cite{schalitz07}.
+%Für den normalen Autor führt das Paket \packname{accessibility} nur wenige neue Befehle ein. Es erzeugt die Struktur vielmehr durch bestmögliches transparentes Umdefinieren der Standard-Latex-Befehle. Diese können größtenteils wie gewohnt verwendet werden. Eine ausführliche Anleitung finden Sie in der zugehörigen Autorenanleitung \cite{schalitz07}.
 %
-%Neue Befehle dienen der Erh�hung der Accessibility im Ergebnisdokument, also dem PDF. F�r Grafiken und Formeln steht nun ein Befehl \comname{alt} f�r alternative Beschreibungen bereit. Er muss nach M�glichkeit am Anfang der Umgebung stehen und sollte reinen ASCII-Text enthalten. Die Zeichen "`|^, {, }, [, ],_|"' k�nnen verwendet werden, auf die Verwendung des "`|\|"' ist hingegen zu verzichten. Eine m�gliche Verwendung zeigt die Abbildung	\ref{fig:verwendungalt}.
+%Neue Befehle dienen der Erhöhung der Accessibility im Ergebnisdokument, also dem PDF. Für Grafiken und Formeln steht nun ein Befehl \comname{alt} für alternative Beschreibungen bereit. Er muss nach Möglichkeit am Anfang der Umgebung stehen und sollte reinen ASCII-Text enthalten. Die Zeichen "`|^, {, }, [, ],_|"' können verwendet werden, auf die Verwendung des "`|\|"' ist hingegen zu verzichten. Eine mögliche Verwendung zeigt die Abbildung	\ref{fig:verwendungalt}.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -199,7 +201,7 @@
 %		\end{verbatim}
 %		\end{minipage}
 %		\hfill
-%	\caption{Beispiel f�r die Verwendung alternativen Beschreibungen}
+%	\caption{Beispiel für die Verwendung alternativen Beschreibungen}
 %	\label{fig:verwendungalt}
 %\end{figure}
 %
@@ -213,26 +215,27 @@
 %\chapter{Die Implementierung}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Die Implementierung basiert auf der Manipulation des PDF-Outputs �ber die Schnittstelle von \packname{pdftex}. Dabei werden insbesondere die Befehle \comname{pdfliteral} und \comname{pdfobj} genutzt. Diese Primitiven f�gen den �bergebenen Text direkt in den Quellcode der PDF-Datei ein. Er muss der zugrunde liegenden Spezifikation folglich entsprechen. Ansonsten wird ein nicht valides Dokument erzeugt.
+%Die Implementierung basiert auf der Manipulation des PDF-Outputs über die Schnittstelle von \packname{pdftex}. Dabei werden insbesondere die Befehle \comname{pdfliteral} und \comname{pdfobj} genutzt. Diese Primitiven fügen den übergebenen Text direkt in den Quellcode der PDF-Datei ein. Er muss der zugrunde liegenden Spezifikation folglich entsprechen. Ansonsten wird ein nicht valides Dokument erzeugt.
 %
-%F�r detailliertere Ausf�hrungen, wie und warum das Paket \packname{accessibility} entstand, ist die Diplomarbeit "`Erh�hung von Accessibility in \LaTeX-Dokumenten"' \cite{schalitz2007} zu konsultieren. Sie enth�lt ein umfassendes Konzept sowie tiefer gehende Erl�uterungen zum PDF.
+%Für detailliertere Ausführungen, wie und warum das Paket \packname{accessibility} entstand, ist die Diplomarbeit "`Erhöhung von Accessibility in \LaTeX-Dokumenten"' \cite{schalitz2007} zu konsultieren. Sie enthält ein umfassendes Konzept sowie tiefer gehende Erläuterungen zum PDF.
 %
 %\section{Der Vorspann}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\subsection{Paketinformationen und ben�tigte Pakete}
+%\subsection{Paketinformationen und benötigte Pakete}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %Dieses Paket sollte mit allen \LaTeXe\ Versionen zusammenarbeiten, wurde aber nur mit der Version vom 1. Juni 2000 getestet.
+% ^^A VERSION INFO 3 OF 3
 %
 %    \begin{macrocode}
 %<*package>
-\ProvidesPackage{accessibility}[2019/10/14 v. 2.0.2]
+\ProvidesPackage{accessibility}[2019/11/02 v. 2.0.3]
 \NeedsTeXFormat{LaTeX2e}
 %    \end{macrocode}
 
 %
-%Zun�chst werden einige ben�tigte Pakete geladen.
+%Zunächst werden einige benötigte Pakete geladen.
 %
 %    \begin{macrocode}
 \RequirePackage{xkeyval}
@@ -243,9 +246,9 @@
 %\subsection{Variablendeklaration}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Die Variablen werden ben�tigt, um sp�ter den Strukturbaum aufzubauen. F�r die Objektnummern der PDF-Objekte wird jeweils ein Z�hler gebraucht.
+%Die Variablen werden benötigt, um später den Strukturbaum aufzubauen. Für die Objektnummern der PDF-Objekte wird jeweils ein Zähler gebraucht.
 %
-%Das Wurzelelement (\pdfname{StructTreeRoot}) wird in Z�hler \varname{StructTree} gehalten. Dazu wird ein neues PDF-Objekt reserviert und die Nummer zur sp�teren Verwendung gespeichert. Das \varname{Karray} dient der Speicherung s�mtlicher Objektreferenzen, die dem Wurzelobjekt untergeordnet werden. Es ist anfangs leer.
+%Das Wurzelelement (\pdfname{StructTreeRoot}) wird in Zähler \varname{StructTree} gehalten. Dazu wird ein neues PDF-Objekt reserviert und die Nummer zur späteren Verwendung gespeichert. Das \varname{Karray} dient der Speicherung sämtlicher Objektreferenzen, die dem Wurzelobjekt untergeordnet werden. Es ist anfangs leer.
 %    \begin{macrocode}
 \newcounter{StructTree}%
 \pdfobj reserveobjnum%
@@ -253,22 +256,22 @@
 \xdef\Karray{}%
 %    \end{macrocode}
 
-% Zur kurzzeitigen Zwischenspeicherung von Objektnummern steht der Z�hler \varname{ObjHelp} zur Verf�gung.
+% Zur kurzzeitigen Zwischenspeicherung von Objektnummern steht der Zähler \varname{ObjHelp} zur Verfügung.
 %    \begin{macrocode}
 \newcounter{ObjHelp}%
 %    \end{macrocode}
 
-%Der Z�hler \varname{TaggedObj} h�lt die aktuelle \pdfname{MCID} des ausgezeichneten Objektes, um die Verbindung zum Strukturbaum herzustellen. Laut PDF-Referenz wird diese ID f�r jedes Seitenobjekt zur�ckgesetzt. Da der Seitenz�hler aber erst nach |\shipout| berichtigt wird, stimmt die Seitenreferenz f�r die bis dahin geschrieben Objekte nicht. Es kommt zu doppelten ID auf einer Seite, was die eindeutige Zuordnung st�rt und zahlreiche Fehler birgt. Folgefehler dieses Problems k�nnen durch die durchgehenden Nummerierung beseitigt werden.
+%Der Zähler \varname{TaggedObj} hält die aktuelle \pdfname{MCID} des ausgezeichneten Objektes, um die Verbindung zum Strukturbaum herzustellen. Laut PDF-Referenz wird diese ID für jedes Seitenobjekt zurückgesetzt. Da der Seitenzähler aber erst nach |\shipout| berichtigt wird, stimmt die Seitenreferenz für die bis dahin geschrieben Objekte nicht. Es kommt zu doppelten ID auf einer Seite, was die eindeutige Zuordnung stört und zahlreiche Fehler birgt. Folgefehler dieses Problems künnen durch die durchgehenden Nummerierung beseitigt werden.
 %    \begin{macrocode}
 \newcounter{TaggedObj}%[page]
 %    \end{macrocode}
 
-%In dem Schalter \varname{ACCESSProblems} wird gespeichert, ob noch Bedenken bez�glich der Accessibility des Dokumentes bestehen, also z.~B. alternative Texte nicht gesetzt wurden oder �hnliches.
+%In dem Schalter \varname{ACCESSProblems} wird gespeichert, ob noch Bedenken bezüglich der Accessibility des Dokumentes bestehen, also z.~B. alternative Texte nicht gesetzt wurden oder ähnliches.
 %    \begin{macrocode}
 \newboolean{ACCESSProblems} \setboolean{ACCESSProblems}{false}%
 %    \end{macrocode}
 %
-%Diese Variablen dienen der Speicherung der aktuellen Sprache sowie der Unterscheidung, ob die Sprache ge�ndert wurde.
+%Diese Variablen dienen der Speicherung der aktuellen Sprache sowie der Unterscheidung, ob die Sprache geändert wurde.
 %    \begin{macrocode}
 \gdef\DocumentLanguage{}%
 \gdef\ActualLanguage{}%
@@ -276,7 +279,7 @@
 \gdef\LanguageCode{}%
 %    \end{macrocode}
 %
-%\varname{DetailedStructure} dient der Feststellung, ob eine geschachtelte oder flache Struktur erzeugt werden soll. W�hrend \varname{@Access@pdf} wahr ist, wenn Tagged PDF erzeugt werden soll und eine geeignete \packname{pdftex}-Version aktiv ist.
+%\varname{DetailedStructure} dient der Feststellung, ob eine geschachtelte oder flache Struktur erzeugt werden soll. Während \varname{@Access@pdf} wahr ist, wenn Tagged PDF erzeugt werden soll und eine geeignete \packname{pdftex}-Version aktiv ist.
 %    \begin{macrocode}
 \newboolean{@tagged@pdf} \setboolean{@tagged@pdf}{false}%
 \newboolean{@right@pdfversion} \setboolean{@tagged@pdf}{false}%
@@ -286,7 +289,7 @@
 %
 %\subsection{Definition der Optionen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Hier werden die m�glichen Optionen deklariert und passende Variablen f�r die Weiternutzung initialisiert.
+%Hier werden die möglichen Optionen deklariert und passende Variablen für die Weiternutzung initialisiert.
 %    \begin{macrocode}
 \DeclareOption{flatstructure}{\global\PDFDetailedStructurefalse}%
 \DeclareOption{highstructure}{\global\PDFDetailedStructuretrue}%
@@ -298,7 +301,7 @@
 %    \end{macrocode}
 
 %
-%\subsection{�berpr�fen des Ausgabemodus}
+%\subsection{Überprüfen des Ausgabemodus}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %An dieser Stelle wird der Ausgabemodus sowie die verwandte PDFTEX-Version getestet, erst ab der Version 1.20 kann direkter PDF-Output generiert werden.
@@ -323,7 +326,7 @@
 }
 %    \end{macrocode}
 
-%Nur wenn beide Bedingungen erf�llt sind, wird im weiteren Verlauf "`Tagged"' PDF erzeugt.
+%Nur wenn beide Bedingungen erfüllt sind, wird im weiteren Verlauf "`Tagged"' PDF erzeugt.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@right@pdfversion} \and \boolean{@tagged@pdf}}{%
       \setboolean{@Access@pdf}{true}%
@@ -333,10 +336,10 @@
 %    \end{macrocode}
 
 %
-%\subsection{�berpr�fen der Dokumentenklasse}
+%\subsection{Überprüfen der Dokumentenklasse}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Da die bereitgestellten logischen Befehle je nach gew�hlter Dokumentenklasse variieren, wird hier zwischen den Standardklassen und denen des Koma-Scripts unterschieden.
+%Da die bereitgestellten logischen Befehle je nach gewählter Dokumentenklasse variieren, wird hier zwischen den Standardklassen und denen des Koma-Scripts unterschieden.
 %    \begin{macrocode}
 \newboolean{@KOMAScriptClass} \setboolean{@KOMAScriptClass}{false}%
 
@@ -356,16 +359,16 @@
                \PackageInfo{accessibility}{Standardklasse}}{}%
 %    \end{macrocode}
 
-%Noch einige sinnvolle Variablenbelegungen zur PDF-Erzeugung. Sie m�ssen im fertigen Code nicht mehr enthalten sein.
+%Noch einige sinnvolle Variablenbelegungen zur PDF-Erzeugung. Sie müssen im fertigen Code nicht mehr enthalten sein.
 %    \begin{macrocode}
 \pdfcompresslevel=0% Damit wird die PDF-Quelldatei lesbar
 \pdfminorversion=6% Bestimmt die PDF - Version der Ausgabe
-%\pdfadjustspacing=0% 0, 1 oder 2 �nderung nicht erkannt
+%\pdfadjustspacing=0% 0, 1 oder 2 änderung nicht erkannt
 %    \end{macrocode}
 
 %\subsection{Definition der neuen Befehle}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%An dieser Stelle werden die neu eingef�hrten Befehle f�r die ben�tigten Zusatzinformationen definiert.
+%An dieser Stelle werden die neu eingeführten Befehle für die benötigten Zusatzinformationen definiert.
 %    \begin{macrocode}
 \newcommand{\alt}[1]{\xdef\altAttr{#1}}%
 \newcommand{\newhref}[3]{\xdef\altAttr{#2}\href{#1}{#3}}%
@@ -388,12 +391,12 @@
 %
 %\subsection{Der Stack}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Der Strukturbaum, l�sst sich am einfachsten �ber einen Stack aufbauen. Prinzipiell m�ssen f�r alle Strukturelemente drei Variablen initialisiert werden, n�mlich der Strukturtyp, die Objektnummer und das Feld mit den Kindelementen. F�r einige Elemente macht Sinn einen Titel zu generieren bzw. zu �bergeben, damit wird der generische Strukturtyp n�her spezifiziert.
+%Der Strukturbaum, lässt sich am einfachsten über einen Stack aufbauen. Prinzipiell müssen für alle Strukturelemente drei Variablen initialisiert werden, nämlich der Strukturtyp, die Objektnummer und das Feld mit den Kindelementen. Für einige Elemente macht Sinn einen Titel zu generieren bzw. zu übergeben, damit wird der generische Strukturtyp näher spezifiziert.
 %
-%Diese Informationen werden sowohl ben�tigt, um Kindelemente zu erzeugen. Als auch bei der Beendigung, also dem eigentlichen Schreiben des Strukturobjektes. Ein Zugriff ist dabei immer nur auf das oberste Element m�glich. Es muss beendet werden, bevor ein darrunterliegendes abgeschlossen werden kann. F�r die effektive Arbeit mit dem Stack werden 3 Funktionen ben�tigt.
+%Diese Informationen werden sowohl benötigt, um Kindelemente zu erzeugen. Als auch bei der Beendigung, also dem eigentlichen Schreiben des Strukturobjektes. Ein Zugriff ist dabei immer nur auf das oberste Element möglich. Es muss beendet werden, bevor ein darrunterliegendes abgeschlossen werden kann. Für die effektive Arbeit mit dem Stack werden 3 Funktionen benötigt.
 %
 %\begin{macro}{\accessPushStack}
-%Zum einen ben�tigt man eine Funktion um Elemente auf dem Stack abzulegen.
+%Zum einen benötigt man eine Funktion um Elemente auf dem Stack abzulegen.
 %\paragraph{Parameter}
 %|#1| Type |#2| ObjNum |#3| KidsField |#4| Title
 %    \begin{macrocode}
@@ -414,7 +417,7 @@
 %\end{macro}
 %
 %\begin{macro}{\accessPopStack}
-%Des Weiteren ist es n�tig Elemente vom Stack zu entfernen und abzuarbeiten.
+%Des Weiteren ist es nötig Elemente vom Stack zu entfernen und abzuarbeiten.
 %\paragraph{Parameter}
 %|#1| Type |#2| ObjNum |#3| KidsField |#4| Title
 %    \begin{macrocode}
@@ -442,7 +445,7 @@
 %\end{macro}
 %
 %\begin{macro}{\accessReadTopStack}
-%Zum anderen wird w�ren der Erzeugung von Blattknoten ein lesender Zugriff auf das oberste Stackelement ben�tigt. Somit kann die Objektreferenz in dass Kinderfeld des Elternelementes eingetragen werden und eine Referenzierung des Elternobjektes wird m�glich.
+%Zum anderen wird wären der Erzeugung von Blattknoten ein lesender Zugriff auf das oberste Stackelement benötigt. Somit kann die Objektreferenz in dass Kinderfeld des Elternelementes eingetragen werden und eine Referenzierung des Elternobjektes wird möglich.
 %\paragraph{Parameter}
 %|#1| Type |#2| ObjNum |#3| KidsField
 %    \begin{macrocode}
@@ -461,13 +464,13 @@
 
 %\end{macro}
 
-%Die folgenden Makros schreiben die tats�chlichen Elemente in die PDF-Datei, zur flexiblen Nutzung sind die �bergabeparameter variabel.
+%Die folgenden Makros schreiben die tatsächlichen Elemente in die PDF-Datei, zur flexiblen Nutzung sind die übergabeparameter variabel.
 %
 %\subsection{Reine Strukturelemente}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\begin{environment}{PDFStructObj}
-%Ein PDFStructObj ist eine Struktur, die dazu dient weitere Elemente zu kapseln. Die ben�tigten Variablen werden initialisiert und anschlie�end jeweils auf den Stack geschrieben.
+%Ein PDFStructObj ist eine Struktur, die dazu dient weitere Elemente zu kapseln. Die benötigten Variablen werden initialisiert und anschließend jeweils auf den Stack geschrieben.
 %
 %\paragraph{Parameter}
 %|#1| StructType |#2| Title
@@ -480,13 +483,13 @@
   \accessPushStack{#1}{\theObjHelp}{PDF@#1@Array}{#2}%drauftun
 }%
 %    \end{macrocode}
-%Zum Abschluss eines PDFStructObj wird das oberste Element vom Stack geholt. Ist dieser leer, was sich darin zeigt, dass das \varname{StructElem} leer ist, wird eine Warnung ausgegeben. Diese Abfrage erh�ht die Stabilit�t, der Fall sollte aber normalerweise nicht auftreten.
+%Zum Abschluss eines PDFStructObj wird das oberste Element vom Stack geholt. Ist dieser leer, was sich darin zeigt, dass das \varname{StructElem} leer ist, wird eine Warnung ausgegeben. Diese Abfrage erhöht die Stabilität, der Fall sollte aber normalerweise nicht auftreten.
 %
-%Im jedem anderen Fall werden die Attribute gepr�ft und gesetzt. Anschlie�end wird das PDF-Objekt erzeugt und eine Referenz in das Elternelement eingef�gt.
+%Im jedem anderen Fall werden die Attribute geprüft und gesetzt. Anschließend wird das PDF-Objekt erzeugt und eine Referenz in das Elternelement eingefügt.
 %
-%Die Erzeugung von reinen Strukturobjekten erfolgt ohne Seitenreferenz, da die Unterelemente potentiell auf mehrere Seiten verteilt sein k�nnen.
+%Die Erzeugung von reinen Strukturobjekten erfolgt ohne Seitenreferenz, da die Unterelemente potentiell auf mehrere Seiten verteilt sein können.
 %    \begin{macrocode}
-{%andere Ebenen Schlie�en
+{%andere Ebenen Schließen
   \accessPopStack\StructElem\Objnum\KidsArray\Title		%runterholen
   \ifx \StructElem\empty%
     \PackageWarning{accessibility}{empty \string\PopStack ?}%
@@ -517,15 +520,15 @@
 %    \end{macrocode}
 
 %\end{environment}
-%\begin{TODO}F�r Blockelemente keine Sprache, tlw. zu sp�t geschossen $\rightarrow$ Probleme bei Sprachauszeichnung. \end{TODO}
+%\begin{TODO}Für Blockelemente keine Sprache, tlw. zu spät geschossen $\rightarrow$ Probleme bei Sprachauszeichnung. \end{TODO}
 %
 %\subsubsection{Implizite Beendigung von Strukturelemente}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%In \LaTeX\ werden viele Strukturen nur begonnen aber nicht explizit wieder geschlossen. Z.~B. schlie�t eine \comname{section} die ge�ffnete \comname{subsection} indem sie die Z�hler zur�cksetzt. Es existiert folglich auch in \LaTeX\ eine wohl definierte Hierarchie.
+%In \LaTeX\ werden viele Strukturen nur begonnen aber nicht explizit wieder geschlossen. Z.~B. schließt eine \comname{section} die geöffnete \comname{subsection} indem sie die Zähler zurücksetzt. Es existiert folglich auch in \LaTeX\ eine wohl definierte Hierarchie.
 %
 %\begin{macro}{\sectionInDepth}
-%Ordnet den Strukturelementen eine Reihenfolge zu, damit diese in der richtigen Reihenfolge automatisch geschlossen werden k�nnen.
+%Ordnet den Strukturelementen eine Reihenfolge zu, damit diese in der richtigen Reihenfolge automatisch geschlossen werden können.
 %    \begin{macrocode}
 \newcommand{\sectionInDepth}[2]{%
    \csname #2\endcsname=100%
@@ -546,16 +549,16 @@
 
 %
 %\begin{macro}{\closeUntilPDFStruct}
-%Schlie�t die Sectionebenen unter Verwendung der eben definierten Reihenfolge automatisch. Damit wird die Schachtelung wesentlich flexibilisiert. Es gibt keine Fehler wenn eine Ebene fehlt.
+%Schließt die Sectionebenen unter Verwendung der eben definierten Reihenfolge automatisch. Damit wird die Schachtelung wesentlich flexibilisiert. Es gibt keine Fehler wenn eine Ebene fehlt.
 %
-%Einige Variablen die im Macro ben�tigt werden.
+%Einige Variablen die im Macro benötigt werden.
 %    \begin{macrocode}
 \newcount\@bool%
 \newcount\@elem%
 \newcount\@elemi%
 %    \end{macrocode}
 %
-%Zu allererst muss eventuell noch offener Text beendet werden. Anschlie�end beendet eine Schleife solange das jeweils oben aufliegende Stackelement, bis die n�tige Tiefe erreicht ist. Ein Kapitel beendet alle Strukturen h�herer Nummer, aber maximal ein Kapitel.
+%Zu allererst muss eventuell noch offener Text beendet werden. Anschließend beendet eine Schleife solange das jeweils oben aufliegende Stackelement, bis die nötige Tiefe erreicht ist. Ein Kapitel beendet alle Strukturen höherer Nummer, aber maximal ein Kapitel.
 %    \begin{macrocode}
 \newcommand{\closeUntilPDFStruct}[1]{%
       \ifTextActive%
@@ -586,14 +589,14 @@
 %\subsection{Normale und besondere Textelemente}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Sie enthalten Textabs�tze und eventuell weitere Objekte auf Zeilenebene wie Fu�noten, Referenzen, Formeln, Zitat.... Ein spezielles Textelement (wie Zitat, Formel, Quellcode...) wird durch Befehle oder Umgebungen gesondert hervorgehoben. Normale Textelemente sind hingegen nicht markiert. Eine Erkennung wird durch \comname{everypar} erzielt. Diese Funktion wird zu Beginn jedes neuen Textabschnittes im vertikalen Modus verwendet.
+%Sie enthalten Textabsätze und eventuell weitere Objekte auf Zeilenebene wie Fußnoten, Referenzen, Formeln, Zitat.... Ein spezielles Textelement (wie Zitat, Formel, Quellcode...) wird durch Befehle oder Umgebungen gesondert hervorgehoben. Normale Textelemente sind hingegen nicht markiert. Eine Erkennung wird durch \comname{everypar} erzielt. Diese Funktion wird zu Beginn jedes neuen Textabschnittes im vertikalen Modus verwendet.
 %
-%Es ist immer maximal ein Textobjekt aktiv. Textobjekte k�nnen nicht ineinander geschachtelt werden.
+%Es ist immer maximal ein Textobjekt aktiv. Textobjekte können nicht ineinander geschachtelt werden.
 %
 %\begin{environment}{PDFTextObj}
-%Ist eine Strukturobjekt, dass normale Textpassagen auf Absatzebene enth�lt.
+%Ist eine Strukturobjekt, dass normale Textpassagen auf Absatzebene enthält.
 %
-% Einige Variablen die f�r die folgende Definition ben�tigt werden.
+% Einige Variablen die für die folgende Definition benötigt werden.
 %    \begin{macrocode}
 \xdef\TextType{}%
 \newcounter{TextObjNum}%
@@ -602,7 +605,7 @@
 \newif\ifSpezialTextActive \SpezialTextActivefalse%
 %    \end{macrocode}
 
-%Zu Beginn eines Textobjektes werden noch offene Textobjekte abgeschlossen. Anschlie�end werden die ben�tigten Variablen neu initialisiert.
+%Zu Beginn eines Textobjektes werden noch offene Textobjekte abgeschlossen. Anschließend werden die benötigten Variablen neu initialisiert.
 %    \begin{macrocode}
 \newenvironment*{PDFTextObj}{%
   %altes Textobj beenden, immer max. ein Textobj aktiv
@@ -615,7 +618,7 @@
   \xdef\TextType{P}% kein TextTxp --> P
 }%
 %    \end{macrocode}
-% Um ein Textobjekt abzuschlie�en wird zun�chst das Elternelement ermittelt. Dies liegt normalerweise oben auf dem Stack. Ist dieser leer wird das Element direkt unter der Wurzel eingef�gt.
+% Um ein Textobjekt abzuschließen wird zunächst das Elternelement ermittelt. Dies liegt normalerweise oben auf dem Stack. Ist dieser leer wird das Element direkt unter der Wurzel eingefügt.
 %    \begin{macrocode}
 {%
  \ifTextActive%
@@ -645,7 +648,7 @@
 
 %\begin{environment}{PDFSpezialTextObj}
 %
-%Im Unterschied zu normales Textobjekten sind besondere Textelemente im \LaTeX-Code speziell ausgezeichnet. Eine Erkennung ist also gewisserma�en zuverl�ssiger m�glich. Da es sich bei speziellen Textobjekten auch um z.~B. Formeln handeln kann, werden noch Variablen zur Attributverwaltung eingef�hrt werden.
+%Im Unterschied zu normales Textobjekten sind besondere Textelemente im \LaTeX-Code speziell ausgezeichnet. Eine Erkennung ist also gewissermaßen zuverlässiger möglich. Da es sich bei speziellen Textobjekten auch um z.~B. Formeln handeln kann, werden noch Variablen zur Attributverwaltung eingeführt werden.
 %    \begin{macrocode}
 \xdef\altAttr{}%
 \xdef\titleAttr{}%
@@ -666,7 +669,7 @@
 }%
 %    \end{macrocode}
 %
-%Auch das Ende ist bis auf die Verwaltung der Attribute �hnlich. Eine Unterscheidung ist jedoch f�r sp�tere Zwecke n�tig.
+%Auch das Ende ist bis auf die Verwaltung der Attribute ähnlich. Eine Unterscheidung ist jedoch für spätere Zwecke nötig.
 %    \begin{macrocode}
 {%
   %\gdef\LanguageHelp{}%
@@ -713,7 +716,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\begin{environment}{PDFInlineObjInText}
-%Treten Objekte auf Zeilenebene in Textfluss auf, so muss dieser unterbrochen werden, dass Objekt geschrieben werden und anschlie�end ist der Textfluss fortzusetzen. Zu diesem Zweck m�ssen einige Zustandvariablen gespeichert werden.
+%Treten Objekte auf Zeilenebene in Textfluss auf, so muss dieser unterbrochen werden, dass Objekt geschrieben werden und anschließend ist der Textfluss fortzusetzen. Zu diesem Zweck müssen einige Zustandvariablen gespeichert werden.
 %
 %    \begin{macrocode}
 \xdef\lastEveryparType{}%
@@ -722,7 +725,7 @@
 \newcounter{PDFReferenceObjNum}%
 \xdef\ReferenceArray{}%
 %    \end{macrocode}
-%Zuerst werden die alten Variablen gesichert. Anschlie�end ist f�r den Fall, dass es sich um Referenzen handelt, eine Sonderbehandlung n�tig. Ihnen ist zus�tzlich das von \packname{hyperref} erzeugte Linkobjekt zu zuordnen. Da im Textfluss \comname{everypar} nicht greift, muss die Markierung des ContentStreams manuell vorgenommen werden.
+%Zuerst werden die alten Variablen gesichert. Anschließend ist für den Fall, dass es sich um Referenzen handelt, eine Sonderbehandlung nötig. Ihnen ist zusätzlich das von \packname{hyperref} erzeugte Linkobjekt zu zuordnen. Da im Textfluss \comname{everypar} nicht greift, muss die Markierung des ContentStreams manuell vorgenommen werden.
 %    \begin{macrocode}
 \newenvironment*{PDFInlineObjInText}[1]{%
   %alte einstellung merken
@@ -740,7 +743,7 @@
   \PDFMarkContent% kein everypar
 }%
 %    \end{macrocode}
-%Anschlie�end ist die Markierung wieder zu beenden. F�r Referenzen und Links muss nun die OBJR mit in die Struktur eingebunden werden. Das funktioniert �ber pdflastlink, aber erst ab PDFTEX Version 1.4.. Zum Schluss wird der Ausgangszustand wiederhergestellt und der nachfolgende Textfluss markiert.
+%Anschließend ist die Markierung wieder zu beenden. Für Referenzen und Links muss nun die OBJR mit in die Struktur eingebunden werden. Das funktioniert über pdflastlink, aber erst ab PDFTEX Version 1.4.. Zum Schluss wird der Ausgangszustand wiederhergestellt und der nachfolgende Textfluss markiert.
 %    \begin{macrocode}
 {%
   \endPDFMarkContent%
@@ -773,12 +776,12 @@
 %\subsection{Marked Content}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Zus�tzlich zum Schreiben der Objekte m�ssen die zugeh�rigen Textpassagen im ContentStream markiert werden. Diese Funktionalit�t deckt das Makro PDFMarkContent ab.
+%Zusätzlich zum Schreiben der Objekte müssen die zugehörigen Textpassagen im ContentStream markiert werden. Diese Funktionalität deckt das Makro PDFMarkContent ab.
 %
 %Die Hilfsmakros \comname{EveryparConfig} und \comname{EyeryparReset} dienen der Flexibilisierung von MarkContent, indem sie dort verwendete Variablen setzen. MarkContent ist die Funktion die durch \comname{everypar} aufgerufen wird.
 
 %\begin{macro}{\EveryparConfig}
-%Setzt die Variablen auf die �bergebenen Werte
+%Setzt die Variablen auf die übergebenen Werte
 %\paragraph{Parameter}
 %|#1| EveryparStructElem |#2| true/false/obj
 %    \begin{macrocode}
@@ -791,7 +794,7 @@
 %\end{macro}
 %
 %\begin{macro}{\EveryparReset}
-%%Setzt die Variablen auf die Standardwerte f�r eine normale Texterkennung.
+%%Setzt die Variablen auf die Standardwerte für eine normale Texterkennung.
 %    \begin{macrocode}
 \newcommand{\EveryparReset}{%
    \xdef\everyparStructElem{P}%
@@ -802,16 +805,16 @@
 %\end{macro}
 %
 %\begin{environment}{PDFMarkContent}
-%Zun�chst werden wieder einige Variablen ben�tigt. Zum einen muss eine Markierung immer erst beendet werden, bevor eine neue angefangen wird. Der Sicherung dient die Variable \varname{MarkContentOpen}. Auch die Markierung enth�lt einen Typ, der im allgemeinem denen des Textobjektes entspricht.
+%Zunächst werden wieder einige Variablen benötigt. Zum einen muss eine Markierung immer erst beendet werden, bevor eine neue angefangen wird. Der Sicherung dient die Variable \varname{MarkContentOpen}. Auch die Markierung enthält einen Typ, der im allgemeinem denen des Textobjektes entspricht.
 %
-%Die erzeugten Markierungen werden anschlie�end dem Strukturbaum zugeordnet. Dabei ist eine direkt Einbindung als MarkContentReferenz m�glich, oder es kann ein Blattknoten erzeugt werden, der die Verbindung herstellt. Die Unterscheidung wird mittels \varname{InlineObj} vorgenommen. Sie kann bisher die Belegungen {true, false und obj} annehmen.
+%Die erzeugten Markierungen werden anschließend dem Strukturbaum zugeordnet. Dabei ist eine direkt Einbindung als MarkContentReferenz möglich, oder es kann ein Blattknoten erzeugt werden, der die Verbindung herstellt. Die Unterscheidung wird mittels \varname{InlineObj} vorgenommen. Sie kann bisher die Belegungen {true, false und obj} annehmen.
 %    \begin{macrocode}
 \newif\ifMarkContentOpen \MarkContentOpenfalse%
 \xdef\everyparStructElem{P}%
 \xdef\InlineObj{false}%
 %    \end{macrocode}
 %
-%Zun�chst wird eine eventuell ge�ffnete Markierung abgeschossen. Anschlie�end wird eine neue Markierung unter Verwendung der Funktion \comname{pdfliteral} in den ContentStream eingef�gt. Da der Anfang einer n�tigen Markierung zuverl�ssiger zu Erkennen ist, als das Ende wird die Verbindung zum Strukturbaum gleich anschlie�end durchgef�hrt. Des Weiteren werden Schachtelungsprobleme vermieden, bei denen die Zuordnung der MCID durch �berschreibung des \varname{TaggedObj} ung�ltig wird.
+%Zunächst wird eine eventuell geöffnete Markierung abgeschossen. Anschließend wird eine neue Markierung unter Verwendung der Funktion \comname{pdfliteral} in den ContentStream eingefügt. Da der Anfang einer nötigen Markierung zuverlässiger zu Erkennen ist, als das Ende wird die Verbindung zum Strukturbaum gleich anschließend durchgeführt. Des Weiteren werden Schachtelungsprobleme vermieden, bei denen die Zuordnung der MCID durch überschreibung des \varname{TaggedObj} ungültig wird.
 %    \begin{macrocode}
 \newenvironment{PDFMarkContent}{%
   \ifMarkContentOpen \endPDFMarkContent\fi%
@@ -834,7 +837,7 @@
   \stepcounter{TaggedObj}%
 }%
 %    \end{macrocode}
-%Wie bereits gesagt, sind die Enden von Abs�tzen nicht wirklich zuverl�ssig erkennbar, so dass h�ufig erst bei dem Beginn einer neuen Struktur auf ein Ende geschlossen werden kann. Eine fr�hest m�gliche Erkennung ist insbesondere an Stellen des Seitenumbruchs relevant. Das Ende soll nach M�glichkeit noch auf der alten Seite auftauchen und nicht erst mit Beginn der neuen Struktur am Beginn der neuen Seite. Eine Verwendung von \comname{endMarkContent} ist relativ bedenkenlos mehrfach m�glich, daf�r dass nicht zu oft beendet wird, sorgt die Abfrage.
+%Wie bereits gesagt, sind die Enden von Absätzen nicht wirklich zuverlässig erkennbar, so dass häufig erst bei dem Beginn einer neuen Struktur auf ein Ende geschlossen werden kann. Eine frühest mögliche Erkennung ist insbesondere an Stellen des Seitenumbruchs relevant. Das Ende soll nach Möglichkeit noch auf der alten Seite auftauchen und nicht erst mit Beginn der neuen Struktur am Beginn der neuen Seite. Eine Verwendung von \comname{endMarkContent} ist relativ bedenkenlos mehrfach möglich, dafür dass nicht zu oft beendet wird, sorgt die Abfrage.
 %    \begin{macrocode}
 {%
  \ifMarkContentOpen%
@@ -846,10 +849,10 @@
 
 %\end{environment}
 %
-%Zur besseren �bersichtlichkeit und wurde das Makro \comname{writePDfLeafObj} ausgelagert. Es kann so des Weiteren auch an anderer Stele wiederverwendet werden.
+%Zur besseren übersichtlichkeit und wurde das Makro \comname{writePDfLeafObj} ausgelagert. Es kann so des Weiteren auch an anderer Stele wiederverwendet werden.
 %
 %\begin{macro}{\writePDFLeafObj}
-%Diese Makro erm�glicht die Erzeugung einfacher Blattknoten, also derjenigen, die selbst keine Elemente mehr enthalten. Sie referenzieren die \pdfname{MCID} des zugeh�rigen Textabschnittes, diese wird normalerweise im Z�hler \varname{TaggedObj} gehalten, f�r einige Elemente muss jedoch von dieser Nummerierung abgewichen werden, die Variable in im ersten Argument und der Strukturtyp im zweiten zu �bergeben.
+%Diese Makro ermöglicht die Erzeugung einfacher Blattknoten, also derjenigen, die selbst keine Elemente mehr enthalten. Sie referenzieren die \pdfname{MCID} des zugehörigen Textabschnittes, diese wird normalerweise im Zähler \varname{TaggedObj} gehalten, für einige Elemente muss jedoch von dieser Nummerierung abgewichen werden, die Variable in im ersten Argument und der Strukturtyp im zweiten zu übergeben.
 %
 %\paragraph{Parameter}
 %|#1| MCID |#2| Structure
@@ -889,9 +892,9 @@
 %\end{macro}
 
 %\begin{macro}{\writeComplexTextObj}
-%Komplexere Objekte wie die von Fu�noten, in denen zus�tzlich die Strukturen am Seitenende integriert werden, sind mit \comname{writePDFLeafObj} nicht zu realisieren. Diese Funktionalit�t bietet dieses Makro. Es sind erm�glicht die Erzeugung von mittleren Knoten, also denjenigen, die selbst weitere Objekte enthalten. Damit die doppelte Verlinkung (Eltern mit Kindern, wie umgekehrt) m�glich ist, muss bei der Erzeugung der Kinderelemente die Objektnummer des Elternobjektes bekannt sein. Des Weiteren wird jeweils die Referenz des Kindes in die Kinderliste der Eltern eingef�gt. So dass dieses erst nach der Generierung aller Kinder erzeugt werden kann. Zur Realisierung wird am Anfang einer mittleren Struktur eine Objektnummer reserviert, die im ersten Parameter �bergeben.
+%Komplexere Objekte wie die von Fußnoten, in denen zusätzlich die Strukturen am Seitenende integriert werden, sind mit \comname{writePDFLeafObj} nicht zu realisieren. Diese Funktionalität bietet dieses Makro. Es sind ermöglicht die Erzeugung von mittleren Knoten, also denjenigen, die selbst weitere Objekte enthalten. Damit die doppelte Verlinkung (Eltern mit Kindern, wie umgekehrt) möglich ist, muss bei der Erzeugung der Kinderelemente die Objektnummer des Elternobjektes bekannt sein. Des Weiteren wird jeweils die Referenz des Kindes in die Kinderliste der Eltern eingefügt. So dass dieses erst nach der Generierung aller Kinder erzeugt werden kann. Zur Realisierung wird am Anfang einer mittleren Struktur eine Objektnummer reserviert, die im ersten Parameter übergeben.
 %
-%Die Erzeugung von Objekten kann sowohl mit, als auch ohne Seitenreferenz erfolgen. Zudem muss die Liste der Kinder, das Elternelement und der Strukturtyp an das Makro �bergeben werden.
+%Die Erzeugung von Objekten kann sowohl mit, als auch ohne Seitenreferenz erfolgen. Zudem muss die Liste der Kinder, das Elternelement und der Strukturtyp an das Makro übergeben werden.
 %
 %\paragraph{Parameter}
 %|#1| Objektnummer |#2| KidsArray |#3| StructurType |#4| ParentObj |#5| (no)page
@@ -919,14 +922,14 @@
 %\end{macro}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Erkennen von Abs�tzen}
+%\section{Erkennen von Absätzen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Da Textabs�tze in \LaTeX\ nicht explizit ausgezeichnet sind, wird \comname{everypar} verwendet um den Anfang eines Textabschnittes zu erkennen. Sobald eine andere Struktur erkannt wird, wird der Textabschnitt beendet. In l�ngeren Strukturen wird die Absatzerkennung mit \comname{everypar} explizit ausgesetz und nach Abschluss wieder aktiviert.
+%Da Textabsätze in \LaTeX\ nicht explizit ausgezeichnet sind, wird \comname{everypar} verwendet um den Anfang eines Textabschnittes zu erkennen. Sobald eine andere Struktur erkannt wird, wird der Textabschnitt beendet. In längeren Strukturen wird die Absatzerkennung mit \comname{everypar} explizit ausgesetz und nach Abschluss wieder aktiviert.
 %
-%\varname{numberingpars} dient der Unterscheidung, ob Absatznummern generiert werden sollen oder eben nicht. W�hrend \varname{npar} von jedem \comname{everypar} zur�ckgesetzt wird und bestimmt, ob der folgende Absatz nummeriert sein soll. In Kombination ergeben beide ein Werkzeug zur Entscheidung, ob \comname{everypar} nun einen wirklichen Textabsatz einleitet.
+%\varname{numberingpars} dient der Unterscheidung, ob Absatznummern generiert werden sollen oder eben nicht. Während \varname{npar} von jedem \comname{everypar} zurückgesetzt wird und bestimmt, ob der folgende Absatz nummeriert sein soll. In Kombination ergeben beide ein Werkzeug zur Entscheidung, ob \comname{everypar} nun einen wirklichen Textabsatz einleitet.
 %
-%Der Z�hler \varname{ParCounter} dient nur zu Testzwecken, er z�hlt die wirklichen Textabs�tze je Seite mit. Es ist z.~B. m�glich auskommentierten Zeilen zu aktivieren, um z sehen an welchen Stellen \comname{everypar} greift.
+%Der Zähler \varname{ParCounter} dient nur zu Testzwecken, er zählt die wirklichen Textabsätze je Seite mit. Es ist z.~B. möglich auskommentierten Zeilen zu aktivieren, um z sehen an welchen Stellen \comname{everypar} greift.
 %    \begin{macrocode}
   %\newcounter{ParCounter}[page]%
 \newcounter{ParCounter}%
@@ -935,7 +938,7 @@
 %    \end{macrocode}
 
 %
-%Nun wird die Funktion \comname{everypar} tats�chlich umdefiniert. Dazu werden zun�chst die urspr�ngliche Definition in \comname{originaleverypar} sowie die Token der Funktion gesichert. Anschlie�end wird \comname{everypar} unter Verwendung der Originaldefinition erweitert. Ist nun die Textabsatzerkennung bestehend aus \varname{numberingpars} und \varname{npar} aktiviert. L�st \comname{everypar} den Start der Umgebung \comname{PDFText} aus. Sofern diese noch aktiv ist, wird sie zuvor beendet.
+%Nun wird die Funktion \comname{everypar} tatsächlich umdefiniert. Dazu werden zunächst die ursprüngliche Definition in \comname{originaleverypar} sowie die Token der Funktion gesichert. Anschließend wird \comname{everypar} unter Verwendung der Originaldefinition erweitert. Ist nun die Textabsatzerkennung bestehend aus \varname{numberingpars} und \varname{npar} aktiviert. Löst \comname{everypar} den Start der Umgebung \comname{PDFText} aus. Sofern diese noch aktiv ist, wird sie zuvor beendet.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originaleverypar\everypar%
@@ -960,7 +963,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Dokumentbeginn}
 % %%%%%%%%%%%%%%%%%%%%%
-% Strukturbaum er�ffnen.
+% Strukturbaum eröffnen.
 %    \begin{macrocode}
 \AtBeginDocument{%
 \PDFStructObj{Document}{\empty}%
@@ -971,16 +974,16 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Dokumentende}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Strukturbaum abschlie�en
+%Strukturbaum abschließen
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \AtEndDocument{%
 %    \end{macrocode}
-%Am Ende des Dokumentes m�ssen alle noch offenen Strukturen abgeschlossen werden. Diesen Zweck erf�llen die folgenden Zeilen.
+%Am Ende des Dokumentes müssen alle noch offenen Strukturen abgeschlossen werden. Diesen Zweck erfüllen die folgenden Zeilen.
 %    \begin{macrocode}
   \closeUntilPDFStruct{Document}%
 %    \end{macrocode}
-%Um in sp�teren Implementierungen das "`Umflie�en"' zu unterst�tzen muss jedem Strukturelement eine Layout-Klasse zugeordnet werden. Das Klassenzuordnungsobjekt verwaltet diese, in dem es im einfachsten Fall einem Klassennamen (\pdfname{Normal}) verschiedene Layoutattribute zuordnet({\pdfname{TextAlign} \pdfname{Center}). Bisher verhindert die klare Wortbegrenzung (fehlende Leerzeichen) im PDF-Quellcode des ContentStreams ein automatisches Reflow.
+%Um in späteren Implementierungen das "`Umfließen"' zu unterstützen muss jedem Strukturelement eine Layout-Klasse zugeordnet werden. Das Klassenzuordnungsobjekt verwaltet diese, in dem es im einfachsten Fall einem Klassennamen (\pdfname{Normal}) verschiedene Layoutattribute zuordnet({\pdfname{TextAlign} \pdfname{Center}). Bisher verhindert die klare Wortbegrenzung (fehlende Leerzeichen) im PDF-Quellcode des ContentStreams ein automatisches Reflow.
 %    \begin{macrocode}
   \newcounter{ClassMap}%
   \pdfobj reserveobjnum% neues Objekt Reservieren
@@ -999,10 +1002,10 @@
        >>} \pdfrefobj \pdflastobj%
    %\global\setcounter{ClassMap}{\pdflastobj}%
 %    \end{macrocode}
-%Des Weiteren wurden im Verlauf der Abarbeitung eigene PDF-Strukturen abgeleitet. Sie m�ssen nun einem Standard-Element zugeordnet werden. Dazu wird das so genannte Rollenzuordnungsobjekt geschrieben. Es ordnet jeweils die selbst definierte (\pdfname{IndexItem}) einer Standardrolle (\pdfname{Span}) zu.
+%Des Weiteren wurden im Verlauf der Abarbeitung eigene PDF-Strukturen abgeleitet. Sie müssen nun einem Standard-Element zugeordnet werden. Dazu wird das so genannte Rollenzuordnungsobjekt geschrieben. Es ordnet jeweils die selbst definierte (\pdfname{IndexItem}) einer Standardrolle (\pdfname{Span}) zu.
 %    \begin{macrocode}
   \pdfobj {<<%
-            /IndexItem /Span % Indexeintr�ge
+            /IndexItem /Span % Indexeinträge
             /TOF /TOC % Table of Figures
             /TOFI /TOCI % Table of Figures Eintrag
             /TOT /TOC % Table of Tables
@@ -1011,7 +1014,7 @@
             /Bibliography /L % Bibligraphy
             /BibItem /LI % BibligraphyItem
             /ParagraphSpan /Span % geteilte Paragraphen am Seitenumbruch
-            /Footnote /Note %  Fu�notentext
+            /Footnote /Note %  Fußnotentext
             /Chapter /Sect%
             /Section /Sect%
             /Subsection /Sect%
@@ -1025,7 +1028,7 @@
           >>} \pdfrefobj \pdflastobj%
   \setcounter{ObjHelp}{\pdflastobj}%
 %    \end{macrocode}
-%Erst jetzt, wenn alle Objekte ins PDF-Dokument geschrieben wurden kann, dass Strukturwurzelobjekt erzeugt werden, da es Referenzen auf die anderen Objekte enth�lt.
+%Erst jetzt, wenn alle Objekte ins PDF-Dokument geschrieben wurden kann, dass Strukturwurzelobjekt erzeugt werden, da es Referenzen auf die anderen Objekte enthält.
 %    \begin{macrocode}
   \immediate \pdfobj useobjnum \theStructTree{%
      <</Type /StructTreeRoot %
@@ -1036,7 +1039,7 @@
        /K [\Karray] %
      >>}\pdfrefobj\pdflastobj%
 %    \end{macrocode}
-%Nun wird der gesamte erzeugte Strukturbaum in den Katalog der PDF-Datei eingef�gt und das PDF als "`Tagged PDF"' ausgewiesen.
+%Nun wird der gesamte erzeugte Strukturbaum in den Katalog der PDF-Datei eingefügt und das PDF als "`Tagged PDF"' ausgewiesen.
 %    \begin{macrocode}
   \pdfcatalog{%
       /StructTreeRoot \theStructTree\space 0 R%
@@ -1046,7 +1049,7 @@
       %/Metadata \theStructTree\space 0 R%
       }%
 %    \end{macrocode}
-%Abschlie�end wird dem Autor, mitgeteilt, ob und wo noch Probleme bzgl. der Barrierefreiheit bestehen.
+%Abschließend wird dem Autor, mitgeteilt, ob und wo noch Probleme bzgl. der Barrierefreiheit bestehen.
 %    \begin{macrocode}
   \ifthenelse{\boolean{ACCESSProblems}}{%
      \PackageWarningNoLine{accessibility}{%
@@ -1062,20 +1065,20 @@
 %\section{Seitenumbruch}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Bisher ist eine korrekte Auszeichnung der Seitenumbr�che nicht m�glich, da die Autorin bisher keine Variante zur zuverl�ssigen Erkennung gefunden hat.
+%Bisher ist eine korrekte Auszeichnung der Seitenumbrüche nicht möglich, da die Autorin bisher keine Variante zur zuverlässigen Erkennung gefunden hat.
 %
-%Prinzipiell m�sste an jedem Seitenende (vor dem Schreiben der Fu�noten) geschaut werden, welche Struktur im ContentStream noch aktiv ist, dass betrifft prinzipiell Elemente wie /P, /Lbody, etc., also Objekte die als Blattobjekte mit einer Seitenreferenz geschrieben werden m�ssen. Diese m�ssen durch ein |\pdfliteral{EMC}| unterbrochen werden. Damit w�re immerhin die Integrit�t des ContentStreams gew�hrleistest.
+%Prinzipiell müsste an jedem Seitenende (vor dem Schreiben der Fußnoten) geschaut werden, welche Struktur im ContentStream noch aktiv ist, dass betrifft prinzipiell Elemente wie /P, /Lbody, etc., also Objekte die als Blattobjekte mit einer Seitenreferenz geschrieben werden müssen. Diese müssen durch ein |\pdfliteral{EMC}| unterbrochen werden. Damit wäre immerhin die Integrität des ContentStreams gewährleistest.
 %
 %\subsection{Automatischer Seitenumbruch}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%An die richtige Stelle der letzten Seite kann das Literal z.B. mittels |\@textbottom| gesetzt werden. Es wird w�hrend der Ausgabe (|\shipout|) aufgerufen. Allerdings gesieht dies nicht genau zum Seitenumbruch, sondern erst nach ein bis zwei Absatzboxen. Damit sind die Variablen wie |ifPDFTextActiv| nicht mehr aktuell und eine Erkennung ist nicht wirklich zuverl�ssig m�glich.
+%An die richtige Stelle der letzten Seite kann das Literal z.B. mittels |\@textbottom| gesetzt werden. Es wird während der Ausgabe (|\shipout|) aufgerufen. Allerdings gesieht dies nicht genau zum Seitenumbruch, sondern erst nach ein bis zwei Absatzboxen. Damit sind die Variablen wie |ifPDFTextActiv| nicht mehr aktuell und eine Erkennung ist nicht wirklich zuverlässig möglich.
 %
-%Auf der neuen Seite muss die Struktur dann nat�rlich wieder ge�ffnet werden. Dann m�ssen beide Teile mit der richtigen Seitenreferenz als Element in den Baum einsortiert werden. Beide Funktionen k�nnen Inhalte auf der gerade fertiggestellten Seite hinzuf�gen.
+%Auf der neuen Seite muss die Struktur dann natürlich wieder geöffnet werden. Dann müssen beide Teile mit der richtigen Seitenreferenz als Element in den Baum einsortiert werden. Beide Funktionen können Inhalte auf der gerade fertiggestellten Seite hinzufügen.
 %
-%Fu�noten werden im Moment ihres Auftauchens in eine tempor�re Box geschrieben und sp�ter in den Output eingef�gt. |\@texttop| wird immer vor |\@textbottom| durch |\shipout| aufgerufen.
+%Fußnoten werden im Moment ihres Auftauchens in eine temporäre Box geschrieben und später in den Output eingefügt. |\@texttop| wird immer vor |\@textbottom| durch |\shipout| aufgerufen.
 %
-%Die folgende Implementierung funktioniert, aber nur in einem von 3 Spezialf�llen. Dies ist eindeutig noch eine Baustelle.
+%Die folgende Implementierung funktioniert, aber nur in einem von 3 Spezialfällen. Dies ist eindeutig noch eine Baustelle.
 %
 %    \begin{macrocode}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1083,7 +1086,7 @@
 \newcount\linenopenalty\linenopenalty=-100000%
 \mathchardef\linenopenaltypar=32000%
   %
-  %%%%%%%%%%%%%Ver�ndern der Outputroutine%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%Verändern der Outputroutine%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\@tempa\output%
   \newtoks\output%
@@ -1396,7 +1399,7 @@
 %
 %Auch mit den Befehlen \comname{pagebreak}, \comname{nopagebreak} und \comname{newpage} sollte der Algorithmus funktionieren.
 %
-%Eventuell kann hier eine M�glichkeit geschaffen werden am Ende des Dokumentenerstellungsprozesses, wenn also alles fertig ist, nicht automatisch erkennbare Abs�tze per Hand zu kennzeichnen. Die Befehle \comname{clearpage} und \comname{cleardoublepage} greifen auf die Definition von \comname{newpage} zur�ck. %
+%Eventuell kann hier eine Möglichkeit geschaffen werden am Ende des Dokumentenerstellungsprozesses, wenn also alles fertig ist, nicht automatisch erkennbare Absätze per Hand zu kennzeichnen. Die Befehle \comname{clearpage} und \comname{cleardoublepage} greifen auf die Definition von \comname{newpage} zurück. %
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalnewpage\newpage%
@@ -1409,7 +1412,7 @@
 
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{�berschriften}
+%\section{Überschriften}
 % %%%%%%%%%%%%%%%%%%%%%
 %
 %
@@ -1419,11 +1422,11 @@
 %		\minisec{Die Latex-Struktur}\vspace{\lineheight}
 %		\begin{verbatim}
 %		...
-%		\section{�berschrift}
+%		\section{Überschrift}
 %		Absatz...
-%		\subsection{Unter�berschrift}
+%		\subsection{Unterüberschrift}
 %		Absatz...
-%		\subsection{Unter�berschrift}
+%		\subsection{Unterüberschrift}
 %		...
 %		\end{verbatim}
 %		\end{minipage}
@@ -1433,7 +1436,7 @@
 %		\includegraphics{images/headings}
 %		\end{minipage}
 %		\hfill
-%	\caption{Struktur f�r �berschriften}
+%	\caption{Struktur für Überschriften}
 %	\label{fig:headings}
 %\end{figure}
 %
@@ -1442,7 +1445,7 @@
 % %%%%%%%%%%%%%%%%%%%%%
 %
 %\begin{environment}{PDFSect}
-%Beginnt ein neues Strukturelement, aber nur in dem Fall, dass die Option \optname{highstructure} gesetzt ist. Anschlie�end wird ein spezielles Textobjekt (H) begonnen, und die Absatzmarkierung konfiguriert.
+%Beginnt ein neues Strukturelement, aber nur in dem Fall, dass die Option \optname{highstructure} gesetzt ist. Anschließend wird ein spezielles Textobjekt (H) begonnen, und die Absatzmarkierung konfiguriert.
 %    \begin{macrocode}
 \newenvironment{PDFSect}[2]{%
   \ifPDFDetailedStructure%
@@ -1453,7 +1456,7 @@
   \EveryparConfig{H}{false}%
 }%
 %    \end{macrocode}
-%Am Ende der �berschrift wird nur die Markierung der Textpassage und das Textobjekt beendet. Die Struktur beginnt ja mit der erst. Sie wird bei Beginn einer h�herliegenden Gliederungsebene geschlossen.
+%Am Ende der überschrift wird nur die Markierung der Textpassage und das Textobjekt beendet. Die Struktur beginnt ja mit der erst. Sie wird bei Beginn einer höherliegenden Gliederungsebene geschlossen.
 %    \begin{macrocode}
 {%
   \endPDFMarkContent%
@@ -1464,12 +1467,12 @@
 %\end{environment}
 %
 %
-%Nachdem nun die abstrakten Hilfsmakros angelegt sind, k�nnen die betroffenen Gliederungsbefehle umdefiniert werden.
+%Nachdem nun die abstrakten Hilfsmakros angelegt sind, können die betroffenen Gliederungsbefehle umdefiniert werden.
 %
 %\subsection{Kapitel}
 % %%%%%%%%%%%%%%%%%%%%%
 %
-%Da der Gliederungsbefehl f�r Kapitel nur in einigen Dokumentenklassen angeboten wird, ist hierzu eine Sonderbehandlung n�tig. F�r die verschiedenen Aufrufe ist zudem ist eine Fallunterscheidung n�tig.
+%Da der Gliederungsbefehl für Kapitel nur in einigen Dokumentenklassen angeboten wird, ist hierzu eine Sonderbehandlung nötig. Für die verschiedenen Aufrufe ist zudem ist eine Fallunterscheidung nötig.
 %
 %\subsubsection{Umdefinieren des chapter-Befehls}
 % %%%%%%%%%%%%%%%%%%%%%%%%
@@ -1533,12 +1536,12 @@
 %    \end{macrocode}
 %\end{macro}
 
-%Im KOMA-Script gibt es die M�glichkeit ein e Pr�amble f�r Kapeitel und Parts zu setzten. Diese wird durch die n�chsten Zeilen als \pdfname{P} ausgezeichnet.
+%Im KOMA-Script gibt es die Möglichkeit eine Präamble für Kapeitel und Parts zu setzten. Diese wird durch die nächsten Zeilen als \pdfname{P} ausgezeichnet.
 %
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifundefined{set@preamble}{% es gibt kein set@preamble%
-    }{%  %au�erhalb des KOMA-Scripts
+    }{%  %außerhalb des KOMA-Scripts
     \let\originaluse@preamble\use@preamble%
     \renewcommand{\use@preamble}[1]{%
         \EveryparConfig{P}{true}%
@@ -1549,7 +1552,7 @@
 }{}
 %    \end{macrocode}
 
-%\subsection{�berschriften mit Afterskip}
+%\subsection{Überschriften mit Afterskip}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %Diese Gliederungsebenen gibt es in allen Dokumentenklassen.
@@ -1635,13 +1638,13 @@
 %\end{macro}
 %
 %
-%\subsection{�berschriften ohne Afterskip}
+%\subsection{Überschriften ohne Afterskip}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%In der im scrrept-Definierten �berschriftsvariante werden \comname{paragraph} und \comname{subparagraph} ohne nachfolgenden Zeilenumbruch gesetzt. Solche �berschriften werden als Textabschnitt gekennzeichnet.
+%In der im scrrept-Definierten Überschriftsvariante werden \comname{paragraph} und \comname{subparagraph} ohne nachfolgenden Zeilenumbruch gesetzt. Solche Überschriften werden als Textabschnitt gekennzeichnet.
 %
 %\begin{environment}{PDFParagraphSect}
 %
-%Nachdem wieder ein Strukturobjekt erzeugt wurde. Beginnt \comname{PDFTextObj} ein normales TextObjekt. Die Markierung des ContentStreams muss in diesem Fall explizit ge�ffnet werden, da die �berschrift durch \comname{everypar} vor den Absatz gesetzt wird und somit nicht richtig erkannt wird. %    \begin{macrocode}
+%Nachdem wieder ein Strukturobjekt erzeugt wurde. Beginnt \comname{PDFTextObj} ein normales TextObjekt. Die Markierung des ContentStreams muss in diesem Fall explizit geöffnet werden, da die Überschrift durch \comname{everypar} vor den Absatz gesetzt wird und somit nicht richtig erkannt wird. %    \begin{macrocode}
 \newenvironment{PDFParSect}[2]{%
   %\ifPDFDetailedStructure%
   %    \closeUntilPDFStruct{#1}%
@@ -1652,7 +1655,7 @@
   \PDFMarkContent%
 }%
 %    \end{macrocode}
-%Die Erkennung des Endes kann \comname{everypar} aber durchaus �berlassen werden. An dieser Stelle w�re die Beendigung zu fr�h und w�rde zu einer leeren Markierung f�hren.
+%Die Erkennung des Endes kann \comname{everypar} aber durchaus überlassen werden. An dieser Stelle wäre die Beendigung zu früh und würde zu einer leeren Markierung führen.
 %    \begin{macrocode}
 {%
   %\endPDFMarkContent% erst durch everypar
@@ -1716,7 +1719,7 @@
 %\end{macro}
 %\subsection{Minisec}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Ein wenig getrennt von den anderen �berschriften ist die im Koma-Script-Paket eingef�hrt \comname{minisec}. Sie generiert eine kleine Zwischen�berschrift und wird nicht ins Inhaltsverzeichnis aufgenommen. Sie soll (mittels H) als solche  gekennzeichnet werden. Die eigentliche Markierung �bernimmt \comname{everypar}.
+%Ein wenig getrennt von den anderen Überschriften ist die im Koma-Script-Paket eingeführt \comname{minisec}. Sie generiert eine kleine Zwischenüberschrift und wird nicht ins Inhaltsverzeichnis aufgenommen. Sie soll (mittels H) als solche gekennzeichnet werden. Die eigentliche Markierung übernimmt \comname{everypar}.
 %
 %\begin{macro}{minisec}
 %Umdefinieren des \comname{mnisec}-Befehls
@@ -1760,7 +1763,7 @@
 %\subsection{Zitatumgebungen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%F�r Zitatumgebungen steht, in den Standardelementen von PDF, nur das \pdfname{Quote}-Objekt zur Verf�gung. Es ist ein spezielles Textobjekt wodurch auch eine Schachtelung von Elementen auf Zeilenebene m�glich ist. Den Standardfall ohne weitere Schachtelungen zeigt  Abbildung \ref{fig:quote}.
+%Für Zitatumgebungen steht, in den Standardelementen von PDF, nur das \pdfname{Quote}-Objekt zur Verfügung. Es ist ein spezielles Textobjekt wodurch auch eine Schachtelung von Elementen auf Zeilenebene möglich ist. Den Standardfall ohne weitere Schachtelungen zeigt  Abbildung \ref{fig:quote}.
 
 %\begin{figure}[htbp]
 %		\hfill
@@ -1826,7 +1829,7 @@
 %
 %\subsection{Verbatim, Listings und andere}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%In PDF steht eine \pdfname{Code}-Objekt f�r Computerprogramme und �hnliche Strukturen zur Verf�gung. Es soll im folgenden zur Umsetzung der Verbatim-Umgebung herangezogen werden. Bei zuk�nftigen Umsetzungen von \packname{listings} oder \packname{algorithm} sollte ein �hnliches VorgehLen gew�hlt werden.
+%In PDF steht eine \pdfname{Code}-Objekt für Computerprogramme und ähnliche Strukturen zur Verfügung. Es soll im folgenden zur Umsetzung der Verbatim-Umgebung herangezogen werden. Bei zukünftigen Umsetzungen von \packname{listings} oder \packname{algorithm} sollte ein ähnliches VorgehLen gewählt werden.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -1876,7 +1879,7 @@
 %\subsection{Theorem}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Theoreme dienen der Verwaltung von Definitionen, Merks�tzen, Beispielen, Aufgaben... und transportieren damit wichtige logische Informationen die sich in der Struktur widerspiegeln sollten. Da diese Strukturen aber recht flexibel sind, ist kein rechtes Pendant in der PDF-Spezifikation auszumachen. Anbieten tut sich jedoch das abstrakte \pdfname{Div}-Element von dem eigene Strukturen abgeleitet werden k�nnten. Eine Wiederverwendung des definierten Stukturnames f�hrt jedoch zu Problemen. Zum Einen ist die Sprache der PDF-Objekte bisher Englisch, w�hrend der Theoremname praktisch in allen Sprachen definiert sein kann, was zum Anderen auch zu Problemen mit Sonderzeichen(z.~B. Umlaute, Akzente...) f�hrt. Daher werden Theoreme vorerst als \pdfname{Div} umgesetzt.
+%Theoreme dienen der Verwaltung von Definitionen, Merksätzen, Beispielen, Aufgaben... und transportieren damit wichtige logische Informationen die sich in der Struktur widerspiegeln sollten. Da diese Strukturen aber recht flexibel sind, ist kein rechtes Pendant in der PDF-Spezifikation auszumachen. Anbieten tut sich jedoch das abstrakte \pdfname{Div}-Element von dem eigene Strukturen abgeleitet werden könnten. Eine Wiederverwendung des definierten Stukturnames führt jedoch zu Problemen. Zum Einen ist die Sprache der PDF-Objekte bisher Englisch, während der Theoremname praktisch in allen Sprachen definiert sein kann, was zum Anderen auch zu Problemen mit Sonderzeichen(z.~B. Umlaute, Akzente...) führt. Daher werden Theoreme vorerst als \pdfname{Div} umgesetzt.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -1898,16 +1901,16 @@
 %	\label{fig:theorem}
 %\end{figure}
 %
-%Poteniell schachtelbar mit z.~B. Itemize oder mehrere Abs�tze.
+%Poteniell schachtelbar mit z.~B. Itemize oder mehrere Absätze.
 %\begin{TODO} vielleicht Argumente auswerten, zur extra Kennzeichnung als heading\end{TODO}
-%\begin{TODO} vielleicht Name in Title �bernehmen mit pdfstring\end{TODO}
+%\begin{TODO} vielleicht Name in Title übernehmen mit pdfstring\end{TODO}
 %
 %\begin{environment}{theorem}
 %Umdefinieren der \comname{theorem}-Umgebung.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
 %    \end{macrocode}
-%�berpr�fung ob das Paket thmbox geladen ist.
+%überprüfung ob das Paket thmbox geladen ist.
 %    \begin{macrocode}
   \@ifpackageloaded{thmbox}{%
     \PackageWarning{accessibility}%
@@ -1961,11 +1964,11 @@
 
 %\end{environment}
 %
-%\subsection{Aufz�hlumgebungen}
+%\subsection{Aufzählumgebungen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Bei Aufz�hlungen sieht es im Vergleichzu den Zitatumgebungen schon etwas komplizierter aus. Da in \LaTeX\ standardm��ig bis zu vier Schachtelungen erlaubt sind.
+%Bei Aufzählungen sieht es im Vergleichzu den Zitatumgebungen schon etwas komplizierter aus. Da in \LaTeX\ standardmäßig bis zu vier Schachtelungen erlaubt sind.
 %
-%Wie bei den Zitatumgebungen existiert in PDF laut Spezifikation nur eine Listenstruktur \pdfname{L}. Sie unterliegt einer festen Gliederung (vgl. Abbildung \ref{fig:list}). Wobei jeder Listeneintrag \pdfname{LI} aus einem optionalen Label \pdfname{Lbl} und einem obligatorischen Listenk�rper \pdfname{LBody} besteht.
+%Wie bei den Zitatumgebungen existiert in PDF laut Spezifikation nur eine Listenstruktur \pdfname{L}. Sie unterliegt einer festen Gliederung (vgl. Abbildung \ref{fig:list}). Wobei jeder Listeneintrag \pdfname{LI} aus einem optionalen Label \pdfname{Lbl} und einem obligatorischen Listenkörper \pdfname{LBody} besteht.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -1988,11 +1991,11 @@
 %	\label{fig:list}
 %\end{figure}
 %
-%Geschachtelte Unterlisten sind auf der Ebene des /LI der �bergeordneten einzugliedern.
+%Geschachtelte Unterlisten sind auf der Ebene des /LI der übergeordneten einzugliedern.
 %
 %\subsubsection{Variablendeklaration}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Im folgenden werden einige Variablen ben�tigt, um die Elemente zusammenzusetzen sowie die Ebenen zu Unterscheiden.
+%Im folgenden werden einige Variablen benötigt, um die Elemente zusammenzusetzen sowie die Ebenen zu Unterscheiden.
 %    \begin{macrocode}
 \newif\ifItemActive \ItemActivefalse%
 \newcounter{ListDepth}%
@@ -2003,13 +2006,13 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\begin{environment}{PDFList}
-%Dieses Makro initialisiert im einfachsten Fall nach der Beendigung des noch aktiven Textes nur die Liste. D.~h. die Variablen werden initialisiert bzw. zur�ckgesetzt, sollte zuvor schon eine Liste abgearbeitet worden sein. F�r den Fall, dass schon einer Liste offen ist, soll in dieser noch das letzte Item abgeschlossen werden. Ausserdem muss der Befehl |\item| f�r eine Erkennung umdefiniert werden.
+%Dieses Makro initialisiert im einfachsten Fall nach der Beendigung des noch aktiven Textes nur die Liste. D.~h. die Variablen werden initialisiert bzw. zurückgesetzt, sollte zuvor schon eine Liste abgearbeitet worden sein. Für den Fall, dass schon einer Liste offen ist, soll in dieser noch das letzte Item abgeschlossen werden. Ausserdem muss der Befehl |\item| für eine Erkennung umdefiniert werden.
 %    \begin{macrocode}
 \newenvironment{PDFList}{%
   \ifItemActive \closeItem\fi%
   %Liste beginnen
   \addtocounter{ListDepth}{1}%
-  %\PDFStructObj{L}{\empty}% Sonst Fehler bei Zugriffspr�fung AA
+  %\PDFStructObj{L}{\empty}% Sonst Fehler bei Zugriffsprüfung AA
   \PDFStructObj{L\arabic{ListDepth}}{\empty}%
   %\PDFStructObj{L\romannumeral\theListDepth}{\empty}%
 }{%
@@ -2037,16 +2040,16 @@
   \endPDFSpezialTextObj%
   \PDFSpezialTextObj{LBody}%
   \EveryparConfig{LBody}{false}%
-  %\PDFMarkContent{LBody}% wird �ber everypar erledigt
+  %\PDFMarkContent{LBody}% wird über everypar erledigt
 }%
 %    \end{macrocode}
 
 %\end{environment}
 %
 %\begin{macro}{\closeItem}
-%Ein zugeh�riges Gegenst�ck, wie bei anderen Befehlen gibt es aufgrund der \LaTeX-Struktur nicht. Somit sollte zu Beginn eines neuen Items oder am Ende der Liste das letzte Item geschlossen werden. Diese Funktionalit�t kapselt dieses Makro.
+%Ein zugehöriges Gegenstück, wie bei anderen Befehlen gibt es aufgrund der \LaTeX-Struktur nicht. Somit sollte zu Beginn eines neuen Items oder am Ende der Liste das letzte Item geschlossen werden. Diese Funktionalität kapselt dieses Makro.
 %    \begin{macrocode}
-\newcommand{\closeItem}{%		Altes Item abschlie�en
+\newcommand{\closeItem}{%		Altes Item abschließen
   \endPDFMarkContent%
   \endPDFSpezialTextObj%{LBody}
   \endPDFStructObj%
@@ -2072,7 +2075,7 @@
      \originalenditemize\end{PDFList}}%
   %
 %    \end{macrocode}
-%Kennzeichnung der Label f�r Itemize.
+%Kennzeichnung der Label für Itemize.
 %    \begin{macrocode}
   \let\originallabelitemi\labelitemi%
   \renewcommand{\labelitemi}{%
@@ -2100,7 +2103,7 @@
      \originalendenumerate\end{PDFList}}%
   %
 %    \end{macrocode}
-%Kennzeichnung der Label f�r Enumerate.
+%Kennzeichnung der Label für Enumerate.
 %    \begin{macrocode}
   \let\originallabelenumi\labelenumi%
   \renewcommand{\labelenumi}{%
@@ -2128,7 +2131,7 @@
      \originalenddescription\end{PDFList}}%
   %
 %    \end{macrocode}
-%Kennzeichnung der Label f�r Description.
+%Kennzeichnung der Label für Description.
 %    \begin{macrocode}
   \let\originaldescriptionlabel\descriptionlabel% aus scrrept
   \renewcommand{\descriptionlabel}[1]{%
@@ -2141,7 +2144,7 @@
 %
 %\subsection{Formeln}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-% Das PDF-Element \pdfname{Formula} ist f�r die Auszeichnung von Formeln gedacht (vgl. Abbildung \ref{fig:formula}). Eine logische Differenzierung in eingebettet und freistehende Formeln wird nicht vorgenommen. Dieses Unterscheidungsmerkmal kann durch die unterschiedliche Einbettung in die Struktur wiedergegeben werden. Zum einen kann das Formelobjekt in den Textabsatz eingegliedert werden, zum anderen unter das aktive Section-Objekt. Wie die Struktur f�r die Form�l selbst auszusehen hat zeigt \autoref{fig:formula}.
+% Das PDF-Element \pdfname{Formula} ist für die Auszeichnung von Formeln gedacht (vgl. Abbildung \ref{fig:formula}). Eine logische Differenzierung in eingebettet und freistehende Formeln wird nicht vorgenommen. Dieses Unterscheidungsmerkmal kann durch die unterschiedliche Einbettung in die Struktur wiedergegeben werden. Zum einen kann das Formelobjekt in den Textabsatz eingegliedert werden, zum anderen unter das aktive Section-Objekt. Wie die Struktur für die Formel selbst auszusehen hat zeigt \autoref{fig:formula}.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -2226,9 +2229,9 @@
 %\subsection{Gleitumgebungen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Da Gleitumgebungen (Figure, Float) werden von \LaTeX\ positioniert werden und k�nnen m�glicherweise auf einer anderen Seite landen. Die zugeh�rigen Seitenobjekte, die in /Pg angegeben werde, sollten bei der Definition dynamisch berechnet werden.
+%Da Gleitumgebungen (Figure, Float) werden von \LaTeX\ positioniert werden und können möglicherweise auf einer anderen Seite landen. Die zugehörigen Seitenobjekte, die in /Pg angegeben werde, sollten bei der Definition dynamisch berechnet werden.
 %
-%Eine Gleiumgebung (z.B. eine Abbildung, Tabelle oder ein Listing) sollte entsprechend der Abbildung \ref{fig:figure} umgesetzt werden. Es ist allerdings darauf zu achten, dass \comname{includegraphics} und �hnliche Befehle auch ohne Gleitumgebung auftauchen k�nnen und z.~B. in einer \comname{figure}-Gleitumgebung keinesfalls nur eindeutige Grafikbefehle verwandt werden k�nnen. Hier k�nnten auch einfacher Text oder eine Minipage enthalten sein. Deshalb wird zur Umsetzung eine eigens definiertes \pdfname{Float}-Tag verwendet, dass von \pdfname{Div} abgeleitet ist. Die geschachtelten Grafiken, Tabellen, Captions werden dieser \pdfname{Float}-Struktur untergeordnet. Dies ist die stabilere L�sung, da \comname{includegraphics} oder \comname{tabular} auch ohne zugeh�riges Gleitobjekt auftreten kann.
+%Eine Gleiumgebung (z.B. eine Abbildung, Tabelle oder ein Listing) sollte entsprechend der Abbildung \ref{fig:figure} umgesetzt werden. Es ist allerdings darauf zu achten, dass \comname{includegraphics} und ähnliche Befehle auch ohne Gleitumgebung auftauchen können und z.~B. in einer \comname{figure}-Gleitumgebung keinesfalls nur eindeutige Grafikbefehle verwandt werden können. Hier könnten auch einfacher Text oder eine Minipage enthalten sein. Deshalb wird zur Umsetzung eine eigens definiertes \pdfname{Float}-Tag verwendet, dass von \pdfname{Div} abgeleitet ist. Die geschachtelten Grafiken, Tabellen, Captions werden dieser \pdfname{Float}-Struktur untergeordnet. Dies ist die stabilere Lösung, da \comname{includegraphics} oder \comname{tabular} auch ohne zugehöriges Gleitobjekt auftreten kann.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -2237,7 +2240,7 @@
 %		\begin{verbatim}
 %		\begin{figure}[htbp]
 %		  \alt{Ich bin das Logo der
-%		      Technischen Universit�t}
+%		      Technischen Universität}
 %		  \includegraphics{/tu_logo}
 %		  \caption{TU-Logo}
 %		\end{figure}
@@ -2255,7 +2258,7 @@
 %
 %
 %\begin{environment}{float}
-% Umdefinieren der float-Umgebung, diese wird sowohl f�r die Definition von \comname{figure}und \comname{table} als auch f�r selbstdefinierte Floatumgebungen verwendet.
+% Umdefinieren der float-Umgebung, diese wird sowohl füür die Definition von \comname{figure}und \comname{table} als auch für selbstdefinierte Floatumgebungen verwendet.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\original@float\@float%
@@ -2311,9 +2314,9 @@
 %\subsection{Tabellen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Eine Tabelle besteht in PDF aus drei gor�en Teilen, dem Tabellenkopf, dem -k�rper und dem -fu�. Diese bestehen jeweils aus Tabellenreihe, die wiederum Tabellendatenzellen bzw. Tabellen�berschriftszellen enthalten.
+%Eine Tabelle besteht in PDF aus drei großen Teilen, dem Tabellenkopf, dem -körper und dem -fuß. Diese bestehen jeweils aus Tabellenreihe, die wiederum Tabellendatenzellen bzw. Tabellenüberschriftszellen enthalten.
 %
-%Eine Unterscheidung in Kopf, K�rper und Fu� ist in \LaTeX-Tabellen nicht zu finden. Lediglich die Erweiterung \packname{longtable} bringt ein �hnliches Konzept mit.
+%Eine Unterscheidung in Kopf, Körper und Fuß ist in \LaTeX-Tabellen nicht zu finden. Lediglich die Erweiterung \packname{longtable} bringt ein ähnliches Konzept mit.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -2355,7 +2358,7 @@
 % %\subsubsection{Hilfsmakro}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\begin{environment}{PDFTable} Umschlie�t die gesamte Tabelle.
+%\begin{environment}{PDFTable} Umschließt die gesamte Tabelle.
 %    \begin{macrocode}
 \newenvironment{PDFTable}{%
   \global\numberingparsfalse%
@@ -2390,7 +2393,7 @@
 
 %\end{environment}
 %
-%\begin{environment}{PDFTableCell} Eine Tabellenzelle, die Unterscheidung in �berschrifts- und Datenzelle wird vom Autor getroffen. Der zugrunde liegende Wahrheitswert wird in \varname{TableHeadCell} gespeichert.
+%\begin{environment}{PDFTableCell} Eine Tabellenzelle, die Unterscheidung in Überschrifts- und Datenzelle wird vom Autor getroffen. Der zugrunde liegende Wahrheitswert wird in \varname{TableHeadCell} gespeichert.
 %
 %    \begin{macrocode}
 \newenvironment{PDFTableCell}{%
@@ -2444,7 +2447,7 @@
   }%
 %    \end{macrocode}
 %\end{environment}
-%Zur Markierung des Tabellenzeilenendes, es ist eine Unterscheidung n�tig, je nachdem, ob das Paket \packname{tabularx} geladen ist oder nicht.
+%Zur Markierung des Tabellenzeilenendes, es ist eine Unterscheidung nötig, je nachdem, ob das Paket \packname{tabularx} geladen ist oder nicht.
 %    \begin{macrocode}
   \@ifpackageloaded{array}{%
     \let\originalaryend\@arraycr%
@@ -2518,9 +2521,9 @@
 %
 %\subsection{Texthervorhebungen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-% Zeichnet Formatierungen im Flie�text als /Span aus, um sie gesondert hervorzuheben. Eine Auszeichnung von reinen Textdekorationen (z.B. |\textbf{}|, |\textit{}| ...) ist hierbei jedoch fraglich, da sie auch in Makros verwendet werden und somit m�glicherweise mehrfach ausgezeichnet werden, was zum einen zu Problemen in der Struktur f�hrt und zum anderen schnell un�bersichtlich wird. Vergleichbare Elemente sind in PDF nicht vorgesehen und auch in XHTML 2.0 soll die Trennung vonn Inhalt und Layout durch den Wegfall der Elemente (|<b>|,|<it>| ...) vollendet werden.
+% Zeichnet Formatierungen im Fließtext als /Span aus, um sie gesondert hervorzuheben. Eine Auszeichnung von reinen Textdekorationen (z.B. |\textbf{}|, |\textit{}| ...) ist hierbei jedoch fraglich, da sie auch in Makros verwendet werden und somit möglicherweise mehrfach ausgezeichnet werden, was zum einen zu Problemen in der Struktur führt und zum anderen schnell unübersichtlich wird. Vergleichbare Elemente sind in PDF nicht vorgesehen und auch in XHTML 2.0 soll die Trennung vonn Inhalt und Layout durch den Wegfall der Elemente (|<b>|,|<it>| ...) vollendet werden.
 %
-%Hingegen transportiert die Struktur |\emph{}| durchaus semantische Informationen. N�mlich das der Text hervorgehoben ist.
+%Hingegen transportiert die Struktur |\emph{}| durchaus semantische Informationen. Nämlich das der Text hervorgehoben ist.
 %
 %\subsubsection{Das eigentliche Umdefinieren}
 % %%%%%%%%%%%%%%%%%%%%%%%%
@@ -2543,7 +2546,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Verweise auf andere Textstellen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%F�r Verweise auf anderen Textstellen bietet PDF die Struktur \pdfname{Reference}.
+%Für Verweise auf anderen Textstellen bietet PDF die Struktur \pdfname{Reference}.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -2584,7 +2587,7 @@
     %\let\originalhyper@anchorend\hyper@anchorend%
     %\renewcommand{\hyper@anchorend}{\originalhyper@anchorend
     %\pdfliteral{/Span <</E (anchorend)>> BDC EMC}}%
-    % Eintr�ge im TOC, LOF, LOT
+    % Einträge im TOC, LOF, LOT
     %\let\originalhyper@linkstart\hyper@linkstart%
     %\renewcommand{\hyper@linkstart}{%
     %    \begin{PDFInlineObjInText}{Reference}%
@@ -2594,7 +2597,7 @@
     %     \originalhyper@linkend%
     %    \end{PDFInlineObjInText}}%
     %\useacronym --> Kurzform, Glossarseitezahlen,
-    %Indexseitenzahlen, Glossareintr�ge, Hyperlink
+    %Indexseitenzahlen, Glossareinträge, Hyperlink
     \let\originalhyperlink\hyperlink%
     \renewcommand*{\hyperlink}[2]{%
         \ifIndexItemActive\else\begin{PDFInlineObjInText}{Reference}\fi%
@@ -2616,9 +2619,9 @@
         \begin{PDFInlineObjInText}{Link}%
         \originalhyper@linkfile{#1}{#2}{#3}%
         \end{PDFInlineObjInText}}%
-    %Seitenzahlen in Index, anders da anschlie�end
-    %keine Texterkennung n�tig.
-    %eigentlich �ber hyperlink m�glich
+    %Seitenzahlen in Index, anders da anschließend
+    %keine Texterkennung nötig.
+    %eigentlich über hyperlink möglich
     \let\originalhyperpage\hyperpage%
     \renewcommand{\hyperpage}[1]{%
         \EveryparConfig{Reference}{true}%
@@ -2674,7 +2677,7 @@
 }{}
 %    \end{macrocode}
 
-%Eine getrennte Auszeichnung der Glossarenintr�ge ist nicht mehr n�tig. Das \packname{glossary} greift auf \comname{hyperlink} zur�ck. Auch m�glich Seitenbez�ge im Glossar werden �ber \comname{hyperlink} aktivert.
+%Eine getrennte Auszeichnung der Glossareninträge ist nicht mehr nötig. Das \packname{glossary} greift auf \comname{hyperlink} zurück. Auch möglich Seitenbezüge im Glossar werden über \comname{hyperlink} aktivert.
 %\end{macro}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2718,18 +2721,18 @@
 %\end{environment}
 
 %
-%\subsection{Fu�noten}
+%\subsection{Fußnoten}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Eine Fu�note besteht generell aus zwei Bestandteilen, der Markierung im Text (footnotemark) und der eigentlichen Fu�note am Seitenende (footnotetext). Beide Teile m�ssen sinnvoll in die Struktur eingegliedert werden. Hierzu wird die Lesereihenfolge der Elemente im Strukturbaum ge�ndert, sodass der Text an Ort und Stelle verf�gbar ist und nicht erst am Seitenende (nach "`zig"' Abs�tzen) vorgelesen wird (vgl. Abbildung \ref{fig:footnote}).
+%Eine Fußnote besteht generell aus zwei Bestandteilen, der Markierung im Text (footnotemark) und der eigentlichen Fußnote am Seitenende (footnotetext). Beide Teile müssen sinnvoll in die Struktur eingegliedert werden. Hierzu wird die Lesereihenfolge der Elemente im Strukturbaum geändert, sodass der Text an Ort und Stelle verfögbar ist und nicht erst am Seitenende (nach "`zig"' Absätzen) vorgelesen wird (vgl. Abbildung \ref{fig:footnote}).
 %
 %\begin{figure}[htbp]
 %		\hfill
 %		\begin{minipage}[t]{0.40\columnwidth}%
 %		\minisec{Die Latex-Struktur}\vspace{\lineheight}
 %		\begin{verbatim}
-%		...Fu�note
-%		\footnote{Fu�notentext}
+%		...Fußnote
+%		\footnote{Fußnotentext}
 %		...
 %		\end{verbatim}
 %		\end{minipage}
@@ -2739,11 +2742,11 @@
 %		\includegraphics{images/footnote}
 %		\end{minipage}
 %		\hfill
-%	\caption{Fu�notenstruktur im Absatz}
+%	\caption{Fußnotenstruktur im Absatz}
 %	\label{fig:footnote}
 %\end{figure}
 %
-%\begin{TODO} Fu�noten au�erhalb von Text sind im Moment nicht vorgesehen. $\rightarrow$ Flexibilisierung der Schachtelung. Also z.B. in Tabelle, �berschrift ... \end{TODO}
+%\begin{TODO} Fußnoten außerhalb von Text sind im Moment nicht vorgesehen. $\rightarrow$ Flexibilisierung der Schachtelung. Also z.B. in Tabelle, überschrift ... \end{TODO}
 %
 %\subsubsection{Variablendeklaration}
 % %%%%%%%%%%%%%%%%%%%%%%%%
@@ -2756,7 +2759,7 @@
 %
 %\subsubsection{Hilfsmakros}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{environment}{PDFFootnote} umschlie�t die gesamte Fu�notenstruktur.
+%\begin{environment}{PDFFootnote} umschließt die gesamte Fußnotenstruktur.
 %    \begin{macrocode}
 \newenvironment{PDFFootnote}{%
   \global\numberingparsfalse%
@@ -2774,7 +2777,7 @@
 
 %\end{environment}
 %
-%\begin{environment}{PDFFootnoteReference} Die eigentliche Referenz auf die Fu�note im Text. Sie setzt sich aus dem markierten Inhalt (MCID) und der Fu�note am Seitenende zusammen.
+%\begin{environment}{PDFFootnoteReference} Die eigentliche Referenz auf die Fußnote im Text. Sie setzt sich aus dem markierten Inhalt (MCID) und der Fußnote am Seitenende zusammen.
 %    \begin{macrocode}
 \newenvironment{PDFFootnoteReference}{%
     \xdef\HelpBool{\InlineObj}%
@@ -2792,7 +2795,7 @@
 
 %\end{environment}
 %
-%\begin{environment}{PDFFootnoteText}Die eigentliche Fu�note am Seitenende. Sie wird als Kind der Fu�notenreferenz in den Strukturbaum eingef�gt.
+%\begin{environment}{PDFFootnoteText}Die eigentliche Fußnote am Seitenende. Sie wird als Kind der Fußnotenreferenz in den Strukturbaum eingefügt.
 %    \begin{macrocode}
 \newenvironment{PDFFootnoteText}{%
    \EveryparConfig{Note}{obj}%
@@ -2817,7 +2820,7 @@
 %Umdefinieren der \comname{footnotemark}
 %    \begin{macrocode}
   \let\original@footnotemark\@footnotemark%
-  %Fu�notenreferenz im Text
+  %Fußnotenreferenz im Text
   \renewcommand{\@footnotemark}{%
     \begin{PDFFootnoteReference}%
     \original@footnotemark%
@@ -2827,14 +2830,14 @@
 %Umdefinieren der \comname{footnotetext}
 %    \begin{macrocode}
   \let\original@makefntext\@makefntext%
-  %Fu�notentext am Seitenende
+  %Fußnotentext am Seitenende
   \renewcommand{\@makefntext}[1]{%
     \begin{PDFFootnoteText}%
     \original@makefntext{#1}%
     \end{PDFFootnoteText}%
   }%
 %    \end{macrocode}
-%Umdefinieren der gesamten Fu�note \comname{footnote}
+%Umdefinieren der gesamten Fußnote \comname{footnote}
 %    \begin{macrocode}
   \let\originalfootnote\footnote%
   \def\footnote{\@ifnextchar[{\@@xxfootnote}{\@@xfootnote}}%
@@ -2857,7 +2860,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Verzeichnisse}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-% Zahlreiche Verzeichnisse stehen in \LaTeX\ zur Verf�gung. Ihre logische Auszeichnung kann Nutzern assistiver Technologien den Zugang zum Dokument erleichtern.
+% Zahlreiche Verzeichnisse stehen in \LaTeX\ zur Verfügung. Ihre logische Auszeichnung kann Nutzern assistiver Technologien den Zugang zum Dokument erleichtern.
 %\subsection{Inhaltsverzeichnis und die Listen der Float-Objekte}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -2910,7 +2913,7 @@
 }{}
 %    \end{macrocode}
 
-%Verschieben des \comname{endPDFMarkContent}, damit wird es am Ende der letzten Seite und nicht erst oben auf der neuen ausgef�hrt.
+%Verschieben des \comname{endPDFMarkContent}, damit wird es am Ende der letzten Seite und nicht erst oben auf der neuen ausgeführt.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalcontentsline\contentsline
@@ -2931,7 +2934,7 @@
 %\subsection{Literaturverzeichnis}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Das Literaturverzeichnis (Bibliography) besteht aus einzelnen Literaturverzeichniseintr�gen (BibEntry), die im Flie�text mit Literaturverweisen referenziert werden k�nnen.
+%Das Literaturverzeichnis (Bibliography) besteht aus einzelnen Literaturverzeichniseinträgen (BibEntry), die im Fließtext mit Literaturverweisen referenziert werden können.
 %
 %\begin{figure}[htbp]
 %		\hfill
@@ -2962,9 +2965,9 @@
 %
 %\subsubsection{Das eigentliche Umdefinieren}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Die gew�hlte Variante funktioniert sowohl mit als auch ohne BibTeX.
+%Die gewählte Variante funktioniert sowohl mit als auch ohne BibTeX.
 %
-%Umdefinieren der umschlie�enden \comname{thebibliography}-Umgebung.
+%Umdefinieren der umschließenden \comname{thebibliography}-Umgebung.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalthebibliography\thebibliography%
@@ -3004,11 +3007,11 @@
     \ifthenelse{\equal{#1}{__empty__}}%
         {\originalbibitem{#2}}%
         {\originalbibitem[#1]{#2}}%
-    %\endPDFMarkContent% Zu fr�h, Text wird erst mit everypar gestetzt
+    %\endPDFMarkContent% Zu früh, Text wird erst mit everypar gestetzt
     \endPDFSpezialTextObj%
     \PDFSpezialTextObj{LBody}%
     \EveryparConfig{LBody}{false}%
-   %\PDFMarkContent{LBody}% wird �ber everypar erledigt
+   %\PDFMarkContent{LBody}% wird über everypar erledigt
   }%
 }{}
 %    \end{macrocode}
@@ -3017,7 +3020,7 @@
 %\subsection{Index}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Das Stichwortverzeichnis geht h�ufig �ber mehrere Spalten und Seiten.
+%Das Stichwortverzeichnis geht häufig über mehrere Spalten und Seiten.
 %\begin{TODO}Dabei ist der Umbruch unbedingt zu beachten. $\rightarrow$ Was passiert derzeit?\end{TODO}
 %
 %\begin{figure}[htbp]
@@ -3049,7 +3052,7 @@
 %
 %\subsubsection{Das eigentliche Umdefinieren}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Umdefinieren der umschlie�enden \comname{theindex}-Umgebung.
+%Umdefinieren der umschließenden \comname{theindex}-Umgebung.
 %\begin{TODO}Nur wenn das Paket \packname{index} geladen ist.\end{TODO}
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -3097,19 +3100,19 @@
 %\section{Layoutbefehle}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Befehle, die ausschlie�lich dem Layout dienen, werden nicht in den Strukturbaum �bernommen. Hier ist stattdessen eine Auszeichnung als \pdfname{Artefakt} vorgesehen.
+%Befehle, die ausschließlich dem Layout dienen, werden nicht in den Strukturbaum übernommen. Hier ist stattdessen eine Auszeichnung als \pdfname{Artefakt} vorgesehen.
 %
 %
 %
-%\subsection{Kopf- und Fu�zeilen als Artefakte}
+%\subsection{Kopf- und Fußzeilen als Artefakte}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Kopf- und Fu�zeilen z�hlen zu den Artefakten, die sich aus der Seitenaufteilung ergeben. Sie sind folglich als solche (/Type /Page) zu kennzeichnen.
+%Kopf- und Fußzeilen zählen zu den Artefakten, die sich aus der Seitenaufteilung ergeben. Sie sind folglich als solche (/Type /Page) zu kennzeichnen.
 %
 %\subsubsection{Hilfsmakro}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\begin{environment}{PDFPageArtefakt} Umschlie�ende Struktur f�r ein Artefakt der Seitenaufteilung.
+%\begin{environment}{PDFPageArtefakt} Umschließende Struktur für ein Artefakt der Seitenaufteilung.
 %    \begin{macrocode}
 \newenvironment*{PDFPageArtefakt}{%
   \pdfliteral{/Artifact <</Type /Pagination>> BDC}%
@@ -3124,7 +3127,7 @@
 %\subsubsection{Das eigentliche Umdefinieren}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 % Da Scrpage optimal mit den Klassen des Koma-Scripts zusammenarbeitet, funktioniert es mit \packname{scrpage2}.
-%\begin{TODO}Funktionst�chtigkeit mit fancyheader und Standardklassen\end{TODO}
+%\begin{TODO}Funktionstüchtigkeit mit fancyheader und Standardklassen\end{TODO}
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
    \let\original@thehead\@thehead%
@@ -3148,13 +3151,13 @@
 %
 %\subsection{Linien als Artefakte}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Linien und andere dekorative Inhalte sind laut PDF-Spezifikation als /Artefakte auszuzeichnen. Normale Linien werden in Screenreadern nicht vorgelesen. Speziell die automatische F�llstruktur (|\dotfill|) wird aber durch ASCII-Zeichen gesetzt, d.h. sie wird im Screenreader als "`Punkt Punkt ..."' vorgelesen. Dies st�rt den Lesefluss erheblich.
+%Linien und andere dekorative Inhalte sind laut PDF-Spezifikation als /Artefakte auszuzeichnen. Normale Linien werden in Screenreadern nicht vorgelesen. Speziell die automatische Füllstruktur (|\dotfill|) wird aber durch ASCII-Zeichen gesetzt, d.h. sie wird im Screenreader als "`Punkt Punkt ..."' vorgelesen. Dies stört den Lesefluss erheblich.
 %
 %\subsubsection{Hilfsmakros}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\begin{environment}{PDFLayoutArtefakt} Umschlie�ende Struktur f�r ein Layout-Artefakt.
-%\begin{TODO} Kennzeichnung als Artefakt vom Typ /Layout, dazu sollten weitere Parameter (wie die BoundingBox) in angegebene werden, damit zuk�nftig das Reflow ad�quat funktionieren kann. \end{TODO}
+%\begin{environment}{PDFLayoutArtefakt} Umschließende Struktur für ein Layout-Artefakt.
+%\begin{TODO} Kennzeichnung als Artefakt vom Typ /Layout, dazu sollten weitere Parameter (wie die BoundingBox) in angegebene werden, damit zukünftig das Reflow adäquat funktionieren kann. \end{TODO}
 %    \begin{macrocode}
 \newenvironment*{PDFLayoutArtefakt}{%
   \numberingparsfalse%
@@ -3179,7 +3182,7 @@
     \end{PDFLayoutArtefakt}%
   }%
 %    \end{macrocode}
-%Anpassen des \comname{footnoterule}-Befehls. Dieser greift auf hrule zur�ck und bereite Probleme beim generellen Umdefinieren.
+%Anpassen des \comname{footnoterule}-Befehls. Dieser greift auf hrule zurück und bereite Probleme beim generellen Umdefinieren.
 %    \begin{macrocode}
   \let\originalfootnoterule\footnoterule%
   \renewcommand*\footnoterule{%
@@ -3196,7 +3199,7 @@
    %\hrule height1ex depth0pt width1ex
    %
    %hrulefill, hline cline, toprule, midrule, bottomrule, cmidrule? greifen auf hrule zu
-  %Klappt nicht immer mit Argument�bergabe
+  %Klappt nicht immer mit Argumentübergabe
   \let\originalhrule\hrule%
   \def\hrule#1#2{%
     \ifthenelse{\equal{#2}{\z@}}{}{\begin{PDFLayoutArtefakt}}%
@@ -3205,12 +3208,12 @@
   }%
 %    \end{macrocode}
 
-% Ebenso sollten s�mtliche Tabellenrahmen, Linien in Kopf- und Fu�zeile oder Die Linie vor den Fu�noten markiert werden. Am sinnvollsten erscheint die Umdeklaration der |\hrule| und |\vrule| Anweisung. Auf diese wird in den meisten F�llen zur�ckgegriffen.
+% Ebenso sollten sämtliche Tabellenrahmen, Linien in Kopf- und Fußzeile oder Die Linie vor den Fußnoten markiert werden. Am sinnvollsten erscheint die Umdeklaration der |\hrule| und |\vrule| Anweisung. Auf diese wird in den meisten Fällen zurückgegriffen.
 
 
 %    \begin{macrocode}
   %vline (2), @arrayrule(2?) greift auf vrule zu
-  %Klappt nicht mit Argument�bergabe
+  %Klappt nicht mit Argumentübergabe
   %\let\originalvrule\vrule%
   %\def\vrule#1#2{%
   %  \begin{PDFLayoutArtefakt}%
@@ -3219,7 +3222,7 @@
 %  }%
 }{}
 %    \end{macrocode}
-%Gepunktete Linien, wie sie im Inhaltsverzeichnis mittels \comname{dottedtocline} erzeugt werden, werden auch als solches (n�mlich "`Punkt Punkt ...) vorgelesen. Hierzu wurde die Originaldefinition aus soure2e \cite{Brams2000} um die pdfliterale erg�nzt, wodurch die Linie als Artefakt gekennzeichnet ist und nicht vorgelesen wird.
+%Gepunktete Linien, wie sie im Inhaltsverzeichnis mittels \comname{dottedtocline} erzeugt werden, werden auch als solches (nämlich "`Punkt Punkt ...) vorgelesen. Hierzu wurde die Originaldefinition aus soure2e \cite{Brams2000} um die pdfliterale ergänzt, wodurch die Linie als Artefakt gekennzeichnet ist und nicht vorgelesen wird.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \def\@dottedtocline#1#2#3#4#5{%
@@ -3247,7 +3250,7 @@
 
 %\subsection{Titelseite}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Die Titelseite ist sehr von der Gestaltungsfreiheit der Autoren gepr�gt. Die Standardelemente |\title{}|, |\author{}| und weitere werden oft zu layouttechnischen Zwecken verwandt, so dass eine inhaltliche Auszeichnung in den Augen der Autorin wenig Sinn macht. Damit die Strukturen, die im Bereich des Titels auftauchen einen sinnvollen Rahmen bekommen, wird der durch |\maketitle| erzeugte Inhalt in die Struktur \pdfname{Sect} geschachtelt.
+%Die Titelseite ist sehr von der Gestaltungsfreiheit der Autoren geprägt. Die Standardelemente |\title{}|, |\author{}| und weitere werden oft zu layouttechnischen Zwecken verwandt, so dass eine inhaltliche Auszeichnung in den Augen der Autorin wenig Sinn macht. Damit die Strukturen, die im Bereich des Titels auftauchen einen sinnvollen Rahmen bekommen, wird der durch |\maketitle| erzeugte Inhalt in die Struktur \pdfname{Sect} geschachtelt.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalmaketitle\maketitle%
@@ -3264,18 +3267,18 @@
 %    \end{macrocode}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Vertr�glichkeit mit anderen Dokumentklassen}
+%\section{Verträglichkeit mit anderen Dokumentklassen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Vertr�glichkeit mit anderen Paketen}
+%\section{Verträglichkeit mit anderen Paketen}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\subsection{Das \packname{multicolumn}-Paket}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Wird wie alle anderen Umgebungen unterst�tzt. Solange sich die gesamte Umgebung auf einer Seite befindet funktioniert alles, wie gehabt. Dass Seitenumbr�che noch nicht zuverl�ssig erkannt werden k�nnen, treten auch hier m�gliche Probleme auf. Eine Verwendung sollte nur mit anschlie�ender �berpr�fung des Ergebnisdokumentes erfolgen.
+%Wird wie alle anderen Umgebungen unterstützt. Solange sich die gesamte Umgebung auf einer Seite befindet funktioniert alles, wie gehabt. Dass Seitenumbrüche noch nicht zuverlässig erkannt werden können, treten auch hier mögliche Probleme auf. Eine Verwendung sollte nur mit anschließender überprüfung des Ergebnisdokumentes erfolgen.
 %
-%Die Befehle |\twocolumn| und |\onecolumn| aus \PlainTeX funktionieren mit den gleichen Einschr�nkungen.
+%Die Befehle |\twocolumn| und |\onecolumn| aus \PlainTeX funktionieren mit den gleichen Einschränkungen.
 %
 %\subsection{Das \packname{graphics}-Paket}
 %
@@ -3303,7 +3306,7 @@
 %    \end{macrocode}
 
 %\subsection{Das \packname{picture}-Paket}
-% Da das \packname{picture} die Picture-Umgebung transparent umdefiniert, funktioniert die Auszeichnung sowohl  wenn das Paket geladen ist. Auch die Erweiterungen \packname{trees} zum Zeichnen von bin�ren und terti�ren B�umen, \packname{bar} zum Erstellen vom Balkendiagrammen sowie \packname{curves} zum Zeichnen beliebiger Kurven kann verwendet werden .
+% Da das \packname{picture} die Picture-Umgebung transparent umdefiniert, funktioniert die Auszeichnung sowohl  wenn das Paket geladen ist. Auch die Erweiterungen \packname{trees} zum Zeichnen von binären und tertiären Bäumen, \packname{bar} zum Erstellen vom Balkendiagrammen sowie \packname{curves} zum Zeichnen beliebiger Kurven kann verwendet werden .
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
     \let\originalpicture\picture%
@@ -3326,7 +3329,7 @@
 %\subsection{Das \packname{babel}-Paket}
 
 %\begin{macro}{\convertLanguageInCode}
-%Dieses Makro konvertiert den �bergebenen Sprachstring |{#1}| in den PDF bekannten Zwei-Buchstaben-Kode. Das Ergebnis wir in der Variablen \varname{LanguageCode} gespeichert.
+%Dieses Makro konvertiert den übergebenen Sprachstring |{#1}| in den PDF bekannten Zwei-Buchstaben-Kode. Das Ergebnis wir in der Variablen \varname{LanguageCode} gespeichert.
 %    \begin{macrocode}
 \newcommand{\convertLanguageInCode}[1]{%
   \gdef\LanguageCode{}%
@@ -3374,7 +3377,7 @@
 %
 %\subsubsection{Auszeichnung der Dokumentenhauptsprache}
 % %%%%%%%%%%%%%%%%%%%%%%%%
-%Am Anfang des eigentlichen Dokumentes wird dann die Hauptsprache des PDF-Dokumentes bestimmt und gesetzt. Zus�tzlich wird die aktuelle Sprache initialisiert um bei sp�teren �nderungen wirkliche von Dopplungen zu unterscheiden.
+%Am Anfang des eigentlichen Dokumentes wird dann die Hauptsprache des PDF-Dokumentes bestimmt und gesetzt. Zusätzlich wird die aktuelle Sprache initialisiert um bei späteren änderungen wirkliche von Dopplungen zu unterscheiden.
 %\begin{TODO}Nur wenn babel geladen wurde.\end{TODO}
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -3398,7 +3401,7 @@
 %    \begin{macrocode}
 \newcommand{\recognizeLanguageChange}[1]{%
   \ifthenelse{\equal{#1}{\ActualLanguage}}{%
-     %keine �nderung zu vorher
+     %keine änderung zu vorher
   }{%
      \gdef\ActualLanguage{#1}%
      \convertLanguageInCode{\languagename}}%
@@ -3411,7 +3414,7 @@
 %    \end{macrocode}
 %
 %\begin{macro}{\selectlanguage}
-%|\selectlanguage{Sprache}| vollst�ndige Ersetzung bis zum Dokumentende oder der n�chsten �nderung.
+%|\selectlanguage{Sprache}| vollständige Ersetzung bis zum Dokumentende oder der nächsten änderung.
 % Wenn die neu aktivierte Sprache von der vorherigen abweicht, wird |LanguageDiff| war und alle nun erzeugen Objekte bekommen ein passendes Sprachattribut.
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -3425,8 +3428,8 @@
 %\end{macro}
 %
 %\begin{environment}{otherlanguage}
-%Da die Umgebung |otherlanguage| beliebige Befehle enthalten kann, scheint der Autorin eine umschlie�ende Umgebung fehleranf�llig, es k�nnte so unsinnigen Verschachtelungen kommen. So dass hier das gleicht Vorgehen wie bei \comname{selectlanguage} gew�hlt wurde.
-%\begin{TODO} |\begin{otherlanguage}{Sprache}| lokale �nderung auch in Sternform \end{TODO}
+%Da die Umgebung |otherlanguage| beliebige Befehle enthalten kann, scheint der Autorin eine umschließende Umgebung fehleranfällig, es könnte so unsinnigen Verschachtelungen kommen. So dass hier das gleicht Vorgehen wie bei \comname{selectlanguage} gewählt wurde.
+%\begin{TODO} |\begin{otherlanguage}{Sprache}| lokale änderung auch in Sternform \end{TODO}
 %\begin{TODO} Am Anfang der Umgebung doppelte Abfrage durch die Wiederverwendung von selectlanguage? sollte eventuell beseitigt werden.\end{TODO}
 %    \begin{macrocode}
     \let\originalotherlanguage\otherlanguage%
@@ -3448,7 +3451,7 @@
 %\end{environment}
 %
 %\begin{macro}{foreignlanguage}
-% Der Befehl \comname{foreignlanguage{Sprache}{Inhalte}} �ndert die Sprache nur f�r kleine Textbereiche, bei denen die Sprach�nderung mittels \pdfname{Span} in den ContentStream eingef�gt wird. Eine Einordnung in den Strukturbaum kann laut \cite{Adobe2004} entfallen.
+% Der Befehl \comname{foreignlanguage{Sprache}{Inhalte}} ändert die Sprache nur für kleine Textbereiche, bei denen die Sprachänderung mittels \pdfname{Span} in den ContentStream eingefügt wird. Eine Einordnung in den Strukturbaum kann laut \cite{Adobe2004} entfallen.
 %    \begin{macrocode}
     \let\originalforeignlanguage\foreignlanguage%
     \renewcommand{\foreignlanguage}[2]{%
@@ -3469,21 +3472,21 @@
 %
 %\subsubsection{Glossar}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Die Optionen \optname{altlist} und \optname{list} des \packname{glossary}-Pakets schreiben die Glossareintr�ge als Definitionsliste, damit sind die Eintr�ge ausreichend gekennzeichnet.
+%Die Optionen \optname{altlist} und \optname{list} des \packname{glossary}-Pakets schreiben die Glossareinträge als Definitionsliste, damit sind die Einträge ausreichend gekennzeichnet.
 %
 %\begin{TODO}: Die Optionen \optname{super} und \optname{long} schreiben je eine Tabelle, entweder als supertabular oder als longtable -->diese werden derzeit nicht korrekt erkannt \end{TODO}
 %
 %Es muss nichts umdefiniert werden. Ein Umdefinieren des \comname{glositem} muss nicht stattfinden, da intern auf eine Definitionsliste zu gegriffen wird, was der Autorin von der inhaltlichen Aussage her angemessen erscheint
 %
-%\subsubsection{Glossareintr�ge und Referenzen}
+%\subsubsection{Glossareinträge und Referenzen}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Die im Text verwandten Verweise auf ein Glossareintrag werden mit Hilfe der Funktion \comname{hyperlink} des \packname{hyperref}-Paketes gesetzt. So dass sie bereits zuverl�ssig erkannt werden.
+%Die im Text verwandten Verweise auf ein Glossareintrag werden mit Hilfe der Funktion \comname{hyperlink} des \packname{hyperref}-Paketes gesetzt. So dass sie bereits zuverlässig erkannt werden.
 %
-%\subsubsection{Abk�rzungen und Akronyme}
+%\subsubsection{Abkürzungen und Akronyme}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Eine m�gliche Auszeichnung und Anwendungsm�glichkeiten f�r Akronyme und Abk�rzungen stellt das Paket \packname{glossary} zur Verf�gung. Es erm�glicht das Anlegen eines Abk�rzungsverzeichnisses und eine Referenzierung der Langform sowie der Kurzform �ber kurze Befehle.
+%Eine mögliche Auszeichnung und Anwendungsmöglichkeiten für Akronyme und Abkürzungen stellt das Paket \packname{glossary} zur Verfügung. Es ermöglicht das Anlegen eines Abkürzungsverzeichnisses und eine Referenzierung der Langform sowie der Kurzform über kurze Befehle.
 %
-%Dabei sollte f�r die Kurzform, jeweils die Langform in die PDF-Struktur �bernommen werden, so dass assistive Technologien darauf Zugriff haben.
+%Dabei sollte für die Kurzform, jeweils die Langform in die PDF-Struktur übernommen werden, so dass assistive Technologien darauf Zugriff haben.
 %
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -3585,25 +3588,25 @@ The command name specified by \string\newacronym already exists.}}}
 %    \end{macrocode}
 
 %\subsection{Das \packname{booktabs}-Paket}
-%Das \packname{booktabs}-Paket stellt vier neue Befehle f�r Tabellenlinien zur Verf�gung. Bei der Definition wird wiederum auf das Makro \comname{hrule} zur�ck gegriffen, so dass eine Auszeichnung als Artefakt bereits erledigt wird.
+%Das \packname{booktabs}-Paket stellt vier neue Befehle für Tabellenlinien zur Verfügung. Bei der Definition wird wiederum auf das Makro \comname{hrule} zurück gegriffen, so dass eine Auszeichnung als Artefakt bereits erledigt wird.
 %\subsection{Das \packname{hyperref}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{caption}-Paket}
-%Das \packname{caption}-Paket kann mit seinen m�glichen Konfigurationsparameter ohne Einschr�nkung verwendet werden. Die alte Version das \packname{caption2}-Paket ist obsolet und sollte nicht mehr verwendet werden.
+%Das \packname{caption}-Paket kann mit seinen möglichen Konfigurationsparameter ohne Einschränkung verwendet werden. Die alte Version das \packname{caption2}-Paket ist obsolet und sollte nicht mehr verwendet werden.
 %\subsection{Das \packname{tabularx}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{longtabular}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{color}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{theorem}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{thmbox}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{listings}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden.
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden.
 %\subsection{Das \packname{scrpage2}-Paket}
-%Die Nutzung dieses Pakets ist unter Vorsicht zu genie�en.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind gr��tenteils noch nicht implementiert. Sie konnten bisher nicht vollst�ndig getestet werden. Bei der Nutzung von \packname{scrpage2} kommt es zu Problemen bei der Umsetzung des Inhaltsverzeichnisses (TableOfContent).
+%Die Nutzung dieses Pakets ist unter Vorsicht zu genießen.  Die Standard-\LaTeX-Befehle funktionieren auch unter Verwendung des Paketes. Paketeigene Erweiterungen sind größtenteils noch nicht implementiert. Sie konnten bisher nicht vollständig getestet werden. Bei der Nutzung von \packname{scrpage2} kommt es zu Problemen bei der Umsetzung des Inhaltsverzeichnisses (TableOfContent).
 %
 %\Finale
 \endinput

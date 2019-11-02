@@ -1,8 +1,23 @@
+# Travis YAML based on idea at
+# https://therenegadecoder.com/code/how-to-build-latex-with-travis-ci-and-minted/
+
+language: generic
 sudo: required
-dist: trusty
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
+#
+install:
+  - source ./texlive/texlive_install.sh
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
 before_script:
-- cd samples/article
+  # Change working directory so including files will work
+  - cd $TRAVIS_BUILD_DIR/samples/article/
 script:
-- pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - texliveonfly --compiler=pdflatex ./article_release.tex
+  - bibtex ./article_release
+  - texliveonfly --compiler=pdflatex ./article_release.tex
+  - texliveonfly --compiler=pdflatex ./article_release.tex
+notifications:
+  email: false

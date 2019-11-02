@@ -10,21 +10,21 @@ Version 2.0.2
 
 The `accessibility` package  is intended to create tagged, structured PDF documents from LaTeX2e source code.
 
-This package is predominantly targeted at documents produced using the KOMAscript document classes.
+This package is intended for documents produced using PDFLaTeX.
 
-Originally programmed in 2007 by Babett Schalitz as a Masters project at
-TU Dresden, the maintenance of the accessibility package has been taken up
-by Andrew Clifton with her agreement.
+`accessibility` was originally programmed in 2007 by Babett Schalitz as a Masters project at
+TU Dresden. The maintenance of the accessibility package has been taken up
+by Andrew Clifton with her agreement. This package is based on her original files.
 
 ### Note to version 2.0.x releases
 
 These versions are based almost entirely on Babett's hard work. I have made
 some changes to the source code to make the output files conform to CTAN
-requirements and to make it simpler to work with GitHub.
+requirements and to make it simpler to work with GitHub. See CHANGELOG.md for details.
 
 ### Bugs, errors, feedback
 
-Please report all problems to https://github.com/AndyClifton/accessibility/issues. Also, please note that I cannot enter into detailed discussions about individual documents, but am happy to address anything that might impact all users.
+Please report all problems to [the accessibility package issue tracker on Github](https://github.com/AndyClifton/accessibility/issues). Also, please note that I cannot enter into detailed discussions about individual documents, but am happy to address anything that might impact all users.
 
 ## File manifest
 
