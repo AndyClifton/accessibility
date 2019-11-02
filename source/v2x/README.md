@@ -3,9 +3,6 @@ Create a tagged and structured PDF file.
 
 By Babett Schalitz & Andy Clifton
 
-Last updated 13 October 2019
-Version 2.0.2
-
 ## Description
 
 The `accessibility` package  is intended to create tagged, structured PDF documents from LaTeX2e source code.

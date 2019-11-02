@@ -11,17 +11,17 @@ echo "...generate the package from the .dtx file"
 latex accessibility.ins
 # Generate the documentation from the .dtx file; this will be in German
 echo "...generate the instructions (DE)"
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+pdflatex anleitung-DE.tex
+bibtex anleitung-DE
+pdflatex anleitung-DE.tex
+pdflatex anleitung-DE.tex
 if [ -f accessibility-Anleitung-DE.pdf ]; then
    echo "...Remove old instructions"
   rm -f accessibility-Anleitung-DE.pdf
 fi
-ln -f main.pdf accessibility-Anleitung-DE.pdf
+ln -f anleitung-DE.pdf accessibility-Anleitung-DE.pdf
 echo "...Remove latex build files"
-find main.* -type f ! -name "main.tex" ! -name "main.pdf" -exec rm -f {} +
+find anleitung-DE.* -type f ! -name "anleitung-DE.tex" ! -name "anleitung-DE.pdf" -exec rm -f {} +
 
 # generate english-language documentation
 cp ../../samples/article/article_release.pdf accessibility.pdf
