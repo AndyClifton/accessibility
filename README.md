@@ -32,7 +32,7 @@ If you really want to download the `accessibility` package from here, please dow
 
 ## Licence
 
-This material is subject to the [LaTeX Project Public License](http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html).
+This material is subject to the [LaTeX Project Public License](https://ctan.org/license/lppl1.3c).
 
 ## Cooperation and Collaboration
 Now that the licensing for this package is clearly defined, I hope people will consider collaborating on maintaining and improving the package. If you are interested, please just get on and do whatever, or raise an issue to discuss.
