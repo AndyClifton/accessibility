@@ -35,7 +35,8 @@
 %% This package allows to produce tagged PDF output following Adobe's
 %% PDF-1.5 and 1.6 specifications.
 %%
-%% This is accessibility version 2.0.2 Backward compatibility with prior
+%% %^^ VERSION INFO 1 OF 3
+%% This is accessibility version 2.0.3 Backward compatibility with prior
 %% versions is not assured.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
@@ -58,7 +59,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \fi
 
-\ProvidesPackage{accessibility}[2019/10/14 v. 2.0.2]
+\ProvidesPackage{accessibility}[2019/11/02 v. 2.0.3]
 \NeedsTeXFormat{LaTeX2e}
 
 \RequirePackage{xkeyval}
@@ -202,7 +203,7 @@
   \expandafter\xdef\csname PDF@#1@Array\endcsname{}%
   \accessPushStack{#1}{\theObjHelp}{PDF@#1@Array}{#2}%drauftun
 }%
-{%andere Ebenen Schlie�en
+{%andere Ebenen Schließen
   \accessPopStack\StructElem\Objnum\KidsArray\Title %runterholen
   \ifx \StructElem\empty%
     \PackageWarning{accessibility}{empty \string\PopStack ?}%
@@ -410,7 +411,7 @@
    \xdef\InlineObj{#2}%
 }
 
-%%Setzt die Variablen auf die Standardwerte f�r eine normale Texterkennung.
+%%Setzt die Variablen auf die Standardwerte für eine normale Texterkennung.
 \newcommand{\EveryparReset}{%
    \xdef\everyparStructElem{P}%
    \xdef\InlineObj{false}%
@@ -545,7 +546,7 @@
        >>} \pdfrefobj \pdflastobj%
    %\global\setcounter{ClassMap}{\pdflastobj}%
   \pdfobj {<<%
-            /IndexItem /Span % Indexeintr�ge
+            /IndexItem /Span % Indexeinträge
             /TOF /TOC % Table of Figures
             /TOFI /TOCI % Table of Figures Eintrag
             /TOT /TOC % Table of Tables
@@ -554,7 +555,7 @@
             /Bibliography /L % Bibligraphy
             /BibItem /LI % BibligraphyItem
             /ParagraphSpan /Span % geteilte Paragraphen am Seitenumbruch
-            /Footnote /Note %  Fu�notentext
+            /Footnote /Note %  Fußnotentext
             /Chapter /Sect%
             /Section /Sect%
             /Subsection /Sect%
@@ -596,7 +597,7 @@
 \newcount\linenopenalty\linenopenalty=-100000%
 \mathchardef\linenopenaltypar=32000%
   %
-  %%%%%%%%%%%%%Ver�ndern der Outputroutine%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%Verändern der Outputroutine%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\@tempa\output%
   \newtoks\output%
@@ -967,7 +968,7 @@
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifundefined{set@preamble}{% es gibt kein set@preamble%
-    }{%  %au�erhalb des KOMA-Scripts
+    }{%  %außerhalb des KOMA-Scripts
     \let\originaluse@preamble\use@preamble%
     \renewcommand{\use@preamble}[1]{%
         \EveryparConfig{P}{true}%
@@ -1194,7 +1195,7 @@
   \ifItemActive \closeItem\fi%
   %Liste beginnen
   \addtocounter{ListDepth}{1}%
-  %\PDFStructObj{L}{\empty}% Sonst Fehler bei Zugriffspr�fung AA
+  %\PDFStructObj{L}{\empty}% Sonst Fehler bei Zugriffsprüfung AA
   \PDFStructObj{L\arabic{ListDepth}}{\empty}%
   %\PDFStructObj{L\romannumeral\theListDepth}{\empty}%
 }{%
@@ -1216,10 +1217,10 @@
   \endPDFSpezialTextObj%
   \PDFSpezialTextObj{LBody}%
   \EveryparConfig{LBody}{false}%
-  %\PDFMarkContent{LBody}% wird �ber everypar erledigt
+  %\PDFMarkContent{LBody}% wird über everypar erledigt
 }%
 
-\newcommand{\closeItem}{% Altes Item abschlie�en
+\newcommand{\closeItem}{% Altes Item abschließen
   \endPDFMarkContent%
   \endPDFSpezialTextObj%{LBody}
   \endPDFStructObj%
@@ -1491,7 +1492,7 @@
     %\let\originalhyper@anchorend\hyper@anchorend%
     %\renewcommand{\hyper@anchorend}{\originalhyper@anchorend
     %\pdfliteral{/Span <</E (anchorend)>> BDC EMC}}%
-    % Eintr�ge im TOC, LOF, LOT
+    % Einträge im TOC, LOF, LOT
     %\let\originalhyper@linkstart\hyper@linkstart%
     %\renewcommand{\hyper@linkstart}{%
     %    \begin{PDFInlineObjInText}{Reference}%
@@ -1501,7 +1502,7 @@
     %     \originalhyper@linkend%
     %    \end{PDFInlineObjInText}}%
     %\useacronym --> Kurzform, Glossarseitezahlen,
-    %Indexseitenzahlen, Glossareintr�ge, Hyperlink
+    %Indexseitenzahlen, Glossareinträge, Hyperlink
     \let\originalhyperlink\hyperlink%
     \renewcommand*{\hyperlink}[2]{%
         \ifIndexItemActive\else\begin{PDFInlineObjInText}{Reference}\fi%
@@ -1523,9 +1524,9 @@
         \begin{PDFInlineObjInText}{Link}%
         \originalhyper@linkfile{#1}{#2}{#3}%
         \end{PDFInlineObjInText}}%
-    %Seitenzahlen in Index, anders da anschlie�end
-    %keine Texterkennung n�tig.
-    %eigentlich �ber hyperlink m�glich
+    %Seitenzahlen in Index, anders da anschließend
+    %keine Texterkennung nötig.
+    %eigentlich über hyperlink möglich
     \let\originalhyperpage\hyperpage%
     \renewcommand{\hyperpage}[1]{%
         \EveryparConfig{Reference}{true}%
@@ -1631,14 +1632,14 @@
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\original@footnotemark\@footnotemark%
-  %Fu�notenreferenz im Text
+  %Fußnotenreferenz im Text
   \renewcommand{\@footnotemark}{%
     \begin{PDFFootnoteReference}%
     \original@footnotemark%
     \end{PDFFootnoteReference}%
   }%
   \let\original@makefntext\@makefntext%
-  %Fu�notentext am Seitenende
+  %Fußnotentext am Seitenende
   \renewcommand{\@makefntext}[1]{%
     \begin{PDFFootnoteText}%
     \original@makefntext{#1}%
@@ -1728,11 +1729,11 @@
     \ifthenelse{\equal{#1}{__empty__}}%
         {\originalbibitem{#2}}%
         {\originalbibitem[#1]{#2}}%
-    %\endPDFMarkContent% Zu fr�h, Text wird erst mit everypar gestetzt
+    %\endPDFMarkContent% Zu früh, Text wird erst mit everypar gestetzt
     \endPDFSpezialTextObj%
     \PDFSpezialTextObj{LBody}%
     \EveryparConfig{LBody}{false}%
-   %\PDFMarkContent{LBody}% wird �ber everypar erledigt
+   %\PDFMarkContent{LBody}% wird über everypar erledigt
   }%
 }{}
 \newif\ifIndexItemActive \IndexItemActivefalse%
@@ -1821,7 +1822,7 @@
    %\hrule height1ex depth0pt width1ex
    %
    %hrulefill, hline cline, toprule, midrule, bottomrule, cmidrule? greifen auf hrule zu
-  %Klappt nicht immer mit Argument�bergabe
+  %Klappt nicht immer mit Argumentübergabe
   \let\originalhrule\hrule%
   \def\hrule#1#2{%
     \ifthenelse{\equal{#2}{\z@}}{}{\begin{PDFLayoutArtefakt}}%
@@ -1831,7 +1832,7 @@
 
 
   %vline (2), @arrayrule(2?) greift auf vrule zu
-  %Klappt nicht mit Argument�bergabe
+  %Klappt nicht mit Argumentübergabe
   %\let\originalvrule\vrule%
   %\def\vrule#1#2{%
   %  \begin{PDFLayoutArtefakt}%
@@ -1961,7 +1962,7 @@ by Adobe Reader 6.0.}%
 
 \newcommand{\recognizeLanguageChange}[1]{%
   \ifthenelse{\equal{#1}{\ActualLanguage}}{%
-     %keine �nderung zu vorher
+     %keine änderung zu vorher
   }{%
      \gdef\ActualLanguage{#1}%
      \convertLanguageInCode{\languagename}}%

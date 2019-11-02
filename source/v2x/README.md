@@ -20,11 +20,11 @@ by Andrew Clifton with her agreement. This package is based on her original file
 
 These versions are based almost entirely on Babett's hard work. I have made
 some changes to the source code to make the output files conform to CTAN
-requirements and to make it simpler to work with GitHub.
+requirements and to make it simpler to work with GitHub. See CHANGELOG.md for details.
 
 ### Bugs, errors, feedback
 
-Please report all problems to https://github.com/AndyClifton/accessibility/issues. Also, please note that I cannot enter into detailed discussions about individual documents, but am happy to address anything that might impact all users.
+Please report all problems to [the accessibility package issue tracker on Github](https://github.com/AndyClifton/accessibility/issues). Also, please note that I cannot enter into detailed discussions about individual documents, but am happy to address anything that might impact all users.
 
 ## File manifest
 

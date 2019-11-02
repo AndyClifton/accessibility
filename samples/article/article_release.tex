@@ -35,24 +35,24 @@
 % For formatting the bibliography
 \usepackage[sort]{natbib}
 
-% use fonts of type T1
-%\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
-% avoid spaces in the output PDF
-\usepackage{cmap}
-
 % colours
 \usepackage{color}
 \usepackage{xcolor}
 \definecolor{prettyblue}{RGB}{0, 121, 193}
 
 % set languages
-\usepackage[english]{babel}
+\usepackage[english, ngerman]{babel}
     \addto{\captionsenglish}{\renewcommand{\bibname}{References}}
     \addto\captionsenglish{\renewcommand{\contentsname}{Table of Contents}}
 
 % To stop hyphenation in titles etc
 \usepackage{hyphenat}
+
+% set font encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% avoid spaces in the output PDF
+\usepackage{cmap}
 
 % spacing
 \usepackage{setspace}
@@ -101,7 +101,6 @@
 
 \lstset{language=[LaTeX]TeX,	% the language of the code
 		basicstyle=\small\sffamily,
-		firstnumber =-2,
 		numbers=left,                   % where to put the line-numbers
 		numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
 		stepnumber=1,                   % the step between two line-numbers. If it's 1, each line will be numbered
@@ -272,19 +271,19 @@ helvet& changes fonts\\
 courier& changes fonts\\
 amsfonts, amssymb & supplies fonts that are useful for mathematics\\
 booktabs & \\
-graphicx & grpahics handling, including \emph{.eps} figures (see Section \ref{sec:Alttext})\\
+graphicx & graphics handling, including \emph{.eps} figures (see Section \ref{sec:Alttext})\\
 pdfcomment & tool-tips. Also calls the package \packagename{hyperref} \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
 \section{A template}
-The code used to produce this document is available from \href{https://github.com/AndyClifton/accessibility/samples}{github.com/AndyClifton/accessibility/samples}.
+The code used to produce this document is available from \href{https://github.com/AndyClifton/accessibility/samples}{accessibility/samples}.
 
 \section{Known problems with the accessibility package}
 There are bound to be a few.
 
-If you find any, please use GitHub's issue tracking to report these. You can find the current list of issues at \href{https://github.com/AndyClifton/accessibility/issues}{github.com/AndyClifton/accessibility/issues}.
+If you find any, please use GitHub's issue tracking to report these. You can find the current list of issues at \href{https://github.com/AndyClifton/accessibility/issues}{accessibility/issues}.
 
 The following is a summary of known problems with solutions and work-arounds where known:
 \begin{itemize}
@@ -295,7 +294,7 @@ The following is a summary of known problems with solutions and work-arounds whe
 \section*{Acknowledgements}
 This document benefitted from contributions to the \href{http://tex.stackexchange.com/}{http://tex.stackexchange.com/} website.
 
-Babett Schalitz produced the original \packagename{accessibility} package in 2007 \citep{schalitz2007}. That package was oriented towards KOMA-script documents. It was not accepted by CTAN and was subsequently not available to the \LaTeX community.
+Babett Schalitz produced the original \packagename{accessibility} package in 2007 \citep{schalitz_2007_b}. That package was oriented towards KOMA-script documents. It was not accepted by CTAN and was subsequently not available to the \LaTeX community.
 
 Babett Schalitz provided me with a copy of the original \packagename{accessibility} package in May 2019 and asked me to take up maintenance with a goal of submitting it to CTAN. This document is intended to support that effort. I am extremely grateful for all of Babett's work!
 
@@ -304,6 +303,6 @@ Babett Schalitz provided me with a copy of the original \packagename{accessibili
 \bibliographystyle{plainnat}
 %\bibintoc
 \label{sec:Bib}
-\bibliography{references}
+\bibliography{references.bib}
 
 \end{document}

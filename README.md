@@ -32,6 +32,10 @@ This material is subject to the LaTeX Project Public License.
 See http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
 for the details of that license.
 
-## Support
+## Cooperation and Collaboration
+Now that the licensing for this package is clearly defined, I hope people will consider collaborating on maintaining and improving the package. If you are interested, please just get on and do whatever, or raise an issue to discuss.
 
-Please report all problems as issues at https://github.com/AndyClifton/accessibility/issues
+## Support
+This style file might or might not work. The PDF output might be junk. Or you might have a document that needs something more. If so, I'd strongly encourage you to raise an issue here.
+
+The `accessibility` issue tracker is at https://github.com/AndyClifton/accessibility/issues.
