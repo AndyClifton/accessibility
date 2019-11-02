@@ -35,4 +35,4 @@ fi
 dos2unix *.md
 ctanify --pkgname accessibility accessibility.ins accessibility.pdf accessibility-Anleitung-DE.pdf README.md CHANGELOG.md "accessibility-Anleitung-DE.pdf=doc/latex/accessibility" "accessibility.pdf=doc/latex/accessibility"
 
-echo "...complete!"
+echo "...done!"
