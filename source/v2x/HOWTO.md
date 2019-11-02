@@ -1,3 +1,4 @@
+<!-- README for GitHub -- >
 [![Build Status](https://travis-ci.org/AndyClifton/accessibility.svg?branch=master)](https://travis-ci.org/AndyClifton/accessibility)
 
 # Notes to v2x Source
@@ -12,7 +13,7 @@ requirements and to make it simpler to work with GitHub. See [CHANGELOG.md](v2x/
 - CHANGELOG.md: a changelog.
 
 ## LaTeX
-- accessibility.dtx: The accessibility package, which will be inclued in the submission to CTAN
+- accessibility.dtx: The accessibility package, which will be included in the submission to CTAN
 - compatability.tex:
 - anleitung-DE.tex: instructions (in German)
 
