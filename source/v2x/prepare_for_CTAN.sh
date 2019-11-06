@@ -33,6 +33,13 @@ if [ -f accessibility.tar.gz ]; then
    rm accessibility.tar.gz
 fi
 dos2unix *.md
-ctanify --pkgname accessibility accessibility.ins accessibility.pdf accessibility-Anleitung-DE.pdf README.md CHANGELOG.md "accessibility-Anleitung-DE.pdf=doc/latex/accessibility" "accessibility.pdf=doc/latex/accessibility"
+ctanify --pkgname accessibility \
+  accessibility.ins \
+  accessibility.sty \
+  accessibility.pdf \
+  accessibility-Anleitung-DE.pdf \
+  README.md \
+  CHANGELOG.md \
+  --no-tds
 
 echo "...done!"
