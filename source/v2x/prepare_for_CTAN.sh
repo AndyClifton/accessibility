@@ -24,7 +24,7 @@ echo "...Remove latex build files"
 find anleitung-DE.* -type f ! -name "anleitung-DE.tex" ! -name "anleitung-DE.pdf" -exec rm -f {} +
 
 # generate english-language documentation
-cp ../../samples/article/article_release.pdf accessibility.pdf
+cp ../../tests/article/instructions-EN.pdf accessibility.pdf
 
 # generate the CTAN .zip file
 echo "...generate an archive for CTAN"

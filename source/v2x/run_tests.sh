@@ -4,25 +4,25 @@
 
 echo "Running accessibility package tests..."
 echo "...saving last test results"
-if [ -d ../../samples_old/ ]; then
-  rm -rf ../../samples_old/
+if [ -d ../../tests_old/ ]; then
+  rm -rf ../../tests_old/
 fi
-cp -RP ../../samples ../../samples_old/
+cp -RP ../../tests ../../tests_old/
 
 # define DIRECTORIES
 DIRECTORIES="article"
 #
-echo "...copying most recent accessibilty.sty to samples directories..."
+echo "...copying most recent accessibilty.sty to tests directories..."
 for d in $DIRECTORIES
 do
-  cp accessibility.sty ../../samples/$d/
+  cp accessibility.sty ../../tests/$d/
 done
 
-cd ../../samples
-echo "...compiling test documents"
+cd ../../tests
+echo "...compiling tests"
 echo "-------------------"
 #
-# loop through directories in samples
+# loop through directories in tests
 for d in $DIRECTORIES
 do
   cd $d

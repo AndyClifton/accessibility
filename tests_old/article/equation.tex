@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[tagged]{accessibility}
+
+\begin{document}
+
+%This document is a unit test for equations.
+
+This is an equation.
+\[
+E=mc^2
+\]
+
+This is another equation.
+\begin{equation}
+E=mc^2
+\end{equation}
+
+This is an equation that  uses the original \LaTeX\ display math commands (preserved by \texttt{AC@displaymath}):
+\makeatletter
+\AC@displaymath
+E=mc^2
+\AC@enddisplaymath
+\makeatother
+
+\end{document}
