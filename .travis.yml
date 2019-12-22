@@ -13,13 +13,13 @@ cache:
     - $HOME/.texlive
 before_script:
   # Change working directory so including files will work
-  - cd $TRAVIS_BUILD_DIR/samples/article/
+  - cd $TRAVIS_BUILD_DIR/tests/article/
 script:
-  - texliveonfly --compiler=pdflatex ./article_release.tex
-  - texliveonfly --compiler=pdflatex ./article_release.tex
-  - texliveonfly --compiler=pdflatex ./article_release.tex
-  - bibtex ./article_release
-  - texliveonfly --compiler=pdflatex ./article_release.tex
-  - texliveonfly --compiler=pdflatex ./article_release.tex
+  - texliveonfly --compiler=pdflatex ./instructions-EN.tex
+  - texliveonfly --compiler=pdflatex ./instructions-EN.tex
+  - texliveonfly --compiler=pdflatex ./instructions-EN.tex
+  - bibtex ./instructions-EN
+  - texliveonfly --compiler=pdflatex ./instructions-EN.tex
+  - texliveonfly --compiler=pdflatex ./instructions-EN.tex
 notifications:
   email: false
