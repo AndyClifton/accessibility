@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage[tagged,highstructure]{accessibility}
+\usepackage{hyperref}
+\usepackage[latin]{babel}
+\usepackage{xmpincl}
+\usepackage{hyperxmp}
+
+\includexmp{pdfUA}
+
+\hypersetup{%
+    pdflang={la},
+    pdfdisplaydoctitle=true,
+		pdftitle={PDF/UA dummy document},
+    }
+
+\begin{document}
+
+%This document is a unit test for a minimal pdftex accessible file. It should pass the PDF accessibility checker v 3.0, callas pdfGoHTML, it should reflow. Last but not least it should be accessible to people with vision issues.
+
+\lipsum
+
+\end{document}
