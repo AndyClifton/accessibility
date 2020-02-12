@@ -1,6 +1,3 @@
-<!-- README for GitHub -- >
-[![Build Status](https://travis-ci.org/AndyClifton/accessibility.svg?branch=master)](https://travis-ci.org/AndyClifton/accessibility)
-
 # Notes to v2x Source
 These versions are based almost entirely on Babett's hard work. I have made
 some changes to the source code to make the output files conform to CTAN
