@@ -35,7 +35,8 @@ do
     extension="${filename##*.}"
     filename="${filename%.*}"
     echo "...processing $filename ..."
-    find $filename.* -type f ! -name "$filename.tex" ! -name "$filename.bib" -exec rm -f {} +
+    find $filename.* -type f ! -name "$filename.tex" ! -name "$filename.bib" -
+    # need to delete the old files here.
     pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
     pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
     pdflatex -shell-escape -halt-on-error -interaction=nonstopmode $f
