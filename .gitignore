@@ -2,7 +2,7 @@
 .DS_Store
 
 ## Test files
-/tests_old/
+/tests_old/*
 *_old.*
 
 ## Core latex/pdflatex auxiliary files:
