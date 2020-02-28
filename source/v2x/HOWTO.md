@@ -37,11 +37,24 @@ latex accessibility.ins
 This is implemented in the [`make_accessibility.sh`](make_accessibility.sh) script.
 
 ## Testing `accessibility.sty`
+
+### Automated testing
 The basic test for `accessibility.sty` is to see if documents that use it compile.
 
-The [`run_tests.sh`](run_tests.sh) script compiles several example documents that use the `accessibility` package. These are included in the [`../samples`](../samples) directory in the accessibility repository. These tests have not been integrated with travis or any other CI service.
+The [`run_tests.sh`](run_tests.sh) script compiles example documents that use the `accessibility` package. These are included in the [`../tests`](../tests) directory in this repository.
 
-You should check the structure of the PDF files and confirm that they are OK.
+These tests are also run automatically when a new commit is made on Github.
+
+### Manual testing
+You should also _manually_ check the structure of the PDF files generated using `accessibility` and confirm that they are OK.
+
+You can test the PDF files using e.g.:
+- PDF Accessibility Checker (Windows only): https://www.access-for-all.ch/ch/pdf-werkstatt/pdf-accessibility-checker-pac.html
+- The Tingtun Checker (web-based, makes tests without modifying): http://checkers.eiii.eu/en/pdfcheck/
+- PAVE (web-based, makes makes changes automatically): http://pave-pdf.org/index.en.html
+- Acrobat Pro: https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html
+- Common Look's PDF validator (a plugin for Adobe Acrobat that tests against multiple standadrds): https://commonlook.com/accessibility-software/pdf-validator/
+
 
 ## Preparing for submission to CTAN
 ### 1. Update all version information
