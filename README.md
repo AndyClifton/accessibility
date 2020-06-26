@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/AndyClifton/accessibility.svg?branch=master)](https://travis-ci.org/AndyClifton/accessibility)
+[![Status](https://img.shields.io/badge/Prototype-Not%20suitable%20from%20production%20-red)]
 
 # The `Accessibility` LaTeX package
 
@@ -6,9 +6,10 @@ Authors: Babett Schalitz, Andrew (Andy) Clifton
 
 This repository contains the files required to build and test the `accessibility` LaTeX package.
 
-`Accessibility` improves the structure and tagging of PDF files generated from LaTeX. These features make PDF documents machine readable and thus enable document readers (e.g. the Adobe Acrobat series) to automatically process and present the document.
+`Accessibility` was written as a proof-of-concept showing how to improve the structure and tagging of PDF files generated from LaTeX. These features make PDF documents machine readable and thus enable document readers (e.g. the Adobe Acrobat series) to automatically process and present the document.
 
-You can obtain the `accessibility` package [through CTAN](https://ctan.org/pkg/accessibility).
+## News
+...
 
 ## History
 
@@ -24,6 +25,10 @@ Several changes were required to the source code to make it CTAN compliant. The 
 This repository contains all of the files required to build and test the accessibility.sty file. **It is not intended to be used directly in LaTeX.**
 
 ## Installing `accessibility` on your latex system
+
+Please note that `accessibility` should be considered experimental / a proof of concept, and is not suitable for production use.
+
+### Want to keep trying?
 If all you want is to use `accessibility` on one of your documents, then this is not the repository you are looking for.
 
 You are strongly recommended to obtain the `accessibility` package [through CTAN](https://ctan.org/pkg/accessibility). That distribution has all of the files that you might require to install accessibility on your system. I suggest installation using an appropriate package manager.
