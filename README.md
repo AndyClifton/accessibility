@@ -8,8 +8,11 @@ This repository contains the files required to build and test the `accessibility
 
 `Accessibility` was written as a proof-of-concept showing how to improve the structure and tagging of PDF files generated from LaTeX. These features make PDF documents machine readable and thus enable document readers (e.g. the Adobe Acrobat series) to automatically process and present the document.
 
+This package is predominantly targeted at documents produced using the [KOMA-Script document classes](https://ctan.org/pkg/koma-script). **It is not suitable for general production use with LaTeX Documents**
+
+
 ## News
-...
+...25 June 2020: We need help to improve the  package, and potentially tie some of its ideas into core LaTeX. Do you have ideas for how we could fund a professional software developer to support us? Please contribute your ideas to https://github.com/AndyClifton/accessibility/issues/42. 
 
 ## History
 
