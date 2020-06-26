@@ -1,4 +1,4 @@
-[![Status](https://img.shields.io/badge/Prototype-Not%20suitable%20from%20production%20-red)]
+![Status](https://img.shields.io/badge/Prototype-Not%20suitable%20from%20production%20-red)
 
 # The `Accessibility` LaTeX package
 
