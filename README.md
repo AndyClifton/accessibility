@@ -12,9 +12,7 @@ This package is predominantly targeted at documents produced using the [KOMA-Scr
 
 
 ## News
-23 Feb 2021: The question of accessibility in PDFs has now been taken up by the LaTeX project in a multiyear project and as a result **I am stopping work on this package and it should be considered "unmaintained"**. See https://www.latex-project.org/publications/indexbytopic/pdf/ for news.
-
-The article, ["LaTeX Tagged PDF — A blueprint for a large project"](https://www.latex-project.org/publications/2020-FMi-TUB-tb129mitt-tagpdf.pdf) may be particularly useful.
+- 23 Feb 2021: The question of accessibility in PDFs has now been taken up by the LaTeX project in a multiyear project and as a result **I am stopping work on this package and it should be considered "unmaintained"**. See https://www.latex-project.org/publications/indexbytopic/pdf/ for news. The article, ["LaTeX Tagged PDF — A blueprint for a large project"](https://www.latex-project.org/publications/2020-FMi-TUB-tb129mitt-tagpdf.pdf) may be particularly useful as an overview.
 
 ## History
 
