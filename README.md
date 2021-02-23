@@ -10,7 +10,8 @@ Authors: Babett Schalitz, Andrew (Andy) Clifton
 This repository contains all of the files required to build and test the accessibility.sty file. **It is not intended to be used directly in LaTeX.**
 
 ## News
-- 23 Feb 2021: The question of accessibility in PDFs has now been taken up by the LaTeX project in a multiyear project and as a result **I am stopping all work on this package and it should be considered "not maintained"**. <br/> See https://www.latex-project.org/publications/indexbytopic/pdf/ for news about progress by the LaTeX project. The article, ["LaTeX Tagged PDF — A blueprint for a large project"](https://www.latex-project.org/publications/2020-FMi-TUB-tb129mitt-tagpdf.pdf) may be particularly useful as an overview.
+- 23 Feb 2021: The question of accessibility in PDFs has now been taken up by the LaTeX project in a multiyear project and as a result **I am stopping all work on this package and it should be considered "not maintained"**. See https://www.latex-project.org/publications/indexbytopic/pdf/ for news about progress by the LaTeX project. The article, ["LaTeX Tagged PDF — A blueprint for a large project"](https://www.latex-project.org/publications/2020-FMi-TUB-tb129mitt-tagpdf.pdf) may be particularly useful as an overview.
+- Nov 2019: The `accessibility` package is now available [through CTAN](https://ctan.org/pkg/accessibility).
 
 ## What the package did
 `Accessibility` was written as a proof-of-concept showing how to improve the structure and tagging of PDF files generated from LaTeX. These features would make PDF documents machine readable and thus enable document readers (e.g. the Adobe Acrobat series) to automatically process and present the document.
@@ -39,10 +40,11 @@ in your preamble, where options should include either `highstructure` or `flatst
 You should use a tool such as Adobe Acrobat or [PAC3](https://www.access-for-all.ch/ch/pdf-werkstatt/pdf-accessibility-checker-pac.html) to check the output. Please see the manuals for those tools for more information.
 
 ## Known problems
-- Changes to the LaTeX distribution since `acccessibilty` was first released appear to have broken the package quite comprehensively. It is no longer recommended for use at all.
-- `acccessibilty` fails when sections cross page boundaries
-- `acccessibilty` was designed for KOMA-script documents.
-See [/issues/] for more.
+- Changes to the LaTeX distribution since `acccessibility` was first released appear to have broken the package quite comprehensively. It is no longer recommended for use at all.
+- `acccessibility` fails when sections cross page boundaries
+- `acccessibility` was designed for KOMA-script documents.
+
+See [the issue tracker](https://github.com/AndyClifton/accessibility/issues) for more.
 
 ## Support, bugs, errors, and feedback
 This package was experimental and is no longer maintained.
