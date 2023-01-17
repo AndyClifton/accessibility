@@ -2,11 +2,13 @@
 
 # READ ME FIRST
 
-As of Feb 2021 I've stopped working on the accessibility package as it's basically not possible to implement something effective as an add-on package. Any change to the LaTeX kernel or any other packages in common use can introduce a breaking change for the accessibility package, and so it's a constant game of catch-up and there will _always_ be incompatabilities. Accessibility is therefore not a viable solution to the problem of producing tagged and structured PDFs from LaTeX.
+As of Feb 2021 I've stopped working actively on the accessibility package as it's basically not possible to implement something effective as an add-on package. Any change to the LaTeX kernel or any other packages in common use can introduce a breaking change for the accessibility package, and so it's a constant game of catch-up and there will _always_ be incompatabilities. Accessibility is therefore not a viable solution to the problem of producing tagged and structured PDFs from LaTeX.
 
 Fortunately there's an initiative by the core LaTeX team to introduce native tagging and structure as part of the LaTeX kernel. You can find out more about the project [here](https://www.latex-project.org/publications/2020-FMi-TUB-tb129mitt-tagpdf.pdf), and status updates can be found on the [LaTeX project website](https://www.latex-project.org/publications/indexbytopic/pdf/). TL; DR: wait 1-2 years and you'll see PDF tagging happen automatically.
 
-For those who cannot wait, you could consider:
+In the interim, I am **continuing to accept issues** and **encourage pull requests from users** to fix small issues that are caused by e.g., naming clashes or outdated dependencies. This means that we might be able to solve some challenges on simple documents, but again, this is not a long-term solution, and **this package should be considered experimental and unmaintained. It is not recommended for production use.**
+
+For those who need a better solution, you could consider:
 
 1. Exporting your document to another format via Pandoc. This brings many, many other problems!
 2. Using a different flavor of LaTeX such as ConTeXt to produce the document (see answers to [this question on Stackoverflow](https://tex.stackexchange.com/questions/124291/revisiting-producing-structured-pdfs-from-latex))
