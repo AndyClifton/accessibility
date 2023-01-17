@@ -630,9 +630,9 @@
        %MakeLineNo
        \boxmaxdepth\maxdimen\setbox\z@\vbox{\unvbox\@cclv}%
        \@tempdima\dp\z@ \unvbox\z@%
-       \sbox\@tempboxa{\hb@xt@\z@{\makeLineNumber}}%
-       \stepcounter{linenumber}%
-       \stepcounter{abslinenumber}%
+       \sbox\@tempboxa{\hb@xt@\z@{\makelinecounter}}%
+       \stepcounter{linecounter}%
+       \stepcounter{abslinecounter}%
        \ht\@tempboxa\z@ \@AC@depthbox %
        \count@\lastpenalty %
        \ifnum\outputpenalty=-\linenopenaltypar %
@@ -666,8 +666,8 @@
   %%%%%%%%%%%%%Initializieren der Variablen%%%%%%%%%%%%%%%%%%%%%%%
   %
   %Zeilennummer
-  \newcounter{linenumber}%
-  \newcounter{abslinenumber}%
+  \newcounter{linecounter}%
+  \newcounter{abslinecounter}%
   %Seitennummer
   \newcount\c@AC@truepage %
   \global\advance\c@AC@truepage\@ne %mit eins beginnen
@@ -682,12 +682,12 @@
   %
   %%%%%%%%%%%%%Schreiben der Zeilennummmern%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
-  \def\makeLineNumber{%
-    \protected@write\@auxout{}{\string\@AC{\the\c@linenumber}%
+  \def\makelinecounter{%
+    \protected@write\@auxout{}{\string\@AC{\the\c@linecounter}%
                               {\noexpand\the\c@AC@truepage}}%
     \testNumberedPage%
     %Schreibt die Zeilennummern
-    %\hss{\normalfont\tiny\sffamily\thelinenumber\quad}%
+    %\hss{\normalfont\tiny\sffamily\thelinecounter\quad}%
   }%
 }{}%
   %
@@ -736,7 +736,7 @@
   %
   \let\lastAC\relax  % compare to last line on this page
   \let\firstAC\relax % compare to first line on this page
-  \let\pageAC\relax  % get the page number, compute the linenumber
+  \let\pageAC\relax  % get the page number, compute the linecounter
   \let\nextAC\relax  % move to the next page
   %
   \AtEndDocument{\let\@AC\@gobbletwo} %
@@ -764,16 +764,16 @@
   \def\NumberedPageCache{\AC@Pfirst}%
   %
   \def\testLastNumberedPage#1{%
-    \ifnum#1<\c@linenumber%
+    \ifnum#1<\c@linecounter%
       \let\firstAC\@gobble%
     \fi%
-    \ifnum#1=\c@linenumber%
+    \ifnum#1=\c@linecounter%
       \EndPage{#1}%
     \fi%
   }%
   %
   \def\testFirstNumberedPage#1{%
-    \ifnum#1>\c@linenumber%
+    \ifnum#1>\c@linecounter%
        \def\nextAC##1{\testNextNumberedPage\AC@Pfirst}%
     \else%
       \let\nextAC\@gobble%
@@ -803,8 +803,8 @@
   %
   \def\gotNumberedPage#1#2#3#4{%
     \ifodd \if@twocolumn #3\else #2\fi\relax\fi%
-    \advance\c@linenumber\@ne % Nummerierung ab 1 sonst ab 0
-    \advance\c@linenumber-#4\relax%
+    \advance\c@linecounter\@ne % Nummerierung ab 1 sonst ab 0
+    \advance\c@linecounter-#4\relax%
   }%
 }{}%
   %
@@ -831,7 +831,7 @@
   \let\@@@par\@@par%
   \newcount\linenoprevgraf%
   %
-  \def\linenumberpar{%
+  \def\linecounterpar{%
     \ifvmode \@@@par \else %
       \ifinner \@@@par \else%
         \xdef\@AC@outer@holdins{\the\holdinginserts}%
@@ -850,9 +850,9 @@
   %
   \AtEndOfPackage{%
     \xdef\@AC@outer@holdins{\the\holdinginserts}%
-    \let\@@par\linenumberpar%
-    \ifx\@par\@@@par\let\@par\linenumberpar\fi%
-    \ifx\par\@@@par\let\par\linenumberpar\fi%
+    \let\@@par\linecounterpar%
+    \ifx\@par\@@@par\let\@par\linecounterpar\fi%
+    \ifx\par\@@@par\let\par\linecounterpar\fi%
   }%
 }{}%
   %
