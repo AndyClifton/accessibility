@@ -1,5 +1,29 @@
 ![Status](https://img.shields.io/badge/Prototype-Not%20suitable%20from%20production%20-red)
 
+# READ ME FIRST
+
+As of Feb 2021 I've stopped working on the accessibility package as it's basically not possible to implement something effective as an add-on package. Any change to the LaTeX kernel or any other packages in common use can introduce a breaking change for the accessibility package, and so it's a constant game of catch-up and there will _always_ be incompatabilities. Accessibility is therefore not a viable solution to the problem of producing tagged and structured PDFs from LaTeX.
+
+Fortunately there's an initiative by the core LaTeX team to introduce native tagging and structure as part of the LaTeX kernel. You can find out more about the project [here](https://www.latex-project.org/publications/2020-FMi-TUB-tb129mitt-tagpdf.pdf), and status updates can be found on the [LaTeX project website](https://www.latex-project.org/publications/indexbytopic/pdf/). TL; DR: wait 1-2 years and you'll see PDF tagging happen automatically.
+
+For those who cannot wait, you could consider:
+
+1. Exporting your document to another format via Pandoc. This brings many, many other problems!
+2. Using a different flavor of LaTeX such as ConTeXt to produce the document (see answers to [this question on Stackoverflow](https://tex.stackexchange.com/questions/124291/revisiting-producing-structured-pdfs-from-latex))
+3. Introducing tagging and structure afterwards using e.g. Adobe Acrobat
+
+and of course..
+
+4. Using a different document production tool in the first place that has native PDF export capabilities, e.g. from Microsoft or Adobe.
+
+There is a good, in-depth discussion of all of this and the background challenges at [Overleaf](https://www.overleaf.com/learn/latex/An_introduction_to_tagged_PDF_files%3A_internals_and_the_challenges_of_accessibility).
+
+The following notes are the original `README.md`, and included for completeness.
+
+\- _Andy Clifton, January 2023._
+
+---
+
 # The `Accessibility` LaTeX package
 
 Authors: Babett Schalitz, Andrew (Andy) Clifton
