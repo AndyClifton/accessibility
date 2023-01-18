@@ -1251,13 +1251,6 @@
      \originalendenumerate\end{PDFList}}%
   %
 
-  \let\originallist\list%
-  \let\originalendlist\endlist
-  \renewenvironment{list}%
-    {\begin{PDFList}\originallist}%
-    {\originalendlist\end{PDFList}}%
-  %
-
   \let\originallabelenumi\labelenumi%
   \renewcommand{\labelenumi}{%
     \begin{PDFListLabel} \originallabelenumi \end{PDFListLabel}}%

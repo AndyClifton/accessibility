@@ -2102,17 +2102,6 @@
   %
 %    \end{macrocode}
 
-% Modifications to the list environment
-% \changes{v2.1.1}{2023/01/18}{Added ``list'' fixes}
-%   \begin{macrocode}
-  \let\originallist\list%
-  \let\originalendlist\endlist
-  \renewenvironment{list}%
-    {\begin{PDFList}\originallist}%
-    {\originalendlist\end{PDFList}}%
-  %
-%   \end{macrocode}
-
 %Kennzeichnung der Label für Enumerate.
 %    \begin{macrocode}
   \let\originallabelenumi\labelenumi%
