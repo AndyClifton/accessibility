@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\usepackage{siunitx}  
+
+%\usepackage[tagged, highstructure]{accessibility}
+
+\title{Unit test for tables with `s' columns from the siunitx package}
+\author{The author}
+
+\begin{document}
+
+\maketitle
+
+This is a unit test to demonstrate issue 45, https://github.com/AndyClifton/accessibility/issues/45, and test solutions.
+
+
+\begin{tabular}{SSSS}  
+    & 1 &   &      \\
+    &   & 2 &      \\
+3.33 & 3 &   & 11.3 \\
+41.4 &   &   & \\
+\end{tabular}
+
+
+\end{document}

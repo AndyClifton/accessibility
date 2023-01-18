@@ -140,12 +140,17 @@
 \@ifundefined{thead}{%
   \newcommand{\thead}[1]{%
     \global\TableHeadCelltrue%
-    \textbf{#1}}%
+    \textbf{#1}%
+  }%
 }{%
   \let\originalthead\thead
-  \renewcommand{\thead}{%
+  \renewcommand{\thead}[1]{%
     \global\TableHeadCelltrue%
-    \originalthead}%
+    \@ifpackageloaded{array}%
+        {\let\@arraycr\originalcr}%
+        {\let\@tabularcr\originalcr}%
+    \originalthead{#1}%
+  }%
 }
 
 \newcount\@stackdepth \@stackdepth=0%
@@ -928,20 +933,18 @@
     \let\originalchapter\chapter%
     \renewcommand{\chapter}{%Sortiert die verschiedenen Aufrufe
       \@ifstar{\originalchapterWithStar}%\chapter*{Beispielkapitel}
-      {\@ifnextchar[%]
-          {\originalchapterWithTwoOption}%\chapter[BspKap]{Beispielkapitel}
-          {\originalchapterWithOption}%\chapter{Beispielkapitel}
-      }%
+      {\originalchapterWithOptions}%
     }%
   }%
 }{}
 
-\newcommand{\originalchapterWithStar}[1]{%
-  \PDFSect{Chapter}{#1}\originalchapter*{#1}\endPDFSect}%
-\newcommand{\originalchapterWithTwoOption}[2]{%
-  \PDFSect{Chapter}{#1}\originalchapter[#1]{#2}\endPDFSect}%
-\newcommand{\originalchapterWithOption}[1]{%
-  \PDFSect{Chapter}{#1}\originalchapter{#1}\endPDFSect}%
+\newcommand{\originalchapterWithStar}[1]
+  {\PDFSect{Chapter}{#1}\originalchapter*{#1}\endPDFSect}%
+\newcommand{\originalchapterWithOptions}[2][0]%
+  {\ifthenelse{\equal{#1}{0}}
+    {\PDFSect{Chapter}{#2}\originalchapter{#2}\endPDFSect}%
+    {\PDFSect{Chapter}{#1}\originalchapter[#1]{#2}\endPDFSect}%
+  }%
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifundefined{addchap}{% es gibt keine Chapter z.B. in Article-Klassen
@@ -980,55 +983,49 @@
   \let\originalsection\section%
   \renewcommand{\section}{%
     \@ifstar{\originalsectionWithStar}%
-    {\@ifnextchar[%]
-        {\originalsectionWithTwoOption}%
-        {\originalsectionWithOption}%
-    }%
+    {\originalsectionWithOptions}%
   }%
 }{}
 
 \newcommand{\originalsectionWithStar}[1]%
   {\PDFSect{Section}{#1} \originalsection*{#1} \endPDFSect}%
-\newcommand{\originalsectionWithTwoOption}[2]%
-  {\PDFSect{Section}{#1} \originalsection[#1]{#2} \endPDFSect}%
-\newcommand{\originalsectionWithOption}[1]%
-  {\PDFSect{Section}{#1} \originalsection{#1} \endPDFSect}%
+\newcommand{\originalsectionWithOptions}[2][0]%
+  {\ifthenelse{\equal{#1}{0}}
+    {\PDFSect{Section}{#2} \originalsection{#2} \endPDFSect}%
+    {\PDFSect{Section}{#1} \originalsection[#1]{#2} \endPDFSect}
+  }
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalsubsection\subsection%
   \renewcommand{\subsection}{%
     \@ifstar{\originalsubsectionWithStar}%
-    {\@ifnextchar[%]
-        {\originalsubsectionWithTwoOption}%
-        {\originalsubsectionWithOption}%
-    }%
+    {\originalsubsectionWithOptions}%
   }%
 }{}
 
 \newcommand{\originalsubsectionWithStar}[1]%
   {\PDFSect{Subsection}{#1} \originalsubsection*{#1} \endPDFSect}%
-\newcommand{\originalsubsectionWithTwoOption}[2]%
-  {\PDFSect{Subsection}{#1} \originalsubsection[#1]{#2} \endPDFSect}%
-\newcommand{\originalsubsectionWithOption}[1]%
-  {\PDFSect{Subsection}{#1} \originalsubsection{#1} \endPDFSect}%
+\newcommand{\originalsubsectionWithOptions}[2][0]%
+  {\ifthenelse{\equal{#1}{0}}
+    {\PDFSect{Subsection}{#2} \originalsubsection{#2} \endPDFSect}%
+    {\PDFSect{Subsection}{#1} \originalsubsection[#1]{#2} \endPDFSect}%
+  }
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originalsubsubsection\subsubsection%
   \renewcommand{\subsubsection}{%
     \@ifstar{\originalsubsubsectionWithStar}%
-      {\@ifnextchar[%]
-        {\originalsubsubsectionWithTwoOption}%
-        {\originalsubsubsectionWithOption}%
-    }%
+    {\originalsubsubsectionWithOptions}%
   }%
 }{}
 
 \newcommand{\originalsubsubsectionWithStar}[1]%
   {\PDFSect{Subsubsection}{#1} \originalsubsubsection*{#1} \endPDFSect}%
-\newcommand{\originalsubsubsectionWithTwoOption}[2]%
-  {\PDFSect{Subsubsection}{#1} \originalsubsubsection[#1]{#2} \endPDFSect}%
-\newcommand{\originalsubsubsectionWithOption}[1]%
-  {\PDFSect{Subsubsection}{#1} \originalsubsubsection{#1} \endPDFSect}%
+\newcommand{\originalsubsubsectionWithOptions}[2][0]%
+  {\ifthenelse{\equal{#1}{0}}
+    {\PDFSect{Subsubsection}{#2} \originalsubsubsection{#2} \endPDFSect}%
+    {\PDFSect{Subsubsection}{#1} \originalsubsubsection[#1]{#2} \endPDFSect}%
+  }
 
 \newenvironment{PDFParSect}[2]{%
   %\ifPDFDetailedStructure%
@@ -1253,6 +1250,7 @@
     {%\ifItemActive \closeItem\fi%
      \originalendenumerate\end{PDFList}}%
   %
+
   \let\originallabelenumi\labelenumi%
   \renewcommand{\labelenumi}{%
     \begin{PDFListLabel} \originallabelenumi \end{PDFListLabel}}%
@@ -1309,13 +1307,13 @@
 
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\original@float\@float%
-  \let\originalend@float\end@float%
+  \let\originalcr@float\end@float%
   \renewenvironment*{@float}[1]{%
     \PDFStructObj{Float}{\csname #1name\endcsname}%
     %\global\numberingparsfalse%
     \original@float{#1}%
   }{%
-    \originalend@float%
+    \originalcr@float%
     \endPDFMarkContent%
     %\global\numberingparstrue%
     \endPDFStructObj%
@@ -1394,31 +1392,34 @@
 \ifthenelse{\boolean{@Access@pdf}}{%
   \let\originaltabular\tabular%
   \let\originalendtabular\endtabular%
-  \renewenvironment*{tabular}{%
+  \renewenvironment*{tabular}[2][c]{%
     \def&{\endPDFTableCell\originalamp\PDFTableCell}%
     \PDFTable%
     \PDFTableLine%
     \PDFTableCell%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \originaltabular%
+    \originaltabular[#1]{#2}%
   }{%
     %\pdfliteral{EMC}%
-    \def&{\originalamp}%
     \originalendtabular%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def&{\originalamp}%
     \ifTableCellActive\endPDFTableCell\fi%
     \ifTableLineActive\endPDFTableLine\fi%
     \endPDFTable%
   }%
   \@ifpackageloaded{array}{%
-    \let\originalaryend\@arraycr%
-    \renewcommand*{\@arraycr}{\endPDFTableCell%
-       \endPDFTableLine\PDFTableLine\PDFTableCell\originalaryend}%
+    \let\originalcr\@arraycr%
+    \renewcommand*{\@arraycr}{\acccr}
   }{% wenn kein anderes Tabellen-Package
-    \let\originaltabend\@tabularcr%
-    \renewcommand*{\@tabularcr}{\endPDFTableCell%
-       \endPDFTableLine\PDFTableLine\PDFTableCell\originaltabend}%
+    \let\originalcr\@tabularcr%
+    \renewcommand*{\@tabularcr}{\acccr}%
   }%
+  \newcommand{\acccr}{%
+    \endPDFTableCell%
+    \endPDFTableLine%
+    \PDFTableLine%
+    \PDFTableCell%
+    \originalcr%
+  }
  % \@ifpackageloaded{tabularx}{%
  %   \PackageWarning{accessibity}%
  %       {The tabularx-package isn't yet fully supported.%
@@ -1464,6 +1465,10 @@
     \original@stopline \ifAfterKill\endPDFTableLine\fi%
   }%
 }{}
+
+\def\originalamp{&}%
+\catcode`\&=4%
+\def\&{\originalamp}%
 
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1823,8 +1828,10 @@
   %Klappt nicht immer mit Argumentübergabe
   \let\originalhrule\hrule%
   \def\hrule#1#2{%
+    \ifthenelse{#2>0}
+    {\originalhrule}
+    {\originalhrule#1#2}%
     \ifthenelse{\equal{#2}{\z@}}{}{\begin{PDFLayoutArtefakt}}%
-    \originalhrule#1#2%
     \ifthenelse{\equal{#2}{\z@}}{}{\end{PDFLayoutArtefakt}}%
   }%
 
