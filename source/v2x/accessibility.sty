@@ -25,6 +25,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Copyright 2007 Babett Schalitz
 %% Copyright 2019 Andrew Clifton
+%% with contributions from Teresa Pelinski
 %%
 %% This material is subject to the LaTeX Project Public License. See
 %% https://ctan.org/license/lppl1.3c for the details of that license.
@@ -33,7 +34,7 @@
 %% PDF-1.5 and 1.6 specifications.
 %%
 %% %^^ VERSION INFO 1 OF 3
-%% This is accessibility version 2.0.3 Backward compatibility with prior
+%% This is accessibility version 2.1.0 Backward compatibility with prior
 %% versions is not assured.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
@@ -56,7 +57,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \fi
 
-\ProvidesPackage{accessibility}[2019/11/02 v. 2.0.3]
+\ProvidesPackage{accessibility}[2023/01/18 v. 2.1.0]
 \NeedsTeXFormat{LaTeX2e}
 
 \RequirePackage{xkeyval}
@@ -630,9 +631,9 @@
        %MakeLineNo
        \boxmaxdepth\maxdimen\setbox\z@\vbox{\unvbox\@cclv}%
        \@tempdima\dp\z@ \unvbox\z@%
-       \sbox\@tempboxa{\hb@xt@\z@{\makelinecounter}}%
-       \stepcounter{linecounter}%
-       \stepcounter{abslinecounter}%
+       \sbox\@tempboxa{\hb@xt@\z@{\makeAClinecounter}}%
+       \stepcounter{AClinecounter}%
+       \stepcounter{absAClinecounter}%
        \ht\@tempboxa\z@ \@AC@depthbox %
        \count@\lastpenalty %
        \ifnum\outputpenalty=-\linenopenaltypar %
@@ -666,8 +667,8 @@
   %%%%%%%%%%%%%Initializieren der Variablen%%%%%%%%%%%%%%%%%%%%%%%
   %
   %Zeilennummer
-  \newcounter{linecounter}%
-  \newcounter{abslinecounter}%
+  \newcounter{AClinecounter}%
+  \newcounter{absAClinecounter}%
   %Seitennummer
   \newcount\c@AC@truepage %
   \global\advance\c@AC@truepage\@ne %mit eins beginnen
@@ -682,12 +683,12 @@
   %
   %%%%%%%%%%%%%Schreiben der Zeilennummmern%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
-  \def\makelinecounter{%
-    \protected@write\@auxout{}{\string\@AC{\the\c@linecounter}%
+  \def\makeAClinecounter{%
+    \protected@write\@auxout{}{\string\@AC{\the\c@AClinecounter}%
                               {\noexpand\the\c@AC@truepage}}%
     \testNumberedPage%
     %Schreibt die Zeilennummern
-    %\hss{\normalfont\tiny\sffamily\thelinecounter\quad}%
+    %\hss{\normalfont\tiny\sffamily\theAClinecounter\quad}%
   }%
 }{}%
   %
@@ -736,7 +737,7 @@
   %
   \let\lastAC\relax  % compare to last line on this page
   \let\firstAC\relax % compare to first line on this page
-  \let\pageAC\relax  % get the page number, compute the linecounter
+  \let\pageAC\relax  % get the page number, compute the AClinecounter
   \let\nextAC\relax  % move to the next page
   %
   \AtEndDocument{\let\@AC\@gobbletwo} %
@@ -764,16 +765,16 @@
   \def\NumberedPageCache{\AC@Pfirst}%
   %
   \def\testLastNumberedPage#1{%
-    \ifnum#1<\c@linecounter%
+    \ifnum#1<\c@AClinecounter%
       \let\firstAC\@gobble%
     \fi%
-    \ifnum#1=\c@linecounter%
+    \ifnum#1=\c@AClinecounter%
       \EndPage{#1}%
     \fi%
   }%
   %
   \def\testFirstNumberedPage#1{%
-    \ifnum#1>\c@linecounter%
+    \ifnum#1>\c@AClinecounter%
        \def\nextAC##1{\testNextNumberedPage\AC@Pfirst}%
     \else%
       \let\nextAC\@gobble%
@@ -803,8 +804,8 @@
   %
   \def\gotNumberedPage#1#2#3#4{%
     \ifodd \if@twocolumn #3\else #2\fi\relax\fi%
-    \advance\c@linecounter\@ne % Nummerierung ab 1 sonst ab 0
-    \advance\c@linecounter-#4\relax%
+    \advance\c@AClinecounter\@ne % Nummerierung ab 1 sonst ab 0
+    \advance\c@AClinecounter-#4\relax%
   }%
 }{}%
   %
@@ -831,7 +832,7 @@
   \let\@@@par\@@par%
   \newcount\linenoprevgraf%
   %
-  \def\linecounterpar{%
+  \def\AClinecounterpar{%
     \ifvmode \@@@par \else %
       \ifinner \@@@par \else%
         \xdef\@AC@outer@holdins{\the\holdinginserts}%
@@ -850,9 +851,9 @@
   %
   \AtEndOfPackage{%
     \xdef\@AC@outer@holdins{\the\holdinginserts}%
-    \let\@@par\linecounterpar%
-    \ifx\@par\@@@par\let\@par\linecounterpar\fi%
-    \ifx\par\@@@par\let\par\linecounterpar\fi%
+    \let\@@par\AClinecounterpar%
+    \ifx\@par\@@@par\let\@par\AClinecounterpar\fi%
+    \ifx\par\@@@par\let\par\AClinecounterpar\fi%
   }%
 }{}%
   %

@@ -4,7 +4,10 @@ A LaTeX package to create a tagged and structured PDF file.
 
 By Babett Schalitz (2007).
 
-Maintained by Andy Clifton (2019 - )
+Maintained by Andy Clifton (2019 - ) with contributions from:
+    - Teresa Pelinski
+
+    ... and many other through Github.
 
 ## Description
 The `accessibility` package  is intended to create tagged, structured PDF documents from LaTeX2e source code.
@@ -37,6 +40,6 @@ Please report all problems to [the accessibility package issue tracker on Github
 
 Copyright (C) 2007 Babett Schalitz
 
-Copyright (C) 2019 Andrew Clifton
+Copyright (C) 2019, 2023 Andrew Clifton
 
 This work may be distributed and/or modified under the conditions of the LaTeX Project Public License, either version 1.3c of this license or (at your option) any later version.  The latest version of this license is in http://www.latex-project.org/lppl.txt and version 1.3c or later is part of all distributions of LaTeX version 2008/05/04 or later.

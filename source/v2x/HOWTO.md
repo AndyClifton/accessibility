@@ -26,7 +26,7 @@ You could just modify `accessibility.sty` directly. This is fine for testing new
 ### The proper way
 `accessibility.sty` is actually created from the `accessibility.ins` (configuration) and `accessibility.dtx` (content) files.
 
-So, to make a change to `accessibilty.sty`, you need to first modify the `accessibility.dtx` file.
+So, to make a change to `accessibility.sty`, you need to first modify the `accessibility.dtx` file.
 
 You can then update `accessibility.sty` by running `accessibility.ins` through latex:
 

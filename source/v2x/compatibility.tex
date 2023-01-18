@@ -32,9 +32,9 @@
 		%Bearbeitung mit pdftex im PDF-Modus
 		\usepackage[pdftex]{graphicx}%
 		\usepackage[pdftex]{hyperref}%
-		\pdfcompresslevel=0%						Damit wird die PDF-Quelldatei lesbar
-		\pdfoptionpdfminorversion=6%		Bestimmt die PDF - Version der Ausgabe
-	%\pdfadjustspacing=0%							0, 1 oder 2 �nderung nicht erkannt
+		\pdfcompresslevel=0%			Damit wird die PDF-Quelldatei lesbar
+		\pdfoptionpdfminorversion=6%	Bestimmt die PDF - Version der Ausgabe
+	%\pdfadjustspacing=0%				0, 1 oder 2 �nderung nicht erkannt
 		\newcommand{\lineheight}{12pt}%
 		\AtBeginDocument{\usepackage[untagged, highstructure]{accessibility}}	% Makros in accessibility.sty
 	\else%
@@ -53,6 +53,6 @@
 	citecolor=sun1,%
 	filecolor=sun1,%
 	menucolor=sun1,%
-	pagecolor=sun1,%
+	%pagecolor=sun1,%
 	urlcolor=sun1%
 	}%

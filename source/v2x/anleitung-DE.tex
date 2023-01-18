@@ -8,7 +8,7 @@
   %smallheadings,%
   DIV11,%
 ]{scrreprt}
-%\documentclass[a4paper]{article}
+%\documentclass[a4paper]{report}
  \usepackage{doc}
  \usepackage[utf8]{inputenc}
  \usepackage[T1]{fontenc}
@@ -16,7 +16,7 @@
  \usepackage[ngerman]{babel}
  \usepackage{bibgerm}
  \usepackage{booktabs}
- \usepackage[compact]{titlesec}
+ %\usepackage[compact]{titlesec}
  \renewcommand*{\chapterheadstartvskip}{} %Platz vor neuem Kapitel weglassen
   %\RecordChanges
   \EnableCrossrefs
@@ -44,7 +44,7 @@
 \definecolor{sun5}{rgb}{0.9,0.9,1.0} %hellblau
 \definecolor{black}{rgb}{0,0,0} %hellblau
 
- \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
 
 \let\origmacrocode\macrocode%
 \let\origendmacrocode\endmacrocode%
@@ -110,7 +110,21 @@
 \DoNotIndex{\arabic,\active,\addtocounter,\advanced,\begin,\bfseries,\boolean}
  \DoNotIndex{\catcode,\chapterheadendvskip,\chapterheadstartvskip,\clubpenalty,\CodelineIndex,\csname,\CurrentOption}
  \DoNotIndex{\def,\DeclareOption,\DocInput,\documentclass,\else,\end,\EnableCrossrefs,\endcsname,\endlastfoor,\equal,\expandafter}
- \DoNotIndex{\fi,\refundefinedtrue,\gdef,\global,\glsxspace,\hbox,\hskip,\iffalse,\ifnum,\ifthenelse,\ifx,\ignorespaces,\immediate,\,\[,\],\(,\),\&,\ }
+ %\DoNotIndex{\fi,\refundefinedtrue,\gdef,\global,\glsxspace,\hbox,\hskip,\iffalse,\ifnum,\ifthenelse,\ifx,\ignorespaces,\immediate,\,\[,\],\(,\),\&,\ }
+ \DoNotIndex{\fi,\refundefinedtrue,\gdef,\global,\glsxspace,\hbox,\hskip,\iffalse,\ifnum,\ifthenelse,\ifx,\ignorespaces,\immediate}
+ \begingroup
+    \makeatletter
+    \lccode`9=32\relax
+    \lowercase{%^^A
+      \edef\x{\noexpand\DoNotIndex{\@backslashchar9}}%^^A
+    }%^^A
+  \expandafter\endgroup\x
+ \expandafter\DoNotIndex\expandafter{\string\[}
+ \expandafter\DoNotIndex\expandafter{\string\]}
+ \expandafter\DoNotIndex\expandafter{\string\(}
+ \expandafter\DoNotIndex\expandafter{\string\)}
+ \expandafter\DoNotIndex\expandafter{\string\&}
+
  \DoNotIndex{\interlinepenalty,\isundefined,\labelsep,\labelwidth,\leaders,\leavevmode,\leftmargin,\leftskip,\let,\list,\llap,\long}
  \DoNotIndex{\MakeUppercase,\MessageBreak,\mkern,\NeedsTeXFormat,\newboolean,\newcommand,\newcounter,\newenvironment,\newif}
  \DoNotIndex{\newtoks,\nobreak,\normalcolor,\normalfont,\null,\number,\or,\evenfoot,\evenhead,\oddfoot,\oddhead}

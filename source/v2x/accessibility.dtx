@@ -5,6 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Copyright 2007 Babett Schalitz
 %% Copyright 2019 Andrew Clifton
+%% with contributions from Teresa Pelinski
 %%
 %% This material is subject to the LaTeX Project Public License. See
 %% https://ctan.org/license/lppl1.3c for the details of that license.
@@ -13,7 +14,7 @@
 %% PDF-1.5 and 1.6 specifications.
 %%
 %% %^^ VERSION INFO 1 OF 3
-%% This is accessibility version 2.0.3 Backward compatibility with prior
+%% This is accessibility version 2.1.0 Backward compatibility with prior
 %% versions is not assured.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \CheckSum{2882}
@@ -49,7 +50,7 @@
 %\GlossaryPrologue{\addchap{Änderungen}}
 %\title{Das \packname{accessibility}-Paket}
 %^^A VERSION INFO 2 OF 3
-%\date{Version 2.0.3, \today}
+%\date{Version 2.1.0, \today}
 %\author{Babett Schalitz}
 %\maketitle
 %
@@ -57,7 +58,7 @@
 %
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\chapter{Einleitung}
+% \chapter{Einleitung}
 % %%%%%%%%%%%%%%%%%%%%%%%%
 %
 %Das \packname{accessibility}-Paket bietet die Möglichkeit "`Tagged PDF"' zu erstellen, dass heißt vorhandene \LaTeX-Strukturen können in das fertige PDF übernommen werden, was insbesondere die Accessibility des erzeugten PDF steigert.
@@ -92,14 +93,14 @@
 %
 %Grundsätzlich wird das Paket einfach in der Dokumentenpräambel geladen. Es sollte allerdings möglichst nach allen andere Paketen geladen werden, insbesondere nach \packname{hyperref}.
 %
-%\begin{verbatim}
-%	\documentclass{scrrept}
-%	\usepackage[Optionen]{accessibility}
-%	\begin{document}
-%	...
-%	\end{document}
-%\end{verbatim}
-%Die verfügbaren Optionen werden im nächsten Abschnitt vorgestellt.
+% \begin{verbatim}
+%	  \documentclass{scrrept}
+%	  \usepackage[Optionen]{accessibility}
+%	  \begin{document}
+%	  ...
+%	  \end{document}
+% \end{verbatim}
+% Die verfügbaren Optionen werden im nächsten Abschnitt vorgestellt.
 %
 %Sollten Sie bislang nicht mit \packname{pdftex} gearbeitet haben, ist zu beachten, dass zur korrekten Auflösung sämtlicher Referenzen teilweise mehrere Durchläufe notwendig sind. Der Aufruf auf der Kommandozeile erfolgt analog zur Verarbeitung mittels \packname{latex}.
 
@@ -229,7 +230,7 @@
 %
 %    \begin{macrocode}
 %<*package>
-\ProvidesPackage{accessibility}[2019/11/02 v. 2.0.3]
+\ProvidesPackage{accessibility}[2023/01/18 v. 2.1.0]
 \NeedsTeXFormat{LaTeX2e}
 %    \end{macrocode}
 
@@ -1078,6 +1079,7 @@
 %Fußnoten werden im Moment ihres Auftauchens in eine temporäre Box geschrieben und später in den Output eingefügt. |\@texttop| wird immer vor |\@textbottom| durch |\shipout| aufgerufen.
 %
 %Die folgende Implementierung funktioniert, aber nur in einem von 3 Spezialfällen. Dies ist eindeutig noch eine Baustelle.
+% \changes{v2.0.5}{2023/01/17}{Added ``linecounter''}
 %
 %    \begin{macrocode}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1121,9 +1123,9 @@
        %MakeLineNo
        \boxmaxdepth\maxdimen\setbox\z@\vbox{\unvbox\@cclv}%
        \@tempdima\dp\z@ \unvbox\z@%
-       \sbox\@tempboxa{\hb@xt@\z@{\makeLineNumber}}%
-       \stepcounter{linenumber}%
-       \stepcounter{abslinenumber}%
+       \sbox\@tempboxa{\hb@xt@\z@{\makeAClinecounter}}%
+       \stepcounter{AClinecounter}%
+       \stepcounter{absAClinecounter}%
        \ht\@tempboxa\z@ \@AC@depthbox %
        \count@\lastpenalty %
        \ifnum\outputpenalty=-\linenopenaltypar %
@@ -1157,8 +1159,8 @@
   %%%%%%%%%%%%%Initializieren der Variablen%%%%%%%%%%%%%%%%%%%%%%%
   %
   %Zeilennummer
-  \newcounter{linenumber}%
-  \newcounter{abslinenumber}%
+  \newcounter{AClinecounter}%
+  \newcounter{absAClinecounter}%
   %Seitennummer
   \newcount\c@AC@truepage %
   \global\advance\c@AC@truepage\@ne %mit eins beginnen
@@ -1173,12 +1175,12 @@
   %
   %%%%%%%%%%%%%Schreiben der Zeilennummmern%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{@Access@pdf}}{%
-  \def\makeLineNumber{%
-    \protected@write\@auxout{}{\string\@AC{\the\c@linenumber}%
+  \def\makeAClinecounter{%
+    \protected@write\@auxout{}{\string\@AC{\the\c@AClinecounter}%
                               {\noexpand\the\c@AC@truepage}}%
     \testNumberedPage%
     %Schreibt die Zeilennummern
-    %\hss{\normalfont\tiny\sffamily\thelinenumber\quad}%
+    %\hss{\normalfont\tiny\sffamily\theAClinecounter\quad}%
   }%
 }{}%
   %
@@ -1227,7 +1229,7 @@
   %
   \let\lastAC\relax  % compare to last line on this page
   \let\firstAC\relax % compare to first line on this page
-  \let\pageAC\relax  % get the page number, compute the linenumber
+  \let\pageAC\relax  % get the page number, compute the AClinecounter
   \let\nextAC\relax  % move to the next page
   %
   \AtEndDocument{\let\@AC\@gobbletwo} %
@@ -1255,16 +1257,16 @@
   \def\NumberedPageCache{\AC@Pfirst}%
   %
   \def\testLastNumberedPage#1{%
-    \ifnum#1<\c@linenumber%
+    \ifnum#1<\c@AClinecounter%
       \let\firstAC\@gobble%
     \fi%
-    \ifnum#1=\c@linenumber%
+    \ifnum#1=\c@AClinecounter%
       \EndPage{#1}%
     \fi%
   }%
   %
   \def\testFirstNumberedPage#1{%
-    \ifnum#1>\c@linenumber%
+    \ifnum#1>\c@AClinecounter%
        \def\nextAC##1{\testNextNumberedPage\AC@Pfirst}%
     \else%
       \let\nextAC\@gobble%
@@ -1294,8 +1296,8 @@
   %
   \def\gotNumberedPage#1#2#3#4{%
     \ifodd \if@twocolumn #3\else #2\fi\relax\fi%
-    \advance\c@linenumber\@ne % Nummerierung ab 1 sonst ab 0
-    \advance\c@linenumber-#4\relax%
+    \advance\c@AClinecounter\@ne % Nummerierung ab 1 sonst ab 0
+    \advance\c@AClinecounter-#4\relax%
   }%
 }{}%
   %
@@ -1322,7 +1324,7 @@
   \let\@@@par\@@par%
   \newcount\linenoprevgraf%
   %
-  \def\linenumberpar{%
+  \def\AClinecounterpar{%
     \ifvmode \@@@par \else %
       \ifinner \@@@par \else%
         \xdef\@AC@outer@holdins{\the\holdinginserts}%
@@ -1341,9 +1343,9 @@
   %
   \AtEndOfPackage{%
     \xdef\@AC@outer@holdins{\the\holdinginserts}%
-    \let\@@par\linenumberpar%
-    \ifx\@par\@@@par\let\@par\linenumberpar\fi%
-    \ifx\par\@@@par\let\par\linenumberpar\fi%
+    \let\@@par\AClinecounterpar%
+    \ifx\@par\@@@par\let\@par\AClinecounterpar\fi%
+    \ifx\par\@@@par\let\par\AClinecounterpar\fi%
   }%
 }{}%
   %
@@ -2173,8 +2175,8 @@
 %    \begin{macrocode}
 \ifthenelse{\boolean{@Access@pdf}}{%
 %    \end{macrocode}
-%\begin{environment}{\[\]}
-%Hier wird die Formelumgebungen, die durch eckige Klammern gekennzeichnet wird ausgezeichnet.
+% \begin{environment}{ \[\ldots \textbackslash \rbrack }
+% Hier wird die Formelumgebungen, die durch eckige Klammern gekennzeichnet wird ausgezeichnet.
 %    \begin{macrocode}
   \let\originalFormulaBegin\[%
   \renewcommand*{\[}{%
@@ -2189,7 +2191,7 @@
       \endPDFSpezialTextObj%
   }%
 %    \end{macrocode}
-%\end{environment}
+% \end{environment}
 % Die Formelumgebung \comname{math} greift intern auf |\(\)| zu, ebenso wie \comname{displaymath} auf |\[\]|, dadurch brauchen diese Umgebungstypen nicht extra behandelt werden.
 %
 %Um den komplexeren Formelumgebungen wirklich gerecht zu werden, sollten sie eventuell in mehrere Formeln zerlegt und dann in die Struktur eingebunden werden.
@@ -2702,7 +2704,7 @@
 
 %\end{macro}
 %
-%\begin{environment}{\(\)}
+%\begin{environment}{ \( ... \textbackslash)}
 %An dieser Stelle erfolgt das Umdefinieren der eingebetteten Formelumgebungen, die durch runde Klammern gekennzeichnet wird.
 %    \begin{macrocode}
   \let\originalFormulaTextBegin\(%
