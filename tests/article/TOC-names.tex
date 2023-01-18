@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[tagged,highstructure]{accessibility}
+
+\title{Unit test for sections with different names in the TOC}
+\author{The author}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section[Introduction]{Introduction}
+This is a unit test for Issue 51, https://github.com/AndyClifton/accessibility/issues/51.
+
+\section[Sect.]{Section}
+Let's add some text
+
+\end{document}
