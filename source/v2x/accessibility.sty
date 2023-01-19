@@ -1466,9 +1466,9 @@
   }%
 }{}
 
-\def\originalamp{&}%
-\catcode`\&=4%
-\def\&{\originalamp}%
+  \def\originalamp{&}%
+  \catcode`\&=4%
+  \def\&{\originalamp}%
 
 
 \ifthenelse{\boolean{@Access@pdf}}{%
@@ -1479,7 +1479,6 @@
     \end{PDFInlineObjInText}%
   }%
 }{}
-
 \ifthenelse{\boolean{@Access@pdf}}{%
   \@ifpackageloaded{hyperref}{%
     \let\original@setref\@setref%
